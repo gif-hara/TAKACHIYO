@@ -19,16 +19,20 @@ namespace TAKACHIYO.MasterDataSystems
 
             public LocalizedString localizedName;
 
+            public int hitPoint;
+
             public string Id => this.id;
 
             public Record(
                 string id,
-                string name
+                string name,
+                int hitPoint
                 )
             {
                 this.id = id;
                 this.localizedName = new LocalizedString();
                 this.localizedName.SetReference("Actor", name);
+                this.hitPoint = hitPoint;
             }
         }
 
@@ -58,9 +62,12 @@ namespace TAKACHIYO.MasterDataSystems
 
             public string Name;
 
+            public int HitPoint;
+
             public Record ToRecord() => new Record(
                 this.Id,
-                this.Name
+                this.Name,
+                this.HitPoint
                 );
         }
 #endif

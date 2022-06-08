@@ -23,6 +23,18 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+    hitPoint: 100
+  - id: 2
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Actor
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Enemy001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 100
   references:
     version: 2
     RefIds: []

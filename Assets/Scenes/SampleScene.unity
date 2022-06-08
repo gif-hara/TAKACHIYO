@@ -744,6 +744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 794034008}
+  - component: {fileID: 794034011}
   - component: {fileID: 794034010}
   - component: {fileID: 794034009}
   m_Layer: 5
@@ -813,6 +814,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794034007}
   m_CullTransparentMesh: 1
+--- !u!114 &794034011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794034007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8c0929f05c81e408fc67de2a7ae2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: 0
+  thumbnail: {fileID: 1708893119}
+  actorName: {fileID: 1970549439}
+  hitPointSlider: {fileID: 1711117588}
+  hitPointText: {fileID: 1624366785}
+  hitPointTextFormat: '{0}/{1}'
 --- !u!1 &871190370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,6 +1324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5440e5342b0a9214ab650d5db8d1ac1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerId: 1
+  enemyId: 2
 --- !u!4 &1270532180
 Transform:
   m_ObjectHideFlags: 0
