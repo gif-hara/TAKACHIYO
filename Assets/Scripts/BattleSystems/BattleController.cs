@@ -15,21 +15,32 @@ namespace TAKACHIYO.BattleSystems
     public sealed class BattleController : MonoBehaviour
     {
         [SerializeField]
-        private string playerId;
+        private ActorSetupData playerSetupData;
 
         [SerializeField]
-        private string enemyId;
-
+        private ActorSetupData enemySetupData;
+        
+        public Actor Player { get; private set; }
+        
+        public Actor Enemy { get; private set; }
+        
         public static IMessageBroker Broker { get; } = new MessageBroker();
         
         private async void Start()
         {
             await BootSystem.Ready;
 
-            var player = new Actor(MasterDataActorStatus.Get(this.playerId));
-            var enemy = new Actor(MasterDataActorStatus.Get(this.enemyId));
-            
-            Broker.Publish(BattleEvent.OnSetupBattle.Get(player, enemy));
+            this.Player = new Actor(this.playerSetupData);
+            this.Enemy = new Actor(this.enemySetupData);
+
+            Observable.WhenAll(
+                    this.Player.SetupAsync(),
+                    this.Enemy.SetupAsync()
+                    )
+                .Subscribe(_ =>
+                {
+                    Broker.Publish(BattleEvent.OnSetupBattle.Get(this.Player, this.Enemy));
+                });
         }
     }
 }

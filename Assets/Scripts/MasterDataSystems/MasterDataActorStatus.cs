@@ -9,7 +9,7 @@ namespace TAKACHIYO.MasterDataSystems
     /// <summary>
     /// 
     /// </summary>
-    [CreateAssetMenu(menuName = "ER/MasterData/ActorStatusData")]
+    [CreateAssetMenu(menuName = "TAKACHIYO/MasterData/ActorStatusData")]
     public sealed class MasterDataActorStatus : MasterData<MasterDataActorStatus, MasterDataActorStatus.Record>
     {
         [Serializable]

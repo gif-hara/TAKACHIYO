@@ -29,6 +29,10 @@ MonoBehaviour:
     m_Address: Assets/Localization/StringTable/Actor Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: ce6354cad7206a743baf195cd8c5d224
+    m_Address: Assets/Localization/StringTable/Command Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 41a5091dea25cc54997e474f2a3e7649, type: 2}
   m_SchemaSet:

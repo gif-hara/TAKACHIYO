@@ -30,5 +30,11 @@ namespace TAKACHIYO.ActorControllers
             this.hitPointMax = new ReactiveProperty<int>(this.baseStatus.hitPoint);
             this.hitPoint = new ReactiveProperty<int>(this.baseStatus.hitPoint);
         }
+
+        public ActorStatusController(string masterDataActorStatusId)
+        : this(MasterDataActorStatus.Get(masterDataActorStatusId))
+        {
+            
+        }
     }
 }

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c64c96d5d2b344fad16a1ddd0e5237, type: 3}
+  m_Name: CommandBlueprint.000001
+  m_EditorClassIdentifier: 
+  commandName:
+    m_TableReference:
+      m_TableCollectionName: GUID:ce6354cad7206a743baf195cd8c5d224
+    m_TableEntryReference:
+      m_KeyId: 147720437760
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  castTime: 1
+  actions:
+  - rid: 4657355525312741388
+  references:
+    version: 2
+    RefIds:
+    - rid: 4657355525312741388
+      type: {class: Log, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
+      data:
+        message: Test

@@ -1324,8 +1324,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5440e5342b0a9214ab650d5db8d1ac1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerId: 1
-  enemyId: 2
+  playerSetupData:
+    masterDataActorStatusId: 1
+    commandBlueprintIds:
+    - 000001
+  enemySetupData:
+    masterDataActorStatusId: 2
+    commandBlueprintIds: []
 --- !u!4 &1270532180
 Transform:
   m_ObjectHideFlags: 0
