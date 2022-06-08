@@ -1,5 +1,6 @@
 using System;
 using TAKACHIYO.ActorControllers;
+using TAKACHIYO.BattleSystems;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -33,7 +34,7 @@ namespace TAKACHIYO
 
         private void Start()
         {
-            GameController.Broker.Receive<GameEvent.OnSetupBattle>()
+            BattleController.Broker.Receive<BattleEvent.OnSetupBattle>()
                 .TakeUntilDestroy(this)
                 .Subscribe(x =>
                 {

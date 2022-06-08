@@ -3,12 +3,12 @@ using TAKACHIYO.ActorControllers;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace TAKACHIYO
+namespace TAKACHIYO.BattleSystems
 {
     /// <summary>
     /// 
     /// </summary>
-    public sealed class GameEvent
+    public sealed class BattleEvent
     {
         public class OnSetupBattle : Message<OnSetupBattle, Actor, Actor>
         {

@@ -7,12 +7,12 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace TAKACHIYO
+namespace TAKACHIYO.BattleSystems
 {
     /// <summary>
     /// 
     /// </summary>
-    public sealed class GameController : MonoBehaviour
+    public sealed class BattleController : MonoBehaviour
     {
         [SerializeField]
         private string playerId;
@@ -29,7 +29,7 @@ namespace TAKACHIYO
             var player = new Actor(MasterDataActorStatus.Get(this.playerId));
             var enemy = new Actor(MasterDataActorStatus.Get(this.enemyId));
             
-            Broker.Publish(GameEvent.OnSetupBattle.Get(player, enemy));
+            Broker.Publish(BattleEvent.OnSetupBattle.Get(player, enemy));
         }
     }
 }
