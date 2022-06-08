@@ -4,6 +4,7 @@ using TAKACHIYO.BootSystems;
 using TAKACHIYO.MasterDataSystems;
 using TMPro;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -40,6 +41,20 @@ namespace TAKACHIYO.BattleSystems
                 .Subscribe(_ =>
                 {
                     Broker.Publish(BattleEvent.OnSetupBattle.Get(this.Player, this.Enemy));
+                    Broker.Publish(BattleEvent.BattleStart.Get());
+                });
+
+            Broker.Receive<BattleEvent.BattleStart>()
+                .TakeUntil(Broker.Receive<BattleEvent.BattleEnd>())
+                .Subscribe(_ =>
+                {
+                    this.UpdateAsObservable()
+                        .TakeUntil(Broker.Receive<BattleEvent.BattleEnd>())
+                        .Subscribe(__ =>
+                        {
+                            this.Player.CommandController.Update(Time.deltaTime);
+                            this.Enemy.CommandController.Update(Time.deltaTime);
+                        });
                 });
         }
     }

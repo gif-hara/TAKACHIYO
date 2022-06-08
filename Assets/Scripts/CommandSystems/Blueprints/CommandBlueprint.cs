@@ -28,6 +28,6 @@ namespace TAKACHIYO.CommandSystems
 
         public float CastTime => this.castTime;
 
-        public IReadOnlyList<ICommandAction> Actions => this.Actions;
+        public IReadOnlyList<ICommandAction> Actions => this.actions;
     }
 }
