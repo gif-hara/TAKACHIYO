@@ -25,8 +25,6 @@ namespace TAKACHIYO.BootSystems
         private static async Task InitializeLocalization()
         {
             await LocalizationSettings.InitializationOperation.Task;
-            
-            
         }
     }
 }

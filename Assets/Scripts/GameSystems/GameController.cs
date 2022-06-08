@@ -10,14 +10,9 @@ namespace TAKACHIYO
     /// </summary>
     public sealed class GameController : MonoBehaviour
     {
-        [SerializeField]
-        private TextMeshProUGUI test;
-        
         private async void Start()
         {
             await BootSystem.Ready;
-
-            this.test.text = MasterDataActorStatus.Get("1").localizedName.GetLocalizedString();
         }
     }
 }
