@@ -43,15 +43,15 @@ namespace TAKACHIYO.ActorControllers
             this.owner = owner;
             this.commandBlueprintIds = commandBlueprintIds;
 
-            BattleController.Broker.Receive<BattleEvent.BattleStart>()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.BattleEnd>())
+            BattleController.Broker.Receive<BattleEvent.StartBattle>()
+                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(_ =>
                 {
                     this.TryCastingCommands();
                 });
 
             this.owner.Broker.Receive<ActorEvent.InvokedCommand>()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.BattleEnd>())
+                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(_ =>
                 {
                     this.TryCastingCommands();

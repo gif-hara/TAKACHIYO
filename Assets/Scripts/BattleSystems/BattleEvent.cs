@@ -11,7 +11,7 @@ namespace TAKACHIYO.BattleSystems
         /// <summary>
         /// バトルのセットアップが完了した際のメッセージ
         /// </summary>
-        public class OnSetupBattle : Message<OnSetupBattle, Actor, Actor>
+        public class SetupBattle : Message<SetupBattle, Actor, Actor>
         {
             public Actor Player => this.param1;
 
@@ -21,14 +21,14 @@ namespace TAKACHIYO.BattleSystems
         /// <summary>
         /// バトルが開始された際のメッセージ
         /// </summary>
-        public class BattleStart : Message<BattleStart>
+        public class StartBattle : Message<StartBattle>
         {
         }
 
         /// <summary>
         /// バトルが終了した際のメッセージ
         /// </summary>
-        public class BattleEnd : Message<BattleEnd>
+        public class EndBattle : Message<EndBattle>
         {
         }
     }

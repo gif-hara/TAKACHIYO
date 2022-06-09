@@ -36,16 +36,16 @@ namespace TAKACHIYO.BattleSystems
                     )
                 .Subscribe(_ =>
                 {
-                    Broker.Publish(BattleEvent.OnSetupBattle.Get(this.Player, this.Enemy));
-                    Broker.Publish(BattleEvent.BattleStart.Get());
+                    Broker.Publish(BattleEvent.SetupBattle.Get(this.Player, this.Enemy));
+                    Broker.Publish(BattleEvent.StartBattle.Get());
                 });
 
-            Broker.Receive<BattleEvent.BattleStart>()
-                .TakeUntil(Broker.Receive<BattleEvent.BattleEnd>())
+            Broker.Receive<BattleEvent.StartBattle>()
+                .TakeUntil(Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(_ =>
                 {
                     this.UpdateAsObservable()
-                        .TakeUntil(Broker.Receive<BattleEvent.BattleEnd>())
+                        .TakeUntil(Broker.Receive<BattleEvent.EndBattle>())
                         .Subscribe(__ =>
                         {
                             this.Player.CommandController.Update(Time.deltaTime);

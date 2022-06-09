@@ -44,7 +44,7 @@ namespace TAKACHIYO
 
         private void Start()
         {
-            BattleController.Broker.Receive<BattleEvent.OnSetupBattle>()
+            BattleController.Broker.Receive<BattleEvent.SetupBattle>()
                 .TakeUntilDestroy(this)
                 .Subscribe(x =>
                 {
@@ -72,7 +72,7 @@ namespace TAKACHIYO
 
             actor.CommandController.CastingCommands
                 .ObserveAdd()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.BattleEnd>())
+                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(x =>
                 {
                     var commandUIPresenter = Instantiate(this.commandUIPresenter, this.commandParent);
@@ -82,7 +82,7 @@ namespace TAKACHIYO
 
             actor.CommandController.CastingCommands
                 .ObserveRemove()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.BattleEnd>())
+                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(x =>
                 {
                     var commandUIPresenter = this.commandUIPresenters[x.Value];
