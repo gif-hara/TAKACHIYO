@@ -10,6 +10,8 @@ namespace TAKACHIYO.ActorControllers
     /// </summary>
     public sealed class ActorStatusController
     {
+        private Actor owner;
+        
         private readonly MasterDataActorStatus.Record baseStatus;
 
         private readonly ReactiveProperty<int> hitPointMax;
@@ -25,18 +27,23 @@ namespace TAKACHIYO.ActorControllers
         public float HitPointRate => (float)this.hitPoint.Value / this.hitPointMax.Value;
 
         public bool IsDead => this.hitPoint.Value <= 0;
+        
+        /// <summary>
+        /// ダメージを受けた回数
+        /// </summary>
+        public int TakeDamageCount { get; private set; }
 
-        public ActorStatusController(MasterDataActorStatus.Record masterDataActorStatus)
+        public ActorStatusController(Actor owner, MasterDataActorStatus.Record masterDataActorStatus)
         {
+            this.owner = owner;
             this.baseStatus = masterDataActorStatus;
             this.hitPointMax = new ReactiveProperty<int>(this.baseStatus.hitPoint);
             this.hitPoint = new ReactiveProperty<int>(this.baseStatus.hitPoint);
         }
 
-        public ActorStatusController(string masterDataActorStatusId)
-        : this(MasterDataActorStatus.Get(masterDataActorStatusId))
+        public ActorStatusController(Actor owner, string masterDataActorStatusId)
+        : this(owner, MasterDataActorStatus.Get(masterDataActorStatusId))
         {
-            
         }
 
         public void TakeDamage(int damage)
@@ -45,10 +52,12 @@ namespace TAKACHIYO.ActorControllers
             {
                 return;
             }
-
+            this.TakeDamageCount++;
             var result = this.hitPoint.Value;
             result = Mathf.Max(result - damage, 0);
             this.hitPoint.Value = result;
+            
+            this.owner.Broker.Publish(ActorEvent.TakedDamage.Get(damage));
         }
     }
 }

@@ -12,7 +12,14 @@ namespace TAKACHIYO.ActorControllers
         /// </summary>
         public class InvokedCommand : Message<InvokedCommand>
         {
-            
+        }
+
+        /// <summary>
+        /// ダメージを受けた際のメッセージ
+        /// </summary>
+        public class TakedDamage : Message<TakedDamage, int>
+        {
+            public int Damage => this.param1;
         }
     }
 }

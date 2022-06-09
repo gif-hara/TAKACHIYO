@@ -34,9 +34,14 @@ namespace TAKACHIYO.CommandSystems
         public bool CanCasting => this.blueprint.Condition.Evaluate(this);
         
         /// <summary>
-        /// 最後に攻撃を行った順番
+        /// 最後に実行した時のコマンド実行回数
         /// </summary>
         public int LastInvokeOrder { get; private set; }
+        
+        /// <summary>
+        /// 最後に実行した時のダメージを受けた回数
+        /// </summary>
+        public int LastTakeDamageCount { get; private set; }
 
         public Command(CommandBlueprint blueprint, Actor owner)
         {
@@ -68,6 +73,7 @@ namespace TAKACHIYO.CommandSystems
                     .Do(_ =>
                     {
                         this.LastInvokeOrder = this.Owner.CommandController.InvokedCount + 1;
+                        this.LastTakeDamageCount = this.Owner.StatusController.TakeDamageCount;
                     });
             });
         }

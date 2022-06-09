@@ -48,15 +48,12 @@ namespace TAKACHIYO.ActorControllers
         {
             this.owner = owner;
             this.commandBlueprintIds = commandBlueprintIds;
-
-            BattleController.Broker.Receive<BattleEvent.StartBattle>()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
-                .Subscribe(_ =>
-                {
-                    this.TryCastingCommands();
-                });
-
-            this.owner.Broker.Receive<ActorEvent.InvokedCommand>()
+            
+            Observable.Merge(
+                BattleController.Broker.Receive<BattleEvent.StartBattle>().AsUnitObservable(),
+                this.owner.Broker.Receive<ActorEvent.InvokedCommand>().AsUnitObservable(),
+                this.owner.Broker.Receive<ActorEvent.TakedDamage>().AsUnitObservable()
+                    )
                 .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(_ =>
                 {

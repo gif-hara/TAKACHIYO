@@ -19,7 +19,7 @@ namespace TAKACHIYO.CommandSystems.Actions
             {
                 foreach (var target in owner.GetTargets(this.targetType))
                 {
-                    target.StatusController.TakeDamage(25);
+                    target.StatusController.TakeDamage(Mathf.FloorToInt(10 * this.rate));
                 }
 
                 return Observable.ReturnUnit();

@@ -23,7 +23,7 @@ namespace TAKACHIYO.ActorControllers
         
         public Actor(ActorSetupData setupData)
         {
-            this.StatusController = new ActorStatusController(setupData.masterDataActorStatusId);
+            this.StatusController = new ActorStatusController(this, setupData.masterDataActorStatusId);
             this.CommandController = new ActorCommandController(this, setupData.commandBlueprintIds);
         }
 

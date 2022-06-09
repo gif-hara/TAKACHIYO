@@ -26,6 +26,10 @@ MonoBehaviour:
     m_Localized: Hard Attack
     m_Metadata:
       m_Items: []
+  - m_Id: 347753638199296
+    m_Localized: Counter Attack
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

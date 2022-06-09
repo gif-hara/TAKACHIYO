@@ -1969,9 +1969,11 @@ MonoBehaviour:
     commandBlueprintIds:
     - 000001
     - 000002
+    - 000003
   enemySetupData:
     masterDataActorStatusId: 2
-    commandBlueprintIds: []
+    commandBlueprintIds:
+    - 000001
 --- !u!4 &1270532180
 Transform:
   m_ObjectHideFlags: 0
