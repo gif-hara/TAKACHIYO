@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TAKACHIYO.ActorControllers;
 using UniRx;
+using UnityEngine;
 
 namespace TAKACHIYO.CommandSystems
 {
@@ -31,6 +32,11 @@ namespace TAKACHIYO.CommandSystems
         /// 詠唱を開始できるか返す
         /// </summary>
         public bool CanCasting => this.blueprint.Condition.Evaluate(this.owner.CommandController, this);
+        
+        /// <summary>
+        /// 最後に攻撃を行った順番
+        /// </summary>
+        public int LastInvokeOrder { get; private set; }
 
         public Command(CommandBlueprint blueprint, Actor owner)
         {
@@ -47,12 +53,23 @@ namespace TAKACHIYO.CommandSystems
 
         public void Update(float deltaTime)
         {
-            this.currentCastTime.Value += deltaTime;
+            var result = this.currentCastTime.Value + deltaTime;
+            result = Mathf.Min(result, this.blueprint.CastTime);
+            this.currentCastTime.Value = result;
         }
 
         public IObservable<Unit> Invoke()
         {
-            return Observable.Defer(() => this.commandInvokeStreams.Concat().AsSingleUnitObservable());
+            return Observable.Defer(() =>
+            {
+                return this.commandInvokeStreams
+                    .Concat()
+                    .AsSingleUnitObservable()
+                    .Do(_ =>
+                    {
+                        this.LastInvokeOrder = this.owner.CommandController.InvokedCount + 1;
+                    });
+            });
         }
     }
 }

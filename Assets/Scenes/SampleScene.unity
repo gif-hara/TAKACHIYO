@@ -1968,6 +1968,7 @@ MonoBehaviour:
     masterDataActorStatusId: 1
     commandBlueprintIds:
     - 000001
+    - 000002
   enemySetupData:
     masterDataActorStatusId: 2
     commandBlueprintIds: []

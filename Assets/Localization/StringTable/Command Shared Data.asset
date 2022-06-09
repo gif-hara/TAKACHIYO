@@ -19,6 +19,10 @@ MonoBehaviour:
     m_Key: Attack001
     m_Metadata:
       m_Items: []
+  - m_Id: 344373352136704
+    m_Key: Attack002
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -4,6 +4,7 @@ using System.Linq;
 using TAKACHIYO.BattleSystems;
 using TAKACHIYO.CommandSystems;
 using UniRx;
+using UnityEngine;
 
 namespace TAKACHIYO.ActorControllers
 {
@@ -37,6 +38,11 @@ namespace TAKACHIYO.ActorControllers
         /// 詠唱が終わったコマンドのリスト
         /// </summary>
         private readonly List<Command> castedCommands = new();
+        
+        /// <summary>
+        /// コマンドを実行した回数
+        /// </summary>
+        public int InvokedCount { get; private set; }
 
         public ActorCommandController(Actor owner, IList<string> commandBlueprintIds)
         {
@@ -77,15 +83,18 @@ namespace TAKACHIYO.ActorControllers
                 {
                     this.commands.Add(castedCommand);
                     this.castingCommands.Remove(castedCommand);
-                    streams.Add(castedCommand.Invoke());
+                    streams.Add(
+                        castedCommand.Invoke()
+                            .Do(_ =>
+                            {
+                                this.InvokedCount++;
+                                this.owner.Broker.Publish(ActorEvent.InvokedCommand.Get());
+                            })
+                        );
                 }
 
-                streams.Concat()
-                    .AsSingleUnitObservable()
-                    .Subscribe(_ =>
-                    {
-                        this.owner.Broker.Publish(ActorEvent.InvokedCommand.Get());
-                    });
+                streams.WhenAll()
+                    .Subscribe();
             }
         }
 

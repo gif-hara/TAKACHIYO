@@ -17,26 +17,22 @@ namespace TAKACHIYO.BattleSystems
         [SerializeField]
         private ActorSetupData enemySetupData;
         
-        public Actor Player { get; private set; }
-        
-        public Actor Enemy { get; private set; }
-        
         public static IMessageBroker Broker { get; } = new MessageBroker();
         
         private async void Start()
         {
             await BootSystem.Ready;
 
-            this.Player = new Actor(this.playerSetupData);
-            this.Enemy = new Actor(this.enemySetupData);
+            var player = new Actor(this.playerSetupData);
+            var enemy = new Actor(this.enemySetupData);
 
             Observable.WhenAll(
-                    this.Player.SetupAsync(this.Enemy),
-                    this.Enemy.SetupAsync(this.Player)
+                    player.SetupAsync(enemy),
+                    enemy.SetupAsync(player)
                     )
                 .Subscribe(_ =>
                 {
-                    Broker.Publish(BattleEvent.SetupBattle.Get(this.Player, this.Enemy));
+                    Broker.Publish(BattleEvent.SetupBattle.Get(player, enemy));
                     Broker.Publish(BattleEvent.StartBattle.Get());
                 });
 
@@ -48,23 +44,23 @@ namespace TAKACHIYO.BattleSystems
                         .TakeUntil(Broker.Receive<BattleEvent.EndBattle>())
                         .Subscribe(__ =>
                         {
-                            this.Player.CommandController.Update(Time.deltaTime);
-                            this.Enemy.CommandController.Update(Time.deltaTime);
+                            player.CommandController.Update(Time.deltaTime);
+                            enemy.CommandController.Update(Time.deltaTime);
                         });
                 });
             
             // プレイヤーか敵のどちらかが死んだ場合にバトルを終了する
             Observable.Merge(
-                    this.Player.StatusController.HitPoint.Where(x => x <= 0),
-                    this.Enemy.StatusController.HitPoint.Where(x => x <= 0)
+                    player.StatusController.HitPoint.Where(x => x <= 0),
+                    enemy.StatusController.HitPoint.Where(x => x <= 0)
                     )
                 .Subscribe(_ =>
                 {
-                    if (this.Player.StatusController.IsDead && this.Enemy.StatusController.IsDead)
+                    if (player.StatusController.IsDead && enemy.StatusController.IsDead)
                     {
                         Broker.Publish(BattleEvent.EndBattle.Get(Define.BattleJudgeType.Draw));
                     }
-                    else if (this.Enemy.StatusController.IsDead)
+                    else if (enemy.StatusController.IsDead)
                     {
                         Broker.Publish(BattleEvent.EndBattle.Get(Define.BattleJudgeType.PlayerWin));
                     }
@@ -72,6 +68,14 @@ namespace TAKACHIYO.BattleSystems
                     {
                         Broker.Publish(BattleEvent.EndBattle.Get(Define.BattleJudgeType.EnemyWin));
                     }
+                });
+
+            // TODO: 不要になったら消す
+            Broker.Receive<BattleEvent.EndBattle>()
+                .First()
+                .Subscribe(x =>
+                {
+                    Debug.Log(x.BattleJudgeType);
                 });
         }
     }
