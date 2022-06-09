@@ -31,7 +31,7 @@ namespace TAKACHIYO.ActorControllers
         /// <summary>
         /// 詠唱が終わったコマンドのリスト
         /// </summary>
-        private readonly List<Command> castedCommands = new List<Command>();
+        private readonly List<Command> castedCommands = new();
 
         public ActorCommandController(Actor owner, IList<string> commandBlueprintIds)
         {
@@ -44,7 +44,22 @@ namespace TAKACHIYO.ActorControllers
                 {
                     foreach (var command in this.commands)
                     {
+                        command.Reset();
                         this.castingCommands.Add(command);
+                    }
+                });
+
+            this.owner.Broker.Receive<ActorEvent.InvokedCommand>()
+                .TakeUntil(BattleController.Broker.Receive<BattleEvent.BattleEnd>())
+                .Subscribe(_ =>
+                {
+                    foreach (var command in this.commands)
+                    {
+                        if (this.castingCommands.FirstOrDefault(x => x == command) == null)
+                        {
+                            command.Reset();
+                            this.castingCommands.Add(command);
+                        }
                     }
                 });
         }
@@ -60,10 +75,16 @@ namespace TAKACHIYO.ActorControllers
                     this.castedCommands.Add(castingCommand);
                 }
             }
-            foreach (var castedCommand in this.castedCommands)
+
+            if (this.castedCommands.Count > 0)
             {
-                castedCommand.Invoke();
-                this.castingCommands.Remove(castedCommand);
+                foreach (var castedCommand in this.castedCommands)
+                {
+                    this.castingCommands.Remove(castedCommand);
+                    castedCommand.Invoke();
+                }
+
+                this.owner.Broker.Publish(ActorEvent.InvokedCommand.Get());
             }
         }
 

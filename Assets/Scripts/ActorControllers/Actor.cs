@@ -1,10 +1,5 @@
 using System;
-using System.Collections.Generic;
-using TAKACHIYO.CommandSystems;
-using TAKACHIYO.MasterDataSystems;
 using UniRx;
-using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace TAKACHIYO.ActorControllers
 {
@@ -16,6 +11,10 @@ namespace TAKACHIYO.ActorControllers
         public ActorStatusController StatusController { get; }
         
         public ActorCommandController CommandController { get; }
+
+        private readonly MessageBroker broker = new MessageBroker();
+
+        public IMessageBroker Broker => this.broker;
         
         /// <summary>
         /// 対戦相手
