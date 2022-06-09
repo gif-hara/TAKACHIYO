@@ -11,7 +11,7 @@ namespace TAKACHIYO.CommandSystems.Conditions
         [SerializeField]
         private int number = 1;
         
-        public override bool Evaluate(ActorCommandController commandController, Command command)
+        public override bool Evaluate(Command command)
         {
             return (command.Owner.CommandController.InvokedCount - command.LastInvokeOrder) >= this.number;
         }

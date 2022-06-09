@@ -1,5 +1,3 @@
-using TAKACHIYO.ActorControllers;
-
 namespace TAKACHIYO.CommandSystems.Conditions
 {
     /// <summary>
@@ -7,6 +5,6 @@ namespace TAKACHIYO.CommandSystems.Conditions
     /// </summary>
     public abstract class CommandCondition : ICommandCondition
     {
-        public abstract bool Evaluate(ActorCommandController commandController, Command command);
+        public abstract bool Evaluate(Command command);
     }
 }

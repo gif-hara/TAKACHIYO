@@ -31,7 +31,7 @@ namespace TAKACHIYO.CommandSystems
         /// <summary>
         /// 詠唱を開始できるか返す
         /// </summary>
-        public bool CanCasting => this.blueprint.Condition.Evaluate(this.Owner.CommandController, this);
+        public bool CanCasting => this.blueprint.Condition.Evaluate(this);
         
         /// <summary>
         /// 最後に攻撃を行った順番

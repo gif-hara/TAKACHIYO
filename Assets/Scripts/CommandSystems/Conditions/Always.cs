@@ -1,5 +1,3 @@
-using TAKACHIYO.ActorControllers;
-
 namespace TAKACHIYO.CommandSystems.Conditions
 {
     /// <summary>
@@ -7,7 +5,7 @@ namespace TAKACHIYO.CommandSystems.Conditions
     /// </summary>
     public sealed class Always : CommandCondition
     {
-        public override bool Evaluate(ActorCommandController commandController, Command command)
+        public override bool Evaluate(Command command)
         {
             return true;
         }
