@@ -15,6 +15,8 @@ namespace TAKACHIYO.ActorControllers
     /// </summary>
     public sealed class ActorCommandController
     {
+        private Actor owner;
+        
         private readonly IList<string> commandBlueprintIds;
 
         private List<Command> commands;
@@ -31,8 +33,9 @@ namespace TAKACHIYO.ActorControllers
         /// </summary>
         private readonly List<Command> castedCommands = new List<Command>();
 
-        public ActorCommandController(IList<string> commandBlueprintIds)
+        public ActorCommandController(Actor owner, IList<string> commandBlueprintIds)
         {
+            this.owner = owner;
             this.commandBlueprintIds = commandBlueprintIds;
 
             BattleController.Broker.Receive<BattleEvent.BattleStart>()
@@ -71,7 +74,7 @@ namespace TAKACHIYO.ActorControllers
                 .WhenAll()
                 .Do(commandBlueprints =>
                 {
-                    this.commands = commandBlueprints.Select(commandBlueprint => new Command(commandBlueprint)).ToList();
+                    this.commands = commandBlueprints.Select(commandBlueprint => new Command(commandBlueprint, this.owner)).ToList();
                 })
                 .AsUnitObservable();
         }

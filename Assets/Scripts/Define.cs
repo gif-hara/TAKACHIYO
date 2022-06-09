@@ -18,6 +18,7 @@ namespace TAKACHIYO
         {
             My,
             Opponent,
+            All,
         }
     }
 }

@@ -23,11 +23,12 @@ MonoBehaviour:
     m_LocalVariables: []
   castTime: 1
   actions:
-  - rid: 4657355525312741388
+  - rid: 4657355548082569222
   references:
     version: 2
     RefIds:
-    - rid: 4657355525312741388
-      type: {class: Log, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
+    - rid: 4657355548082569222
+      type: {class: Attack, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
       data:
-        message: Test
+        targetType: 1
+        rate: 1

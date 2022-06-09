@@ -1,3 +1,4 @@
+using TAKACHIYO.ActorControllers;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -13,6 +14,8 @@ namespace TAKACHIYO.CommandSystems
 
         private readonly ReactiveProperty<float> currentCastTime;
 
+        private Actor owner;
+
         public string CommandName => this.blueprint.CommandName;
         
         public bool CanInvoke => this.currentCastTime.Value >= this.blueprint.CastTime;
@@ -21,9 +24,10 @@ namespace TAKACHIYO.CommandSystems
 
         public IReadOnlyReactiveProperty<float> CurrentCastTime => this.currentCastTime;
 
-        public Command(CommandBlueprint blueprint)
+        public Command(CommandBlueprint blueprint, Actor owner)
         {
             this.blueprint = blueprint;
+            this.owner = owner;
             this.currentCastTime = new ReactiveProperty<float>();
         }
 
@@ -41,7 +45,7 @@ namespace TAKACHIYO.CommandSystems
         {
             foreach (var action in this.blueprint.Actions)
             {
-                action.Invoke();
+                action.Invoke(this.owner);
             }
         }
     }

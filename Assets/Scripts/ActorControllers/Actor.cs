@@ -25,7 +25,7 @@ namespace TAKACHIYO.ActorControllers
         public Actor(ActorSetupData setupData)
         {
             this.StatusController = new ActorStatusController(setupData.masterDataActorStatusId);
-            this.CommandController = new ActorCommandController(setupData.commandBlueprintIds);
+            this.CommandController = new ActorCommandController(this, setupData.commandBlueprintIds);
         }
 
         public IObservable<Unit> SetupAsync(Actor opponent)

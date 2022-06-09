@@ -24,6 +24,8 @@ namespace TAKACHIYO.ActorControllers
 
         public float HitPointRate => (float)this.hitPoint.Value / this.hitPointMax.Value;
 
+        public bool IsDead => this.hitPoint.Value <= 0;
+
         public ActorStatusController(MasterDataActorStatus.Record masterDataActorStatus)
         {
             this.baseStatus = masterDataActorStatus;
@@ -35,6 +37,18 @@ namespace TAKACHIYO.ActorControllers
         : this(MasterDataActorStatus.Get(masterDataActorStatusId))
         {
             
+        }
+
+        public void TakeDamage(int damage)
+        {
+            if (this.IsDead)
+            {
+                return;
+            }
+
+            var result = this.hitPoint.Value;
+            result = Mathf.Max(result - damage, 0);
+            this.hitPoint.Value = result;
         }
     }
 }

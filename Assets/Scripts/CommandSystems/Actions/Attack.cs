@@ -1,20 +1,22 @@
 using TAKACHIYO.ActorControllers;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace TAKACHIYO.CommandSystems.Actions
 {
     /// <summary>
     /// 
     /// </summary>
-    public sealed class Log : CommandAction
+    public sealed class Attack : CommandAction
     {
         [SerializeField]
-        private string message;
+        private float rate = 1.0f;
         
         public override void Invoke(Actor owner)
         {
-            Debug.Log(this.message);
+            foreach (var target in owner.GetTargets(this.targetType))
+            {
+                target.StatusController.TakeDamage(25);
+            }
         }
     }
 }
