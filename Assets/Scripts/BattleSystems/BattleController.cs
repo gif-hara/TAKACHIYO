@@ -52,6 +52,27 @@ namespace TAKACHIYO.BattleSystems
                             this.Enemy.CommandController.Update(Time.deltaTime);
                         });
                 });
+            
+            // プレイヤーか敵のどちらかが死んだ場合にバトルを終了する
+            Observable.Merge(
+                    this.Player.StatusController.HitPoint.Where(x => x <= 0),
+                    this.Enemy.StatusController.HitPoint.Where(x => x <= 0)
+                    )
+                .Subscribe(_ =>
+                {
+                    if (this.Player.StatusController.IsDead && this.Enemy.StatusController.IsDead)
+                    {
+                        Broker.Publish(BattleEvent.EndBattle.Get(Define.BattleJudgeType.Draw));
+                    }
+                    else if (this.Enemy.StatusController.IsDead)
+                    {
+                        Broker.Publish(BattleEvent.EndBattle.Get(Define.BattleJudgeType.PlayerWin));
+                    }
+                    else
+                    {
+                        Broker.Publish(BattleEvent.EndBattle.Get(Define.BattleJudgeType.EnemyWin));
+                    }
+                });
         }
     }
 }

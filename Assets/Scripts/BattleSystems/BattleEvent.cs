@@ -28,8 +28,9 @@ namespace TAKACHIYO.BattleSystems
         /// <summary>
         /// バトルが終了した際のメッセージ
         /// </summary>
-        public class EndBattle : Message<EndBattle>
+        public class EndBattle : Message<EndBattle, Define.BattleJudgeType>
         {
+            public Define.BattleJudgeType BattleJudgeType => this.param1;
         }
     }
 }

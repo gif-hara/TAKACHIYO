@@ -20,5 +20,12 @@ namespace TAKACHIYO
             Opponent,
             All,
         }
+
+        public enum BattleJudgeType
+        {
+            PlayerWin,
+            EnemyWin,
+            Draw,
+        }
     }
 }
