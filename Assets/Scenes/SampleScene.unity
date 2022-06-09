@@ -1966,14 +1966,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSetupData:
     masterDataActorStatusId: 1
-    commandBlueprintIds:
-    - 000001
-    - 000002
-    - 000003
+    commandBlueprintSetupData:
+    - blueprintId: 000001
+      blueprintHolder:
+        strength: 0
   enemySetupData:
     masterDataActorStatusId: 2
-    commandBlueprintIds:
-    - 000001
+    commandBlueprintSetupData: []
 --- !u!4 &1270532180
 Transform:
   m_ObjectHideFlags: 0

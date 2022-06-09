@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using TAKACHIYO.BattleSystems;
 using TAKACHIYO.CommandSystems;
 using UniRx;
@@ -15,7 +17,7 @@ namespace TAKACHIYO.ActorControllers
     {
         private Actor owner;
         
-        private readonly IList<string> commandBlueprintIds;
+        private readonly IEnumerable<ICommandBlueprintSetupData> commandBlueprintSetupData;
         
         /// <summary>
         /// 待機中のコマンドのリスト
@@ -44,10 +46,10 @@ namespace TAKACHIYO.ActorControllers
         /// </summary>
         public int InvokedCount { get; private set; }
 
-        public ActorCommandController(Actor owner, IList<string> commandBlueprintIds)
+        public ActorCommandController(Actor owner, IEnumerable<ICommandBlueprintSetupData> commandBlueprintSetupData)
         {
             this.owner = owner;
-            this.commandBlueprintIds = commandBlueprintIds;
+            this.commandBlueprintSetupData = commandBlueprintSetupData;
             
             Observable.Merge(
                 BattleController.Broker.Receive<BattleEvent.StartBattle>().AsUnitObservable(),
@@ -95,16 +97,16 @@ namespace TAKACHIYO.ActorControllers
             }
         }
 
-        public IObservable<Unit> SetupAsync()
+        public async UniTask SetupAsync()
         {
-            return this.commandBlueprintIds
-                .Select(x => AssetLoader.LoadAsync<CommandBlueprint>($"Assets/DataSources/CommandBlueprint/CommandBlueprint.{x}.asset"))
-                .WhenAll()
-                .Do(commandBlueprints =>
-                {
-                    this.commands = commandBlueprints.Select(commandBlueprint => new Command(commandBlueprint, this.owner)).ToList();
-                })
-                .AsUnitObservable();
+            this.commands = (await UniTask.WhenAll(
+                this.commandBlueprintSetupData
+                    .Select(async data =>
+                    {
+                        var result = await AssetLoader.LoadAsync<CommandBlueprint>($"Assets/DataSources/CommandBlueprint/CommandBlueprint.{data.BlueprintId}.asset");
+                        return new Command(result, data.BlueprintHolder, this.owner);
+                    })
+                )).ToList();
         }
         
         /// <summary>

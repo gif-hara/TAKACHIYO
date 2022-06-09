@@ -21,7 +21,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  castTime: 0.75
+  castTime: 2.25
   condition:
     rid: 4657355548082569227
   actions:

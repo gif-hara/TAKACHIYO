@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BootSystems;
 using UniRx;
@@ -12,10 +13,10 @@ namespace TAKACHIYO.BattleSystems
     public sealed class BattleController : MonoBehaviour
     {
         [SerializeField]
-        private ActorSetupData playerSetupData;
+        private DebugActorSetupData playerSetupData;
 
         [SerializeField]
-        private ActorSetupData enemySetupData;
+        private DebugActorSetupData enemySetupData;
         
         public static IMessageBroker Broker { get; } = new MessageBroker();
         
@@ -25,17 +26,7 @@ namespace TAKACHIYO.BattleSystems
 
             var player = new Actor(this.playerSetupData);
             var enemy = new Actor(this.enemySetupData);
-
-            Observable.WhenAll(
-                    player.SetupAsync(enemy),
-                    enemy.SetupAsync(player)
-                    )
-                .Subscribe(_ =>
-                {
-                    Broker.Publish(BattleEvent.SetupBattle.Get(player, enemy));
-                    Broker.Publish(BattleEvent.StartBattle.Get());
-                });
-
+            
             Broker.Receive<BattleEvent.StartBattle>()
                 .TakeUntil(Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(_ =>
@@ -77,6 +68,14 @@ namespace TAKACHIYO.BattleSystems
                 {
                     Debug.Log(x.BattleJudgeType);
                 });
+
+            await UniTask.WhenAll(
+                player.SetupAsync(enemy),
+                enemy.SetupAsync(player)
+                );
+            
+            Broker.Publish(BattleEvent.SetupBattle.Get(player, enemy));
+            Broker.Publish(BattleEvent.StartBattle.Get());
         }
     }
 }

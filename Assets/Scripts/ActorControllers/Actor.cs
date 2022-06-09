@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using UniRx;
 
 namespace TAKACHIYO.ActorControllers
@@ -21,18 +22,17 @@ namespace TAKACHIYO.ActorControllers
         /// </summary>
         public Actor Opponent { get; private set; }
         
-        public Actor(ActorSetupData setupData)
+        public Actor(IActorSetupData setupData)
         {
-            this.StatusController = new ActorStatusController(this, setupData.masterDataActorStatusId);
-            this.CommandController = new ActorCommandController(this, setupData.commandBlueprintIds);
+            this.StatusController = new ActorStatusController(this, setupData.MasterDataActorStatusId);
+            this.CommandController = new ActorCommandController(this, setupData.CommandBlueprintSetupData);
         }
 
-        public IObservable<Unit> SetupAsync(Actor opponent)
+        public UniTask SetupAsync(Actor opponent)
         {
             this.Opponent = opponent;
-            return Observable.WhenAll(
-                this.CommandController.SetupAsync()
-                );
+            
+            return this.CommandController.SetupAsync();
         }
     }
 }

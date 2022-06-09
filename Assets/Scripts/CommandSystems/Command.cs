@@ -14,6 +14,8 @@ namespace TAKACHIYO.CommandSystems
     {
         private readonly CommandBlueprint blueprint;
 
+        private readonly ICommandBlueprintHolder blueprintHolder;
+
         private readonly ReactiveProperty<float> currentCastTime;
 
         public Actor Owner { get; }
@@ -43,9 +45,10 @@ namespace TAKACHIYO.CommandSystems
         /// </summary>
         public int LastTakeDamageCount { get; private set; }
 
-        public Command(CommandBlueprint blueprint, Actor owner)
+        public Command(CommandBlueprint blueprint, ICommandBlueprintHolder blueprintHolder, Actor owner)
         {
             this.blueprint = blueprint;
+            this.blueprintHolder = blueprintHolder;
             this.Owner = owner;
             this.currentCastTime = new ReactiveProperty<float>();
             this.commandInvokeStreams = this.blueprint.Actions.Select(x => x.Invoke(this.Owner)).ToList();
