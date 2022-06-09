@@ -16,7 +16,7 @@ namespace TAKACHIYO.CommandSystems
 
         private readonly ReactiveProperty<float> currentCastTime;
 
-        private Actor owner;
+        public Actor Owner { get; }
 
         private List<IObservable<Unit>> commandInvokeStreams;
 
@@ -31,7 +31,7 @@ namespace TAKACHIYO.CommandSystems
         /// <summary>
         /// 詠唱を開始できるか返す
         /// </summary>
-        public bool CanCasting => this.blueprint.Condition.Evaluate(this.owner.CommandController, this);
+        public bool CanCasting => this.blueprint.Condition.Evaluate(this.Owner.CommandController, this);
         
         /// <summary>
         /// 最後に攻撃を行った順番
@@ -41,9 +41,9 @@ namespace TAKACHIYO.CommandSystems
         public Command(CommandBlueprint blueprint, Actor owner)
         {
             this.blueprint = blueprint;
-            this.owner = owner;
+            this.Owner = owner;
             this.currentCastTime = new ReactiveProperty<float>();
-            this.commandInvokeStreams = this.blueprint.Actions.Select(x => x.Invoke(this.owner)).ToList();
+            this.commandInvokeStreams = this.blueprint.Actions.Select(x => x.Invoke(this.Owner)).ToList();
         }
 
         public void Reset()
@@ -67,7 +67,7 @@ namespace TAKACHIYO.CommandSystems
                     .AsSingleUnitObservable()
                     .Do(_ =>
                     {
-                        this.LastInvokeOrder = this.owner.CommandController.InvokedCount + 1;
+                        this.LastInvokeOrder = this.Owner.CommandController.InvokedCount + 1;
                     });
             });
         }

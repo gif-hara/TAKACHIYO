@@ -32,5 +32,21 @@ namespace TAKACHIYO
 
             return result;
         }
+
+        public static Actor GetTarget(this Actor self, Define.TargetType targetType)
+        {
+            switch (targetType)
+            {
+
+                case Define.TargetType.My:
+                    return self;
+                case Define.TargetType.Opponent:
+                    return self.Opponent;
+                case Define.TargetType.All:
+                default:
+                    Assert.IsTrue(false, $"{targetType}は未対応です");
+                    return null;
+            }
+        }
     }
 }

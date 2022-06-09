@@ -9,14 +9,11 @@ namespace TAKACHIYO.CommandSystems.Conditions
     public sealed class InvokeCommandCount : CommandCondition
     {
         [SerializeField]
-        private Define.TargetType targetType;
-
-        [SerializeField]
         private int number = 1;
         
         public override bool Evaluate(ActorCommandController commandController, Command command)
         {
-            return (commandController.InvokedCount - command.LastInvokeOrder) >= this.number;
+            return (command.Owner.CommandController.InvokedCount - command.LastInvokeOrder) >= this.number;
         }
     }
 }

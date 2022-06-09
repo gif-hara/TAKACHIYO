@@ -21,7 +21,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  castTime: 1
+  castTime: 1.6
   condition:
     rid: 4657355548082569226
   actions:
@@ -37,5 +37,4 @@ MonoBehaviour:
     - rid: 4657355548082569226
       type: {class: InvokeCommandCount, ns: TAKACHIYO.CommandSystems.Conditions, asm: Assembly-CSharp}
       data:
-        targetType: 0
-        number: 1
+        number: 2
