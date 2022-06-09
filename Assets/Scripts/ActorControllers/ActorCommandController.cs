@@ -18,7 +18,10 @@ namespace TAKACHIYO.ActorControllers
         private Actor owner;
         
         private readonly IList<string> commandBlueprintIds;
-
+        
+        /// <summary>
+        /// 待機中のコマンドのリスト
+        /// </summary>
         private List<Command> commands;
 
         private readonly ReactiveCollection<Command> castingCommands = new();
@@ -28,6 +31,11 @@ namespace TAKACHIYO.ActorControllers
         /// </summary>
         public IReadOnlyReactiveCollection<Command> CastingCommands => this.castingCommands;
 
+        /// <summary>
+        /// 詠唱を開始したコマンドのリスト
+        /// </summary>
+        private readonly List<Command> enterCastingCommands = new();
+        
         /// <summary>
         /// 詠唱が終わったコマンドのリスト
         /// </summary>
@@ -42,25 +50,14 @@ namespace TAKACHIYO.ActorControllers
                 .TakeUntil(BattleController.Broker.Receive<BattleEvent.BattleEnd>())
                 .Subscribe(_ =>
                 {
-                    foreach (var command in this.commands)
-                    {
-                        command.Reset();
-                        this.castingCommands.Add(command);
-                    }
+                    this.TryCastingCommands();
                 });
 
             this.owner.Broker.Receive<ActorEvent.InvokedCommand>()
                 .TakeUntil(BattleController.Broker.Receive<BattleEvent.BattleEnd>())
                 .Subscribe(_ =>
                 {
-                    foreach (var command in this.commands)
-                    {
-                        if (this.castingCommands.FirstOrDefault(x => x == command) == null)
-                        {
-                            command.Reset();
-                            this.castingCommands.Add(command);
-                        }
-                    }
+                    this.TryCastingCommands();
                 });
         }
 
@@ -80,6 +77,7 @@ namespace TAKACHIYO.ActorControllers
             {
                 foreach (var castedCommand in this.castedCommands)
                 {
+                    this.commands.Add(castedCommand);
                     this.castingCommands.Remove(castedCommand);
                     castedCommand.Invoke();
                 }
@@ -98,6 +96,28 @@ namespace TAKACHIYO.ActorControllers
                     this.commands = commandBlueprints.Select(commandBlueprint => new Command(commandBlueprint, this.owner)).ToList();
                 })
                 .AsUnitObservable();
+        }
+        
+        /// <summary>
+        /// 待機中のコマンドが詠唱できる場合は詠唱を開始する
+        /// </summary>
+        private void TryCastingCommands()
+        {
+            this.enterCastingCommands.Clear();
+            foreach (var command in this.commands)
+            {
+                if (command.CanCasting)
+                {
+                    this.enterCastingCommands.Add(command);
+                }
+            }
+
+            foreach (var command in this.enterCastingCommands)
+            {
+                command.Reset();
+                this.commands.Remove(command);
+                this.castingCommands.Add(command);
+            }
         }
     }
 }

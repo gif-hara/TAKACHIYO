@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TAKACHIYO.CommandSystems.Actions;
+using TAKACHIYO.CommandSystems.Conditions;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Localization;
@@ -20,6 +21,9 @@ namespace TAKACHIYO.CommandSystems
         /// </summary>
         [SerializeField]
         private float castTime;
+
+        [SerializeReference, SubclassSelector(typeof(ICommandCondition))]
+        private ICommandCondition condition;
         
         [SerializeReference, SubclassSelector(typeof(ICommandAction))]
         private List<ICommandAction> actions;
@@ -27,6 +31,8 @@ namespace TAKACHIYO.CommandSystems
         public string CommandName => this.commandName.GetLocalizedString();
 
         public float CastTime => this.castTime;
+
+        public ICommandCondition Condition => this.condition;
 
         public IReadOnlyList<ICommandAction> Actions => this.actions;
     }
