@@ -1,4 +1,6 @@
+using System;
 using TAKACHIYO.ActorControllers;
+using UniRx;
 using UnityEngine;
 
 namespace TAKACHIYO.CommandSystems.Actions
@@ -11,12 +13,17 @@ namespace TAKACHIYO.CommandSystems.Actions
         [SerializeField]
         private float rate = 1.0f;
         
-        public override void Invoke(Actor owner)
+        public override IObservable<Unit> Invoke(Actor owner)
         {
-            foreach (var target in owner.GetTargets(this.targetType))
+            return Observable.Defer(() =>
             {
-                target.StatusController.TakeDamage(25);
-            }
+                foreach (var target in owner.GetTargets(this.targetType))
+                {
+                    target.StatusController.TakeDamage(25);
+                }
+
+                return Observable.ReturnUnit();
+            });
         }
     }
 }

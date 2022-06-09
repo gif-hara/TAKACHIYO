@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TAKACHIYO.BattleSystems;
 using TAKACHIYO.CommandSystems;
-using TAKACHIYO.MasterDataSystems;
 using UniRx;
-using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace TAKACHIYO.ActorControllers
 {
@@ -75,14 +72,20 @@ namespace TAKACHIYO.ActorControllers
 
             if (this.castedCommands.Count > 0)
             {
+                var streams = new List<IObservable<Unit>>();
                 foreach (var castedCommand in this.castedCommands)
                 {
                     this.commands.Add(castedCommand);
                     this.castingCommands.Remove(castedCommand);
-                    castedCommand.Invoke();
+                    streams.Add(castedCommand.Invoke());
                 }
 
-                this.owner.Broker.Publish(ActorEvent.InvokedCommand.Get());
+                streams.Concat()
+                    .AsSingleUnitObservable()
+                    .Subscribe(_ =>
+                    {
+                        this.owner.Broker.Publish(ActorEvent.InvokedCommand.Get());
+                    });
             }
         }
 

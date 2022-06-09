@@ -2,25 +2,23 @@ using System;
 using TAKACHIYO.ActorControllers;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace TAKACHIYO.CommandSystems.Actions
 {
     /// <summary>
     /// 
     /// </summary>
-    public sealed class Log : CommandAction
+    public sealed class Timer : CommandAction
     {
         [SerializeField]
-        private string message;
+        private float delaySeconds;
         
         public override IObservable<Unit> Invoke(Actor owner)
         {
             return Observable.Defer(() =>
             {
-                Debug.Log(this.message);
-                
-                return Observable.ReturnUnit();
+                return Observable.Timer(TimeSpan.FromSeconds(this.delaySeconds))
+                    .AsUnitObservable();
             });
         }
     }

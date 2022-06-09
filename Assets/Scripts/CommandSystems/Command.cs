@@ -1,8 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using TAKACHIYO.ActorControllers;
 using UniRx;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace TAKACHIYO.CommandSystems
 {
@@ -16,6 +16,8 @@ namespace TAKACHIYO.CommandSystems
         private readonly ReactiveProperty<float> currentCastTime;
 
         private Actor owner;
+
+        private List<IObservable<Unit>> commandInvokeStreams;
 
         public string CommandName => this.blueprint.CommandName;
         
@@ -35,6 +37,7 @@ namespace TAKACHIYO.CommandSystems
             this.blueprint = blueprint;
             this.owner = owner;
             this.currentCastTime = new ReactiveProperty<float>();
+            this.commandInvokeStreams = this.blueprint.Actions.Select(x => x.Invoke(this.owner)).ToList();
         }
 
         public void Reset()
@@ -47,12 +50,9 @@ namespace TAKACHIYO.CommandSystems
             this.currentCastTime.Value += deltaTime;
         }
 
-        public void Invoke()
+        public IObservable<Unit> Invoke()
         {
-            foreach (var action in this.blueprint.Actions)
-            {
-                action.Invoke(this.owner);
-            }
+            return Observable.Defer(() => this.commandInvokeStreams.Concat().AsSingleUnitObservable());
         }
     }
 }
