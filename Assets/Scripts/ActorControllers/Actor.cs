@@ -17,14 +17,20 @@ namespace TAKACHIYO.ActorControllers
         
         public ActorCommandController CommandController { get; }
         
+        /// <summary>
+        /// 対戦相手
+        /// </summary>
+        public Actor Opponent { get; private set; }
+        
         public Actor(ActorSetupData setupData)
         {
             this.StatusController = new ActorStatusController(setupData.masterDataActorStatusId);
             this.CommandController = new ActorCommandController(setupData.commandBlueprintIds);
         }
 
-        public IObservable<Unit> SetupAsync()
+        public IObservable<Unit> SetupAsync(Actor opponent)
         {
+            this.Opponent = opponent;
             return Observable.WhenAll(
                 this.CommandController.SetupAsync()
                 );

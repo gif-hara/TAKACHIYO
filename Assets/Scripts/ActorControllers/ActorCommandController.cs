@@ -17,14 +17,14 @@ namespace TAKACHIYO.ActorControllers
     {
         private readonly IList<string> commandBlueprintIds;
 
-        private List<CommandBlueprint> commandBlueprints;
+        private List<Command> commands;
 
         private readonly ReactiveCollection<Command> castingCommands = new();
 
         /// <summary>
         /// 詠唱中のコマンドのリスト
         /// </summary>
-        public IReadOnlyCollection<Command> CastingCommands => this.castingCommands;
+        public IReadOnlyReactiveCollection<Command> CastingCommands => this.castingCommands;
 
         /// <summary>
         /// 詠唱が終わったコマンドのリスト
@@ -39,9 +39,9 @@ namespace TAKACHIYO.ActorControllers
                 .TakeUntil(BattleController.Broker.Receive<BattleEvent.BattleEnd>())
                 .Subscribe(_ =>
                 {
-                    foreach (var commandBlueprint in this.commandBlueprints)
+                    foreach (var command in this.commands)
                     {
-                        this.castingCommands.Add(new Command(commandBlueprint));
+                        this.castingCommands.Add(command);
                     }
                 });
         }
@@ -69,9 +69,9 @@ namespace TAKACHIYO.ActorControllers
             return this.commandBlueprintIds
                 .Select(x => AssetLoader.LoadAsync<CommandBlueprint>($"Assets/DataSources/CommandBlueprint/CommandBlueprint.{x}.asset"))
                 .WhenAll()
-                .Do(x =>
+                .Do(commandBlueprints =>
                 {
-                    this.commandBlueprints = new List<CommandBlueprint>(x);
+                    this.commands = commandBlueprints.Select(commandBlueprint => new Command(commandBlueprint)).ToList();
                 })
                 .AsUnitObservable();
         }

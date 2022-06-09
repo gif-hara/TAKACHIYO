@@ -1,12 +1,8 @@
-using System;
 using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BootSystems;
-using TAKACHIYO.MasterDataSystems;
-using TMPro;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace TAKACHIYO.BattleSystems
 {
@@ -35,8 +31,8 @@ namespace TAKACHIYO.BattleSystems
             this.Enemy = new Actor(this.enemySetupData);
 
             Observable.WhenAll(
-                    this.Player.SetupAsync(),
-                    this.Enemy.SetupAsync()
+                    this.Player.SetupAsync(this.Enemy),
+                    this.Enemy.SetupAsync(this.Player)
                     )
                 .Subscribe(_ =>
                 {
