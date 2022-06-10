@@ -54,7 +54,8 @@ namespace TAKACHIYO.ActorControllers
             Observable.Merge(
                 BattleController.Broker.Receive<BattleEvent.StartBattle>().AsUnitObservable(),
                 this.owner.Broker.Receive<ActorEvent.InvokedCommand>().AsUnitObservable(),
-                this.owner.Broker.Receive<ActorEvent.TakedDamage>().AsUnitObservable()
+                this.owner.Broker.Receive<ActorEvent.TakedDamage>().AsUnitObservable(),
+                this.owner.Broker.Receive<ActorEvent.GivedDamage>().AsUnitObservable()
                     )
                 .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(_ =>

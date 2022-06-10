@@ -18,7 +18,7 @@ namespace TAKACHIYO.CommandSystems.Actions
             {
                 foreach (var target in command.Owner.GetTargets(this.targetType))
                 {
-                    target.StatusController.TakeDamage(Mathf.FloorToInt(command.BlueprintHolder.Strength * this.rate));
+                    target.StatusController.TakeDamage(command.Owner, Mathf.FloorToInt(command.BlueprintHolder.Strength * this.rate));
                 }
 
                 return Observable.ReturnUnit();

@@ -27,5 +27,21 @@ namespace TAKACHIYO
             EnemyWin,
             Draw,
         }
+
+        /// <summary>
+        /// 比較タイプ
+        /// </summary>
+        public enum CompareType
+        {
+            /// <summary>
+            /// 以上
+            /// </summary>
+            Greater,
+            
+            /// <summary>
+            /// 以下
+            /// </summary>
+            Less
+        }
     }
 }

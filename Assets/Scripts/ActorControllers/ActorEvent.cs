@@ -21,5 +21,12 @@ namespace TAKACHIYO.ActorControllers
         {
             public int Damage => this.param1;
         }
+
+        /// <summary>
+        /// ダメージを与えた際のメッセージ
+        /// </summary>
+        public class GivedDamage : Message<GivedDamage>
+        {
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace TAKACHIYO.ActorControllers
         {
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(Actor attacker, int damage)
         {
             if (this.IsDead)
             {
@@ -58,6 +58,7 @@ namespace TAKACHIYO.ActorControllers
             this.hitPoint.Value = result;
             
             this.owner.Broker.Publish(ActorEvent.TakedDamage.Get(damage));
+            attacker.Broker.Publish(ActorEvent.GivedDamage.Get());
         }
     }
 }
