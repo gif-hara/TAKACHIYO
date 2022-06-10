@@ -44,6 +44,11 @@ namespace TAKACHIYO.CommandSystems
         /// 最後に実行した時のダメージを受けた回数
         /// </summary>
         public int LastTakeDamageCount { get; private set; }
+        
+        /// <summary>
+        /// 実行した回数
+        /// </summary>
+        public int InvokeCount { get; private set; }
 
         public Command(CommandBlueprint blueprint, ICommandBlueprintHolder blueprintHolder, Actor owner)
         {
@@ -70,6 +75,8 @@ namespace TAKACHIYO.CommandSystems
         {
             return Observable.Defer(() =>
             {
+                this.InvokeCount++;
+
                 return this.commandInvokeStreams
                     .Concat()
                     .AsSingleUnitObservable()

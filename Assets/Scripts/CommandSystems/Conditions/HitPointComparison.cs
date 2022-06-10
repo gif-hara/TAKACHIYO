@@ -18,9 +18,21 @@ namespace TAKACHIYO.CommandSystems.Conditions
         
         [SerializeField, Range(0.0f, 1.0f)]
         private float rate = 1.0f;
+
+        /// <summary>
+        /// 実行できる回数
+        /// 0だと無限に利用可能
+        /// </summary>
+        [SerializeField]
+        private int number;
         
         public override bool Evaluate(Command command)
         {
+            if (this.number != 0 && this.number <= command.InvokeCount)
+            {
+                return false;
+            }
+            
             var actor = command.Owner.GetTarget(this.targetType);
             switch (this.compareType)
             {

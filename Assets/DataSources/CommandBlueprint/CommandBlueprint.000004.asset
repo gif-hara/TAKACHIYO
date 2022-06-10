@@ -37,6 +37,7 @@ MonoBehaviour:
     - rid: 4657355572517011458
       type: {class: HitPointComparison, ns: TAKACHIYO.CommandSystems.Conditions, asm: Assembly-CSharp}
       data:
-        targetType: 1
+        targetType: 0
         compareType: 1
-        rate: 0.7
+        rate: 0.9
+        number: 1
