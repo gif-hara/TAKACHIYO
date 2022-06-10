@@ -14,7 +14,7 @@ namespace TAKACHIYO.CommandSystems
     {
         private readonly CommandBlueprint blueprint;
 
-        private readonly ICommandBlueprintHolder blueprintHolder;
+        public readonly ICommandBlueprintHolder BlueprintHolder;
 
         private readonly ReactiveProperty<float> currentCastTime;
 
@@ -48,10 +48,10 @@ namespace TAKACHIYO.CommandSystems
         public Command(CommandBlueprint blueprint, ICommandBlueprintHolder blueprintHolder, Actor owner)
         {
             this.blueprint = blueprint;
-            this.blueprintHolder = blueprintHolder;
+            this.BlueprintHolder = blueprintHolder;
             this.Owner = owner;
             this.currentCastTime = new ReactiveProperty<float>();
-            this.commandInvokeStreams = this.blueprint.Actions.Select(x => x.Invoke(this.Owner)).ToList();
+            this.commandInvokeStreams = this.blueprint.Actions.Select(x => x.Invoke(this)).ToList();
         }
 
         public void Reset()

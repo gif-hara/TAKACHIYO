@@ -1,5 +1,4 @@
 using System;
-using TAKACHIYO.ActorControllers;
 using UniRx;
 
 namespace TAKACHIYO.CommandSystems.Actions
@@ -9,6 +8,6 @@ namespace TAKACHIYO.CommandSystems.Actions
     /// </summary>
     public interface ICommandAction
     {
-        IObservable<Unit> Invoke(Actor owner);
+        IObservable<Unit> Invoke(Command command);
     }
 }

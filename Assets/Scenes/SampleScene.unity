@@ -1969,7 +1969,7 @@ MonoBehaviour:
     commandBlueprintSetupData:
     - blueprintId: 000001
       blueprintHolder:
-        strength: 0
+        strength: 10
   enemySetupData:
     masterDataActorStatusId: 2
     commandBlueprintSetupData: []

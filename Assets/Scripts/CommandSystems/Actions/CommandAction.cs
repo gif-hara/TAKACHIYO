@@ -1,5 +1,4 @@
 using System;
-using TAKACHIYO.ActorControllers;
 using UniRx;
 using UnityEngine;
 
@@ -13,6 +12,6 @@ namespace TAKACHIYO.CommandSystems.Actions
         [SerializeField]
         protected Define.TargetType targetType;
 
-        public abstract IObservable<Unit> Invoke(Actor owner);
+        public abstract IObservable<Unit> Invoke(Command command);
     }
 }

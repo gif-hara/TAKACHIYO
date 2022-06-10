@@ -14,7 +14,7 @@ namespace TAKACHIYO.CommandSystems.Actions
         [SerializeField]
         private string message;
         
-        public override IObservable<Unit> Invoke(Actor owner)
+        public override IObservable<Unit> Invoke(Command command)
         {
             return Observable.Defer(() =>
             {

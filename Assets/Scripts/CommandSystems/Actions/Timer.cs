@@ -13,7 +13,7 @@ namespace TAKACHIYO.CommandSystems.Actions
         [SerializeField]
         private float delaySeconds;
         
-        public override IObservable<Unit> Invoke(Actor owner)
+        public override IObservable<Unit> Invoke(Command command)
         {
             return Observable.Defer(() =>
             {
