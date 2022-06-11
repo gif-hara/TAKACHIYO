@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98fcb9ceb352f2c44b90f911e6c2c2db, type: 3}
+  m_Name: BattleSpriteHolder
+  m_EditorClassIdentifier: 
+  abnormalStatusSprites:
+  - abnormalStatusType: 0
+    sprite: {fileID: 21300000, guid: 0241bc5c4f6a3c8419f8ac34ff7871b0, type: 3}
+  - abnormalStatusType: 1
+    sprite: {fileID: 21300000, guid: 9218a04d526aa0b48abd9c482d6f9549, type: 3}
+  - abnormalStatusType: 2
+    sprite: {fileID: 21300000, guid: 8dd1edb2b84897f4e816d2f14201a74f, type: 3}
+  - abnormalStatusType: 3
+    sprite: {fileID: 21300000, guid: 4d4bd5f39454e3248afc222f8557f5a0, type: 3}
+  - abnormalStatusType: 4
+    sprite: {fileID: 21300000, guid: ba936b2844d55f84fb650d530f878b8a, type: 3}
+  - abnormalStatusType: 5
+    sprite: {fileID: 21300000, guid: 912c59bb7be34a44da095c1a4bb258e7, type: 3}
+  - abnormalStatusType: 6
+    sprite: {fileID: 21300000, guid: 038c149f3a109f74fb716ab6a7f14d83, type: 3}
+  - abnormalStatusType: 7
+    sprite: {fileID: 21300000, guid: 90fbce13d10e0564fa84614cdeb65425, type: 3}
+  - abnormalStatusType: 8
+    sprite: {fileID: 21300000, guid: ab13d4b4a40d605478005b43123824b1, type: 3}
+  - abnormalStatusType: 9
+    sprite: {fileID: 21300000, guid: 6c7276b2b283fa14fba49acc644d980e, type: 3}
+  - abnormalStatusType: 10
+    sprite: {fileID: 21300000, guid: 9514a48989f20a84fa6e1e16f87ef641, type: 3}

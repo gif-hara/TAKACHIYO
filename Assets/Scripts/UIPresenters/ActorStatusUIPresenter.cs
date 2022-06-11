@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BattleSystems;
 using TAKACHIYO.CommandSystems;
+using TAKACHIYO.UIViews;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -42,8 +43,16 @@ namespace TAKACHIYO
 
         [SerializeField]
         private Transform effectParent;
+        
+        [SerializeField]
+        private Transform abnormalStatusIconParent;
+
+        [SerializeField]
+        private AbnormalStatusIconUIView abnormalStatusIconUIViewPrefab;
 
         private readonly Dictionary<Command, CommandUIPresenter> commandUIPresenters = new();
+
+        private readonly Dictionary<Define.AbnormalStatusType, AbnormalStatusIconUIView> abnormalStatusIconUIViews = new();
 
         private void Start()
         {
@@ -101,6 +110,23 @@ namespace TAKACHIYO
                     var t = effect.transform;
                     t.SetParent(this.effectParent, false);
                     t.localPosition = Vector3.zero;
+                });
+
+            actor.Broker.Receive<ActorEvent.AddedAbnormalStatus>()
+                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .Subscribe(x =>
+                {
+                    var icon = Instantiate(this.abnormalStatusIconUIViewPrefab, this.abnormalStatusIconParent);
+                    icon.Setup(BattleSpriteHolder.Instance.GetAbnormalStatusSprite(x.AbnormalStatusType));
+                    this.abnormalStatusIconUIViews.Add(x.AbnormalStatusType, icon);
+                });
+
+            actor.Broker.Receive<ActorEvent.RemovedAbnormalStatus>()
+                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .Subscribe(x =>
+                {
+                    Destroy(this.abnormalStatusIconUIViews[x.AbnormalStatusType].gameObject);
+                    this.abnormalStatusIconUIViews.Remove(x.AbnormalStatusType);
                 });
         }
     }

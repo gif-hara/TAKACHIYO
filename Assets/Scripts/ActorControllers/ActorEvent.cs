@@ -32,15 +32,17 @@ namespace TAKACHIYO.ActorControllers
         /// <summary>
         /// 状態異常が付与された際のメッセージ
         /// </summary>
-        public class AddedAbnormalStatus : Message<AddedAbnormalStatus>
+        public class AddedAbnormalStatus : Message<AddedAbnormalStatus, Define.AbnormalStatusType>
         {
+            public Define.AbnormalStatusType AbnormalStatusType => this.param1;
         }
 
         /// <summary>
         /// 状態異常が削除された際のメッセージ
         /// </summary>
-        public class RemovedAbnormalStatus : Message<RemovedAbnormalStatus>
+        public class RemovedAbnormalStatus : Message<RemovedAbnormalStatus, Define.AbnormalStatusType>
         {
+            public Define.AbnormalStatusType AbnormalStatusType => this.param1;
         }
 
         /// <summary>

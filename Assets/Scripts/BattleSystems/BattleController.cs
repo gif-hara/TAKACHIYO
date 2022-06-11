@@ -23,6 +23,7 @@ namespace TAKACHIYO.BattleSystems
         private async void Start()
         {
             await BootSystem.Ready;
+            await BattleSpriteHolder.SetupAsync();
 
             var player = new Actor(this.playerSetupData);
             var enemy = new Actor(this.enemySetupData);

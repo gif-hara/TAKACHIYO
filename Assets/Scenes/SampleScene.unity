@@ -247,6 +247,8 @@ MonoBehaviour:
   commandParent: {fileID: 95566187}
   commandUIPresenter: {fileID: 4958601009255961875, guid: 6703a853f55bdfe4baa8f5002b9d1a55, type: 3}
   effectParent: {fileID: 677914301}
+  abnormalStatusIconParent: {fileID: 1498818503}
+  abnormalStatusIconUIViewPrefab: {fileID: 1865243337358068122, guid: 2e1bf3d82f8df8d4794a785e258a2fd2, type: 3}
 --- !u!1 &135197227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1138,8 @@ MonoBehaviour:
   commandParent: {fileID: 1398587455}
   commandUIPresenter: {fileID: 4958601009255961875, guid: 6703a853f55bdfe4baa8f5002b9d1a55, type: 3}
   effectParent: {fileID: 900395544}
+  abnormalStatusIconParent: {fileID: 1859571593}
+  abnormalStatusIconUIViewPrefab: {fileID: 1865243337358068122, guid: 2e1bf3d82f8df8d4794a785e258a2fd2, type: 3}
 --- !u!1 &798823897
 GameObject:
   m_ObjectHideFlags: 0
