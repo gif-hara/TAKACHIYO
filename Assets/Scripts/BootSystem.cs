@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using TAKACHIYO.MasterDataSystems;
 using UniRx;
 using UnityEngine;
@@ -11,18 +12,19 @@ namespace TAKACHIYO.BootSystems
     /// </summary>
     public static class BootSystem
     {
-        public static Task Ready;
+        public static UniTask Ready;
         
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
         private static void Initialize()
         {
-            Ready = Task.WhenAll(
+            Ready = UniTask.WhenAll(
                 InitializeLocalization(),
-                MasterData.SetupAsync().ToTask()
+                MasterData.SetupAsync().ToUniTask(),
+                GameDesignParameter.LoadAsync()
                 );
         }
         
-        private static async Task InitializeLocalization()
+        private static async UniTask InitializeLocalization()
         {
             await LocalizationSettings.InitializationOperation.Task;
         }
