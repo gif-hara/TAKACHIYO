@@ -41,4 +41,4 @@ MonoBehaviour:
       type: {class: AddAbnormalStatus, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
       data:
         targetType: 1
-        abnormalStatusTypes: 02000000
+        abnormalStatusTypes: 03000000

@@ -69,7 +69,7 @@ namespace TAKACHIYO.ActorControllers
             // 麻痺の場合は詠唱時間が増える
             if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Paralysis))
             {
-                deltaTime *= GameDesignParameter.Instance.ParalysisDelayRate;
+                deltaTime *= GameDesignParameter.Instance.paralysisDelayRate;
             }
             
             // 睡眠の場合は詠唱出来ない

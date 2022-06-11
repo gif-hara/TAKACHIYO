@@ -18,3 +18,5 @@ MonoBehaviour:
   paralysisTimeSeconds: 5
   paralysisDelayRate: 0.5
   sleepTimeSeconds: 3
+  exhaustionTimeSeconds: 10
+  exhaustionDamageRate: 0.5

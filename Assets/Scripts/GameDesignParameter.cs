@@ -13,57 +13,52 @@ namespace TAKACHIYO
     {
         public static GameDesignParameter Instance { get; private set; }
 
-        [SerializeField, Range(0.0f, 1.0f)]
-        private float poisonDamageRate;
-
-        [SerializeField]
-        private float poisonDamageSeconds;
-
-        [SerializeField]
-        private int poisonDamageCount;
-
-        [SerializeField]
-        private float paralysisTimeSeconds;
-
-        [SerializeField, Range(0.0f, 1.0f)]
-        private float paralysisDelayRate;
-
-        [SerializeField]
-        private float sleepTimeSeconds;
-        
         /// <summary>
         /// 毒ダメージの割合
         /// </summary>
         /// <remarks>
         /// <c>0.25</c>にした場合1/4の割合ダメージを与えます
         /// </remarks>
-        public float PoisonDamageRate => this.poisonDamageRate;
-        
+        [Range(0.0f, 1.0f)]
+        public float poisonDamageRate;
+
         /// <summary>
         /// 毒ダメージを与える秒数
         /// </summary>
-        public float PoisonDamageSeconds => this.poisonDamageSeconds;
+        public float poisonDamageSeconds;
 
         /// <summary>
         /// 毒ダメージを与える回数
         /// </summary>
-        public int PoisonDamageCount => this.poisonDamageCount;
+        public int poisonDamageCount;
 
         /// <summary>
         /// 麻痺にかかっている時間（秒）
         /// </summary>
-        public float ParalysisTimeSeconds => this.paralysisTimeSeconds;
+        public float paralysisTimeSeconds;
 
         /// <summary>
-        /// 麻痺による詠唱時間の減少割合
+        /// 麻痺による詠唱時間減少の割合
         /// </summary>
-        public float ParalysisDelayRate => this.paralysisDelayRate;
+        [Range(0.0f, 1.0f)]
+        public float paralysisDelayRate;
 
         /// <summary>
         /// 睡眠にかかっている時間（秒）
         /// </summary>
-        public float SleepTimeSeconds => this.sleepTimeSeconds;
+        public float sleepTimeSeconds;
 
+        /// <summary>
+        /// 脱力にかかっている時間（秒）
+        /// </summary>
+        public float exhaustionTimeSeconds;
+
+        /// <summary>
+        /// 脱力によるダメージ減少の割合
+        /// </summary>
+        [Range(0.0f, 1.0f)]
+        public float exhaustionDamageRate;
+        
         public static async UniTask LoadAsync()
         {
             Instance = await AssetLoader.LoadAsync<GameDesignParameter>("Assets/DataSources/GameDesignParameter.asset");

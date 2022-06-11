@@ -13,13 +13,13 @@ namespace TAKACHIYO.ActorControllers.AbnormalStatuses
         public override void Setup(Actor owner)
         {
             var parameter = GameDesignParameter.Instance;
-            var seconds = parameter.PoisonDamageSeconds / parameter.PoisonDamageCount;
+            var seconds = parameter.poisonDamageSeconds / parameter.poisonDamageCount;
             Observable.Interval(TimeSpan.FromSeconds(seconds))
                 .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
-                .Take(parameter.PoisonDamageCount)
+                .Take(parameter.poisonDamageCount)
                 .Subscribe(_ =>
                 {
-                    var damage = Mathf.FloorToInt((owner.StatusController.HitPointMax.Value * parameter.PoisonDamageRate) / parameter.PoisonDamageCount);
+                    var damage = Mathf.FloorToInt((owner.StatusController.HitPointMax.Value * parameter.poisonDamageRate) / parameter.poisonDamageCount);
                     owner.StatusController.TakeDamageRaw(damage);
                 }, () =>
                 {
