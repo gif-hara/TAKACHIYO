@@ -13,7 +13,7 @@ namespace TAKACHIYO.CommandSystems.Conditions
         
         public override bool Evaluate(Command command)
         {
-            return command.InvokeCount < this.number;
+            return command.InvokedCount < this.number;
         }
     }
 }

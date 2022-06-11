@@ -38,7 +38,7 @@ namespace TAKACHIYO.CommandSystems
         /// <summary>
         /// 最後に実行した時のコマンド実行回数
         /// </summary>
-        public int LastInvokeOrder { get; private set; }
+        public int LastInvokedOrder { get; private set; }
         
         /// <summary>
         /// 最後に実行した時のダメージを受けた回数
@@ -48,7 +48,7 @@ namespace TAKACHIYO.CommandSystems
         /// <summary>
         /// 実行した回数
         /// </summary>
-        public int InvokeCount { get; private set; }
+        public int InvokedCount { get; private set; }
 
         public Command(CommandBlueprint blueprint, ICommandBlueprintHolder blueprintHolder, Actor owner)
         {
@@ -75,8 +75,8 @@ namespace TAKACHIYO.CommandSystems
         {
             return Observable.Defer(() =>
             {
-                this.InvokeCount++;
-                this.LastInvokeOrder = this.Owner.CommandController.InvokedCount;
+                this.InvokedCount++;
+                this.LastInvokedOrder = this.Owner.CommandController.TotalInvokedCount;
 
                 return this.commandInvokeStreams
                     .Concat()

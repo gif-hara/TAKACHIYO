@@ -29,7 +29,7 @@ namespace TAKACHIYO.CommandSystems.Conditions
         
         public override bool Evaluate(Command command)
         {
-            if (this.number != 0 && this.number <= command.InvokeCount)
+            if (this.number != 0 && this.number <= command.InvokedCount)
             {
                 return false;
             }

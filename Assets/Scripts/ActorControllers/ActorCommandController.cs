@@ -44,7 +44,7 @@ namespace TAKACHIYO.ActorControllers
         /// <summary>
         /// コマンドを実行した回数
         /// </summary>
-        public int InvokedCount { get; private set; }
+        public int TotalInvokedCount { get; private set; }
 
         public ActorCommandController(Actor owner, IEnumerable<ICommandBlueprintSetupData> commandBlueprintSetupData)
         {
@@ -88,7 +88,7 @@ namespace TAKACHIYO.ActorControllers
                 {
                     this.commands.Add(castedCommand);
                     this.castingCommands.Remove(castedCommand);
-                    this.InvokedCount++;
+                    this.TotalInvokedCount++;
                     streams.Add(
                         castedCommand.Invoke()
                             .Do(_ =>

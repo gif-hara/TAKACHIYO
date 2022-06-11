@@ -13,7 +13,7 @@ namespace TAKACHIYO.CommandSystems.Conditions
         
         public override bool Evaluate(Command command)
         {
-            return (command.Owner.CommandController.InvokedCount - command.LastInvokeOrder) >= this.number;
+            return (command.Owner.CommandController.TotalInvokedCount - command.LastInvokedOrder) >= this.number;
         }
     }
 }
