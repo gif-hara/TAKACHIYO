@@ -23,7 +23,7 @@ MonoBehaviour:
     m_LocalVariables: []
   castTime: 3
   condition:
-    rid: 4657355583943606277
+    rid: 4657355583943606278
   actions:
   - rid: 4657355548082569222
   references:
@@ -34,7 +34,5 @@ MonoBehaviour:
       data:
         targetType: 1
         rate: 1
-    - rid: 4657355583943606277
-      type: {class: InvokeCommandCount, ns: TAKACHIYO.CommandSystems.Conditions, asm: Assembly-CSharp}
-      data:
-        number: 1
+    - rid: 4657355583943606278
+      type: {class: Always, ns: TAKACHIYO.CommandSystems.Conditions, asm: Assembly-CSharp}
