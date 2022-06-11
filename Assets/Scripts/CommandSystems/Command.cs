@@ -76,13 +76,13 @@ namespace TAKACHIYO.CommandSystems
             return Observable.Defer(() =>
             {
                 this.InvokeCount++;
+                this.LastInvokeOrder = this.Owner.CommandController.InvokedCount;
 
                 return this.commandInvokeStreams
                     .Concat()
                     .AsSingleUnitObservable()
                     .Do(_ =>
                     {
-                        this.LastInvokeOrder = this.Owner.CommandController.InvokedCount + 1;
                         this.LastTakeDamageCount = this.Owner.StatusController.TakeDamageCount;
                     });
             });
