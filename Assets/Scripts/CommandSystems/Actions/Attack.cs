@@ -1,4 +1,5 @@
 using System;
+using TAKACHIYO.BattleSystems;
 using UniRx;
 using UnityEngine;
 
@@ -18,19 +19,8 @@ namespace TAKACHIYO.CommandSystems.Actions
             {
                 foreach (var target in command.Owner.GetTargets(this.targetType))
                 {
-                    var damage = Mathf.FloorToInt(command.BlueprintHolder.Strength * this.rate);
-                    
-                    // 脱力にかかっている場合はダメージが減る
-                    if (command.Owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Exhaustion))
-                    {
-                        damage = Mathf.FloorToInt(damage * GameDesignParameter.Instance.exhaustionDamageRate);
-                    }
-                    // 怪力にかかっている場合はダメージが増える
-                    if (command.Owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Strong))
-                    {
-                        damage = Mathf.FloorToInt(damage * GameDesignParameter.Instance.strongDamageRate);
-                    }
-                    
+                    var damage = Calcurator.GetDamage(command.Owner, target, command, this.rate);
+
                     target.StatusController.TakeDamage(
                         command.Owner,
                         damage,

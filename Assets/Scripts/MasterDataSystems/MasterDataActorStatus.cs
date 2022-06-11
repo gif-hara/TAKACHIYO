@@ -21,18 +21,34 @@ namespace TAKACHIYO.MasterDataSystems
 
             public int hitPoint;
 
+            public int strength;
+
+            public int defense;
+
+            public int speed;
+
+            public int recoveryPower;
+
             public string Id => this.id;
 
             public Record(
                 string id,
                 string name,
-                int hitPoint
+                int hitPoint,
+                int strength,
+                int defense,
+                int speed,
+                int recoveryPower
                 )
             {
                 this.id = id;
                 this.localizedName = new LocalizedString();
                 this.localizedName.SetReference("Actor", name);
                 this.hitPoint = hitPoint;
+                this.strength = strength;
+                this.defense = defense;
+                this.speed = speed;
+                this.recoveryPower = recoveryPower;
             }
         }
 
@@ -64,10 +80,22 @@ namespace TAKACHIYO.MasterDataSystems
 
             public int HitPoint;
 
+            public int Strength;
+
+            public int Defense;
+
+            public int Speed;
+
+            public int RecoveryPower;
+
             public Record ToRecord() => new Record(
                 this.Id,
                 this.Name,
-                this.HitPoint
+                this.HitPoint,
+                this.Strength,
+                this.Defense,
+                this.Speed,
+                this.RecoveryPower
                 );
         }
 #endif

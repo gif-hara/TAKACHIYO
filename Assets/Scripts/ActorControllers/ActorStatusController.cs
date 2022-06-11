@@ -48,7 +48,7 @@ namespace TAKACHIYO.ActorControllers
 
         public void TakeDamage(Actor attacker, int damage, bool isPublishDamageEvent)
         {
-            this.TakeDamageRaw(damage, false);
+            this.TakeDamageRaw(damage);
             
             if (isPublishDamageEvent)
             {
@@ -57,23 +57,11 @@ namespace TAKACHIYO.ActorControllers
             }
         }
 
-        public void TakeDamageRaw(int damage, bool ignoreAbnormalStatus)
+        public void TakeDamageRaw(int damage)
         {
             if (this.IsDead)
             {
                 return;
-            }
-
-            // 脆弱にかかっていたらダメージが増加する
-            if (!ignoreAbnormalStatus && this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Brittle))
-            {
-                damage = Mathf.FloorToInt(damage * GameDesignParameter.Instance.brittleDamageRate);
-            }
-            
-            // 頑強にかかっていたらダメージが減少する
-            if (!ignoreAbnormalStatus && this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Stubborn))
-            {
-                damage = Mathf.FloorToInt(damage * GameDesignParameter.Instance.stubbornDamageRate);
             }
             
             this.TakeDamageCount++;

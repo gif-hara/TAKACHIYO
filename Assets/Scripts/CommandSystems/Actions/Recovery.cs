@@ -20,7 +20,7 @@ namespace TAKACHIYO.CommandSystems.Actions
                 {
                     var damage = Mathf.FloorToInt(command.BlueprintHolder.RecoveryPower * this.rate);
                     
-                    target.StatusController.TakeDamageRaw(-damage, true);
+                    target.StatusController.TakeDamageRaw(-damage);
                 }
 
                 return Observable.ReturnUnit();
