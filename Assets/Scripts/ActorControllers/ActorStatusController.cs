@@ -70,6 +70,12 @@ namespace TAKACHIYO.ActorControllers
                 damage = Mathf.FloorToInt(damage * GameDesignParameter.Instance.brittleDamageRate);
             }
             
+            // 頑強にかかっていたらダメージが減少する
+            if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Stubborn))
+            {
+                damage = Mathf.FloorToInt(damage * GameDesignParameter.Instance.stubbornDamageRate);
+            }
+            
             this.TakeDamageCount++;
             var result = this.hitPoint.Value;
             result = Mathf.Max(result - damage, 0);

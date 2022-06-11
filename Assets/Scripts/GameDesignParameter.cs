@@ -112,6 +112,18 @@ namespace TAKACHIYO
         /// 怪力によるダメージ増加の割合
         /// </summary>
         public float strongDamageRate;
+        
+        /// <summary>
+        /// 頑強にかかっている時間（秒）
+        /// </summary>
+        public float stubbornTimeSeconds;
+
+        /// <summary>
+        /// 頑強によるダメージ減少の割合
+        /// </summary>
+        [Range(0.0f, 1.0f)]
+        public float stubbornDamageRate;
+        
 
         public static async UniTask LoadAsync()
         {

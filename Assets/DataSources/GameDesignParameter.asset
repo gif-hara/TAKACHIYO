@@ -30,3 +30,5 @@ MonoBehaviour:
   fleetSpeedSpeedRate: 2
   strongTimeSeconds: 5
   strongDamageRate: 1.5
+  stubbornTimeSeconds: 5
+  stubbornDamageRate: 0.5
