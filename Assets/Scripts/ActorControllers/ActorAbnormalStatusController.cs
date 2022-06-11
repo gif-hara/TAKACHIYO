@@ -65,7 +65,9 @@ namespace TAKACHIYO.ActorControllers
                 case Define.AbnormalStatusType.FleetSpeed:
                     return new TimerAbnormalStatus(Define.AbnormalStatusType.FleetSpeed, GameDesignParameter.Instance.fleetSpeedTimeSeconds);
                 case Define.AbnormalStatusType.Strong:
+                    return new TimerAbnormalStatus(Define.AbnormalStatusType.Strong, GameDesignParameter.Instance.strongTimeSeconds);
                 case Define.AbnormalStatusType.Stubborn:
+                case Define.AbnormalStatusType.PhysicalStrength:
                 default:
                     Assert.IsTrue(false, $"{abnormalStatusType}は未対応です");
                     return null;

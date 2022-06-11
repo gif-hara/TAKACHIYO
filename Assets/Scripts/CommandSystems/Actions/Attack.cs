@@ -25,6 +25,11 @@ namespace TAKACHIYO.CommandSystems.Actions
                     {
                         damage = Mathf.FloorToInt(damage * GameDesignParameter.Instance.exhaustionDamageRate);
                     }
+                    // 怪力にかかっている場合はダメージが増える
+                    if (command.Owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Strong))
+                    {
+                        damage = Mathf.FloorToInt(damage * GameDesignParameter.Instance.strongDamageRate);
+                    }
                     
                     target.StatusController.TakeDamage(
                         command.Owner,

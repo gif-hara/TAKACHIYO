@@ -103,6 +103,16 @@ namespace TAKACHIYO
         /// </summary>
         public float fleetSpeedSpeedRate;
         
+        /// <summary>
+        /// 怪力にかかっている時間（秒）
+        /// </summary>
+        public float strongTimeSeconds;
+
+        /// <summary>
+        /// 怪力によるダメージ増加の割合
+        /// </summary>
+        public float strongDamageRate;
+
         public static async UniTask LoadAsync()
         {
             Instance = await AssetLoader.LoadAsync<GameDesignParameter>("Assets/DataSources/GameDesignParameter.asset");
