@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
@@ -7,10 +8,10 @@ namespace TAKACHIYO.CommandSystems.Actions
     /// <summary>
     /// 
     /// </summary>
-    public sealed class Attack : CommandAction
+    public sealed class AddAbnormalStatus : CommandAction
     {
         [SerializeField]
-        private float rate = 1.0f;
+        private List<Define.AbnormalStatusType> abnormalStatusTypes;
         
         public override IObservable<Unit> Invoke(Command command)
         {
@@ -18,11 +19,10 @@ namespace TAKACHIYO.CommandSystems.Actions
             {
                 foreach (var target in command.Owner.GetTargets(this.targetType))
                 {
-                    target.StatusController.TakeDamage(
-                        command.Owner,
-                        Mathf.FloorToInt(command.BlueprintHolder.Strength * this.rate),
-                        true
-                        );
+                    foreach (var abnormalStatusType in this.abnormalStatusTypes)
+                    {
+                        target.AbnormalStatusController.Add(abnormalStatusType);
+                    }
                 }
 
                 return Observable.ReturnUnit();

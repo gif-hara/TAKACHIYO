@@ -46,7 +46,18 @@ namespace TAKACHIYO.ActorControllers
         {
         }
 
-        public void TakeDamage(Actor attacker, int damage)
+        public void TakeDamage(Actor attacker, int damage, bool isPublishDamageEvent)
+        {
+            this.TakeDamageRaw(damage);
+            
+            if (isPublishDamageEvent)
+            {
+                this.owner.Broker.Publish(ActorEvent.TakedDamage.Get(damage));
+                attacker.Broker.Publish(ActorEvent.GivedDamage.Get());
+            }
+        }
+
+        public void TakeDamageRaw(int damage)
         {
             if (this.IsDead)
             {
@@ -56,9 +67,6 @@ namespace TAKACHIYO.ActorControllers
             var result = this.hitPoint.Value;
             result = Mathf.Max(result - damage, 0);
             this.hitPoint.Value = result;
-            
-            this.owner.Broker.Publish(ActorEvent.TakedDamage.Get(damage));
-            attacker.Broker.Publish(ActorEvent.GivedDamage.Get());
         }
     }
 }
