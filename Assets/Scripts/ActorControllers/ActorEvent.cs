@@ -28,5 +28,19 @@ namespace TAKACHIYO.ActorControllers
         public class GivedDamage : Message<GivedDamage>
         {
         }
+
+        /// <summary>
+        /// 状態異常が付与された際のメッセージ
+        /// </summary>
+        public class AddedAbnormalStatus : Message<AddedAbnormalStatus>
+        {
+        }
+
+        /// <summary>
+        /// 状態異常が削除された際のメッセージ
+        /// </summary>
+        public class RemovedAbnormalStatus : Message<RemovedAbnormalStatus>
+        {
+        }
     }
 }

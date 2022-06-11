@@ -50,18 +50,6 @@ namespace TAKACHIYO.ActorControllers
         {
             this.owner = owner;
             this.commandBlueprintSetupData = commandBlueprintSetupData;
-            
-            Observable.Merge(
-                BattleController.Broker.Receive<BattleEvent.StartBattle>().AsUnitObservable(),
-                this.owner.Broker.Receive<ActorEvent.InvokedCommand>().AsUnitObservable(),
-                this.owner.Broker.Receive<ActorEvent.TakedDamage>().AsUnitObservable(),
-                this.owner.Broker.Receive<ActorEvent.GivedDamage>().AsUnitObservable()
-                    )
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
-                .Subscribe(_ =>
-                {
-                    this.TryCastingCommands();
-                });
         }
 
         public void Update(float deltaTime)
@@ -117,6 +105,22 @@ namespace TAKACHIYO.ActorControllers
 
         public async UniTask SetupAsync()
         {
+            Observable.Merge(
+                    BattleController.Broker.Receive<BattleEvent.StartBattle>().AsUnitObservable(),
+                    this.owner.Broker.Receive<ActorEvent.InvokedCommand>().AsUnitObservable(),
+                    this.owner.Broker.Receive<ActorEvent.TakedDamage>().AsUnitObservable(),
+                    this.owner.Broker.Receive<ActorEvent.GivedDamage>().AsUnitObservable(),
+                    this.owner.Broker.Receive<ActorEvent.AddedAbnormalStatus>().AsUnitObservable(),
+                    this.owner.Broker.Receive<ActorEvent.RemovedAbnormalStatus>().AsUnitObservable(),
+                    this.owner.Opponent.Broker.Receive<ActorEvent.AddedAbnormalStatus>().AsUnitObservable(),
+                    this.owner.Opponent.Broker.Receive<ActorEvent.RemovedAbnormalStatus>().AsUnitObservable()
+                    )
+                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .Subscribe(_ =>
+                {
+                    this.TryCastingCommands();
+                });
+
             this.commands = (await UniTask.WhenAll(
                 this.commandBlueprintSetupData
                     .Select(async data =>

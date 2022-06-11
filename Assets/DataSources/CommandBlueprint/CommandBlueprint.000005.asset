@@ -39,5 +39,5 @@ MonoBehaviour:
       data:
         targetType: 1
         abnormalStatusType: 0
-        isContains: 1
+        isContains: 0
         number: 0

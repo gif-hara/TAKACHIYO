@@ -30,6 +30,7 @@ namespace TAKACHIYO.ActorControllers
             var abnormalStatus = CreateAbnormalStatus(abnormalStatusType);
             abnormalStatus.Setup(this.owner);
             this.abnormalStatuses.Add(abnormalStatusType, abnormalStatus);
+            this.owner.Broker.Publish(ActorEvent.AddedAbnormalStatus.Get());
         }
 
         public void Remove(Define.AbnormalStatusType abnormalStatusType)
@@ -37,6 +38,7 @@ namespace TAKACHIYO.ActorControllers
             Assert.IsTrue(this.abnormalStatuses.ContainsKey(abnormalStatusType), $"{abnormalStatusType}は存在しません");
             this.abnormalStatuses[abnormalStatusType].Dispose();
             this.abnormalStatuses.Remove(abnormalStatusType);
+            this.owner.Broker.Publish(ActorEvent.RemovedAbnormalStatus.Get());
         }
 
         public bool Contains(Define.AbnormalStatusType abnormalStatusType)
