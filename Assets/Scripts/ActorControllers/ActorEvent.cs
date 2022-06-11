@@ -52,5 +52,16 @@ namespace TAKACHIYO.ActorControllers
         {
             public PoolableEffect EffectPrefab => this.param1;
         }
+
+        /// <summary>
+        /// 回復した際のメッセージ
+        /// </summary>
+        public class Recoverd : Message<Recoverd, int>
+        {
+            /// <summary>
+            /// 回復量
+            /// </summary>
+            public int Value => this.param1;
+        }
     }
 }

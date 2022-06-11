@@ -2091,15 +2091,18 @@ MonoBehaviour:
     - blueprintId: 000001
       blueprintHolder:
         strength: 10
-    - blueprintId: 000005
+        recoveryPower: 0
+    - blueprintId: 000006
       blueprintHolder:
         strength: 10
+        recoveryPower: 20
   enemySetupData:
     masterDataActorStatusId: 2
     commandBlueprintSetupData:
     - blueprintId: 000001
       blueprintHolder:
         strength: 10
+        recoveryPower: 0
 --- !u!4 &1270532180
 Transform:
   m_ObjectHideFlags: 0

@@ -35,6 +35,10 @@ MonoBehaviour:
     m_Key: Attack005
     m_Metadata:
       m_Items: []
+  - m_Id: 1063792583835648
+    m_Key: Recovery001
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -48,7 +48,7 @@ namespace TAKACHIYO.ActorControllers
 
         public void TakeDamage(Actor attacker, int damage, bool isPublishDamageEvent)
         {
-            this.TakeDamageRaw(damage);
+            this.TakeDamageRaw(damage, false);
             
             if (isPublishDamageEvent)
             {
@@ -57,7 +57,7 @@ namespace TAKACHIYO.ActorControllers
             }
         }
 
-        public void TakeDamageRaw(int damage)
+        public void TakeDamageRaw(int damage, bool ignoreAbnormalStatus)
         {
             if (this.IsDead)
             {
@@ -65,13 +65,13 @@ namespace TAKACHIYO.ActorControllers
             }
 
             // 脆弱にかかっていたらダメージが増加する
-            if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Brittle))
+            if (!ignoreAbnormalStatus && this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Brittle))
             {
                 damage = Mathf.FloorToInt(damage * GameDesignParameter.Instance.brittleDamageRate);
             }
             
             // 頑強にかかっていたらダメージが減少する
-            if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Stubborn))
+            if (!ignoreAbnormalStatus && this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Stubborn))
             {
                 damage = Mathf.FloorToInt(damage * GameDesignParameter.Instance.stubbornDamageRate);
             }
@@ -80,6 +80,11 @@ namespace TAKACHIYO.ActorControllers
             var result = this.hitPoint.Value;
             result = Mathf.Max(result - damage, 0);
             this.hitPoint.Value = result;
+
+            if (damage < 0)
+            {
+                this.owner.Broker.Publish(ActorEvent.Recoverd.Get(-damage));
+            }
         }
 
         public void AddHitPointMax(int value)

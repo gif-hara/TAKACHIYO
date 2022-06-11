@@ -20,7 +20,7 @@ namespace TAKACHIYO.ActorControllers.AbnormalStatuses
                 .Subscribe(_ =>
                 {
                     var damage = Mathf.FloorToInt((owner.StatusController.HitPointMax.Value * parameter.healingDamageRate) / parameter.healingDamageCount);
-                    owner.StatusController.TakeDamageRaw(-damage);
+                    owner.StatusController.TakeDamageRaw(-damage, true);
                 }, () =>
                 {
                     owner.AbnormalStatusController.Remove(Define.AbnormalStatusType.Healing);
