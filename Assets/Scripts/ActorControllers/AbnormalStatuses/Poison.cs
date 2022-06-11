@@ -6,7 +6,7 @@ using UnityEngine;
 namespace TAKACHIYO.ActorControllers.AbnormalStatuses
 {
     /// <summary>
-    /// 
+    /// 毒を制御するクラス
     /// </summary>
     public sealed class Poison : AbnormalStatus
     {

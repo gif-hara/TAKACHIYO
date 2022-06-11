@@ -26,6 +26,7 @@ MonoBehaviour:
     rid: 4657355548082569224
   actions:
   - rid: 4657355548082569222
+  - rid: 4657355583943606275
   references:
     version: 2
     RefIds:
@@ -36,3 +37,8 @@ MonoBehaviour:
         rate: 1
     - rid: 4657355548082569224
       type: {class: Always, ns: TAKACHIYO.CommandSystems.Conditions, asm: Assembly-CSharp}
+    - rid: 4657355583943606275
+      type: {class: AddAbnormalStatus, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        abnormalStatusTypes: 01000000

@@ -66,6 +66,12 @@ namespace TAKACHIYO.ActorControllers
 
         public void Update(float deltaTime)
         {
+            // 麻痺の場合は詠唱時間が増える
+            if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Paralysis))
+            {
+                deltaTime *= GameDesignParameter.Instance.ParalysisDelayRate;
+            }
+            
             this.castedCommands.Clear();
             foreach (var castingCommand in this.castingCommands)
             {

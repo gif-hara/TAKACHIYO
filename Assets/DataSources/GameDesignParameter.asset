@@ -15,3 +15,5 @@ MonoBehaviour:
   poisonDamageRate: 0.2
   poisonDamageSeconds: 5
   poisonDamageCount: 5
+  paralysisTimeSeconds: 5
+  paralysisDelayRate: 0.5

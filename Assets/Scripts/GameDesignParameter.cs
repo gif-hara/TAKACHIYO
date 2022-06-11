@@ -21,6 +21,12 @@ namespace TAKACHIYO
 
         [SerializeField]
         private int poisonDamageCount;
+
+        [SerializeField]
+        private float paralysisTimeSeconds;
+
+        [SerializeField, Range(0.0f, 1.0f)]
+        private float paralysisDelayRate;
         
         /// <summary>
         /// 毒ダメージの割合
@@ -39,6 +45,16 @@ namespace TAKACHIYO
         /// 毒ダメージを与える回数
         /// </summary>
         public int PoisonDamageCount => this.poisonDamageCount;
+
+        /// <summary>
+        /// 麻痺にかかっている時間（秒）
+        /// </summary>
+        public float ParalysisTimeSeconds => this.paralysisTimeSeconds;
+
+        /// <summary>
+        /// 麻痺による詠唱時間の減少割合
+        /// </summary>
+        public float ParalysisDelayRate => this.paralysisDelayRate;
 
         public static async UniTask LoadAsync()
         {

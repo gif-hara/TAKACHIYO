@@ -39,14 +39,19 @@ namespace TAKACHIYO.ActorControllers
             this.abnormalStatuses.Remove(abnormalStatusType);
         }
 
+        public bool Contains(Define.AbnormalStatusType abnormalStatusType)
+        {
+            return this.abnormalStatuses.ContainsKey(abnormalStatusType);
+        }
+
         private static IAbnormalStatus CreateAbnormalStatus(Define.AbnormalStatusType abnormalStatusType)
         {
             switch (abnormalStatusType)
             {
-
                 case Define.AbnormalStatusType.Poison:
                     return new Poison();
                 case Define.AbnormalStatusType.Paralysis:
+                    return new TimerAbnormalStatus(Define.AbnormalStatusType.Paralysis, GameDesignParameter.Instance.ParalysisTimeSeconds);
                 case Define.AbnormalStatusType.Sleep:
                 case Define.AbnormalStatusType.Exhaustion:
                 case Define.AbnormalStatusType.Brittle:

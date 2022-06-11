@@ -8,8 +8,10 @@ namespace TAKACHIYO.ActorControllers.AbnormalStatuses
     public abstract class AbnormalStatus : IAbnormalStatus
     {
         protected readonly CompositeDisposable disposable = new CompositeDisposable();
-        
-        public abstract void Setup(Actor owner);
+
+        public virtual void Setup(Actor owner)
+        {
+        }
         
         public void Dispose()
         {
