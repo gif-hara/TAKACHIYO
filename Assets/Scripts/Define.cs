@@ -105,6 +105,12 @@ namespace TAKACHIYO
             /// 一定時間受けるダメージが減る
             /// </summary>
             Stubborn,
+            
+            /// <summary>
+            /// 体力増強
+            /// 一定時間HPが増える
+            /// </summary>
+            PhysicalStrength,
         }
     }
 }

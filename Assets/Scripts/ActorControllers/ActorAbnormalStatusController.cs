@@ -57,6 +57,7 @@ namespace TAKACHIYO.ActorControllers
                 case Define.AbnormalStatusType.Exhaustion:
                     return new TimerAbnormalStatus(Define.AbnormalStatusType.Exhaustion, GameDesignParameter.Instance.exhaustionTimeSeconds);
                 case Define.AbnormalStatusType.Brittle:
+                    return new TimerAbnormalStatus(Define.AbnormalStatusType.Brittle, GameDesignParameter.Instance.brittleTimeSeconds);
                 case Define.AbnormalStatusType.Trip:
                 case Define.AbnormalStatusType.Healing:
                 case Define.AbnormalStatusType.FleetSpeed:

@@ -58,6 +58,16 @@ namespace TAKACHIYO
         /// </summary>
         [Range(0.0f, 1.0f)]
         public float exhaustionDamageRate;
+
+        /// <summary>
+        /// 脆弱にかかっている時間（秒）
+        /// </summary>
+        public float brittleTimeSeconds;
+
+        /// <summary>
+        /// 脆弱によるダメージ増加の割合
+        /// </summary>
+        public float brittleDamageRate;
         
         public static async UniTask LoadAsync()
         {

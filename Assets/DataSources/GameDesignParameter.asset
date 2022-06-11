@@ -20,3 +20,5 @@ MonoBehaviour:
   sleepTimeSeconds: 3
   exhaustionTimeSeconds: 10
   exhaustionDamageRate: 0.5
+  brittleTimeSeconds: 10
+  brittleDamageRate: 2

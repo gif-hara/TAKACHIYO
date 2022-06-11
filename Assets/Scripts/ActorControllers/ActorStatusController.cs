@@ -63,6 +63,13 @@ namespace TAKACHIYO.ActorControllers
             {
                 return;
             }
+
+            // 脆弱にかかっていたらダメージが増加する
+            if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Brittle))
+            {
+                damage = Mathf.FloorToInt(damage * GameDesignParameter.Instance.brittleDamageRate);
+            }
+            
             this.TakeDamageCount++;
             var result = this.hitPoint.Value;
             result = Mathf.Max(result - damage, 0);
