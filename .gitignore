@@ -61,3 +61,5 @@ crashlytics-build.properties
 UserSettings*
 
 .idea*
+bearer.txt
+masterdata_sheet_url.txt
