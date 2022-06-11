@@ -1970,7 +1970,7 @@ MonoBehaviour:
     - blueprintId: 000001
       blueprintHolder:
         strength: 10
-    - blueprintId: 000004
+    - blueprintId: 000005
       blueprintHolder:
         strength: 10
   enemySetupData:

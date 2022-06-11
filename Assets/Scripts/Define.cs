@@ -112,5 +112,11 @@ namespace TAKACHIYO
             /// </summary>
             PhysicalStrength,
         }
+
+        public enum EqualType
+        {
+            Equal,
+            NotEqual,
+        }
     }
 }
