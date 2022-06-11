@@ -23,3 +23,6 @@ MonoBehaviour:
   brittleTimeSeconds: 10
   brittleDamageRate: 2
   tripTimeSeconds: 5
+  healingDamageRate: 0.2
+  healingDamageSeconds: 5
+  healingDamageCount: 5

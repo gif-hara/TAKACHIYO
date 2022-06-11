@@ -74,6 +74,25 @@ namespace TAKACHIYO
         /// </summary>
         public float tripTimeSeconds;
         
+        /// <summary>
+        /// 癒しダメージの割合
+        /// </summary>
+        /// <remarks>
+        /// <c>0.25</c>にした場合1/4の割合ダメージを与えます
+        /// </remarks>
+        [Range(0.0f, 1.0f)]
+        public float healingDamageRate;
+
+        /// <summary>
+        /// 癒しダメージを与える秒数
+        /// </summary>
+        public float healingDamageSeconds;
+
+        /// <summary>
+        /// 癒しダメージを与える回数
+        /// </summary>
+        public int healingDamageCount;
+
         public static async UniTask LoadAsync()
         {
             Instance = await AssetLoader.LoadAsync<GameDesignParameter>("Assets/DataSources/GameDesignParameter.asset");

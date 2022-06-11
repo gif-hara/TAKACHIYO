@@ -61,6 +61,7 @@ namespace TAKACHIYO.ActorControllers
                 case Define.AbnormalStatusType.Trip:
                     return new Trip();
                 case Define.AbnormalStatusType.Healing:
+                    return new Healing();
                 case Define.AbnormalStatusType.FleetSpeed:
                 case Define.AbnormalStatusType.Strong:
                 case Define.AbnormalStatusType.Stubborn:
