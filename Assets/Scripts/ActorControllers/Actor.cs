@@ -12,6 +12,8 @@ namespace TAKACHIYO.ActorControllers
         public ActorStatusController StatusController { get; }
         
         public ActorCommandController CommandController { get; }
+        
+        public ActorAbnormalStatusController AbnormalStatusController { get; }
 
         private readonly MessageBroker broker = new MessageBroker();
 
@@ -26,6 +28,7 @@ namespace TAKACHIYO.ActorControllers
         {
             this.StatusController = new ActorStatusController(this, setupData.MasterDataActorStatusId);
             this.CommandController = new ActorCommandController(this, setupData.CommandBlueprintSetupData);
+            this.AbnormalStatusController = new ActorAbnormalStatusController(this);
         }
 
         public UniTask SetupAsync(Actor opponent)

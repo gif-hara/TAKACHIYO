@@ -21,8 +21,8 @@ MonoBehaviour:
     m_Address: Assets/MasterData
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: e430617807f75664eb13d8220c577cde
-    m_Address: Assets/DataSources/CommandBlueprint
+  - m_GUID: 3fa558c7dd4de4e4cb5f9588a85cabdf
+    m_Address: Assets/DataSources
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
