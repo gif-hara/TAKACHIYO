@@ -19,7 +19,7 @@ namespace TAKACHIYO.CommandSystems.Actions
             {
                 foreach (var target in command.Owner.GetTargets(this.targetType))
                 {
-                    var damage = Calcurator.GetDamage(command.Owner, target, command, this.rate);
+                    var damage = Calcurator.GetAttackDamage(command.Owner, target, command, this.rate);
 
                     target.StatusController.TakeDamage(
                         command.Owner,

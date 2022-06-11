@@ -9,7 +9,10 @@ namespace TAKACHIYO.BattleSystems
     /// </summary>
     public static class Calcurator
     {
-        public static int GetDamage(Actor attacker, Actor defenser, Command command, float rate)
+        /// <summary>
+        /// 攻撃した際のダメージ量を返す
+        /// </summary>
+        public static int GetAttackDamage(Actor attacker, Actor defenser, Command command, float rate)
         {
             var strength = attacker.StatusController.BaseStatus.strength + command.BlueprintHolder.Strength;
             var defense = 20 + defenser.StatusController.BaseStatus.defense;
