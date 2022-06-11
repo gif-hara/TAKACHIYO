@@ -66,16 +66,21 @@ namespace TAKACHIYO.ActorControllers
 
         public void Update(float deltaTime)
         {
+            // 睡眠の場合は詠唱出来ない
+            if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Sleep))
+            {
+                deltaTime = 0.0f;
+            }
+            
             // 麻痺の場合は詠唱時間が増える
             if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Paralysis))
             {
                 deltaTime *= GameDesignParameter.Instance.paralysisDelayRate;
             }
-            
-            // 睡眠の場合は詠唱出来ない
-            if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Sleep))
+
+            if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.FleetSpeed))
             {
-                deltaTime = 0.0f;
+                deltaTime *= GameDesignParameter.Instance.fleetSpeedSpeedRate;
             }
             
             this.castedCommands.Clear();

@@ -92,7 +92,17 @@ namespace TAKACHIYO
         /// 癒しダメージを与える回数
         /// </summary>
         public int healingDamageCount;
+        
+        /// <summary>
+        /// 俊足にかかっている時間（秒）
+        /// </summary>
+        public float fleetSpeedTimeSeconds;
 
+        /// <summary>
+        /// 俊足による詠唱時間増加の割合
+        /// </summary>
+        public float fleetSpeedSpeedRate;
+        
         public static async UniTask LoadAsync()
         {
             Instance = await AssetLoader.LoadAsync<GameDesignParameter>("Assets/DataSources/GameDesignParameter.asset");

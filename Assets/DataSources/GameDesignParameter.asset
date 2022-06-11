@@ -26,3 +26,5 @@ MonoBehaviour:
   healingDamageRate: 0.2
   healingDamageSeconds: 5
   healingDamageCount: 5
+  fleetSpeedTimeSeconds: 5
+  fleetSpeedSpeedRate: 2

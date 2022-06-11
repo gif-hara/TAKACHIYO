@@ -63,6 +63,7 @@ namespace TAKACHIYO.ActorControllers
                 case Define.AbnormalStatusType.Healing:
                     return new Healing();
                 case Define.AbnormalStatusType.FleetSpeed:
+                    return new TimerAbnormalStatus(Define.AbnormalStatusType.FleetSpeed, GameDesignParameter.Instance.fleetSpeedTimeSeconds);
                 case Define.AbnormalStatusType.Strong:
                 case Define.AbnormalStatusType.Stubborn:
                 default:
