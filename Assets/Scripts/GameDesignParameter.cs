@@ -123,8 +123,17 @@ namespace TAKACHIYO
         /// </summary>
         [Range(0.0f, 1.0f)]
         public float stubbornDamageRate;
-        
 
+        /// <summary>
+        /// 体力増強にかかっている時間（秒）
+        /// </summary>
+        public float physicalStrengthTimeSeconds;
+
+        /// <summary>
+        /// 体力増強によるHP増加の割合
+        /// </summary>
+        public float physicalStrengthHitPointUpRate;
+        
         public static async UniTask LoadAsync()
         {
             Instance = await AssetLoader.LoadAsync<GameDesignParameter>("Assets/DataSources/GameDesignParameter.asset");

@@ -12,13 +12,13 @@ namespace TAKACHIYO.ActorControllers
     {
         private Actor owner;
         
-        private readonly MasterDataActorStatus.Record baseStatus;
+        public readonly MasterDataActorStatus.Record BaseStatus;
 
         private readonly ReactiveProperty<int> hitPointMax;
 
         private readonly ReactiveProperty<int> hitPoint;
 
-        public string LocalizedName => this.baseStatus.localizedName.GetLocalizedString();
+        public string LocalizedName => this.BaseStatus.localizedName.GetLocalizedString();
 
         public IReadOnlyReactiveProperty<int> HitPointMax => this.hitPointMax;
         
@@ -36,9 +36,9 @@ namespace TAKACHIYO.ActorControllers
         public ActorStatusController(Actor owner, MasterDataActorStatus.Record masterDataActorStatus)
         {
             this.owner = owner;
-            this.baseStatus = masterDataActorStatus;
-            this.hitPointMax = new ReactiveProperty<int>(this.baseStatus.hitPoint);
-            this.hitPoint = new ReactiveProperty<int>(this.baseStatus.hitPoint);
+            this.BaseStatus = masterDataActorStatus;
+            this.hitPointMax = new ReactiveProperty<int>(this.BaseStatus.hitPoint);
+            this.hitPoint = new ReactiveProperty<int>(this.BaseStatus.hitPoint);
         }
 
         public ActorStatusController(Actor owner, string masterDataActorStatusId)
@@ -80,6 +80,11 @@ namespace TAKACHIYO.ActorControllers
             var result = this.hitPoint.Value;
             result = Mathf.Max(result - damage, 0);
             this.hitPoint.Value = result;
+        }
+
+        public void AddHitPointMax(int value)
+        {
+            this.hitPointMax.Value += value;
         }
     }
 }

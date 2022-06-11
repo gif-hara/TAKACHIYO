@@ -69,6 +69,7 @@ namespace TAKACHIYO.ActorControllers
                 case Define.AbnormalStatusType.Stubborn:
                     return new TimerAbnormalStatus(Define.AbnormalStatusType.Stubborn, GameDesignParameter.Instance.stubbornTimeSeconds);
                 case Define.AbnormalStatusType.PhysicalStrength:
+                    return new PhysicalStrength();
                 default:
                     Assert.IsTrue(false, $"{abnormalStatusType}は未対応です");
                     return null;

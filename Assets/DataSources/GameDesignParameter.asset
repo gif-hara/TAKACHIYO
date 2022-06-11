@@ -32,3 +32,5 @@ MonoBehaviour:
   strongDamageRate: 1.5
   stubbornTimeSeconds: 5
   stubbornDamageRate: 0.5
+  physicalStrengthTimeSeconds: 30
+  physicalStrengthHitPointUpRate: 0.5
