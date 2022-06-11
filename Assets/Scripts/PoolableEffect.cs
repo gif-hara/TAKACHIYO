@@ -14,7 +14,7 @@ namespace TAKACHIYO
         [SerializeField]
         private float delaySeconds;
 
-        private static ObjectPoolBundle<PoolableEffect> poolBundle;
+        private static readonly ObjectPoolBundle<PoolableEffect> poolBundle = new();
 
         public PoolableEffect Rent()
         {

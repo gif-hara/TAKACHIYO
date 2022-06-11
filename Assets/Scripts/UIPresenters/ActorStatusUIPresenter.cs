@@ -40,7 +40,10 @@ namespace TAKACHIYO
         [SerializeField]
         private CommandUIPresenter commandUIPresenter;
 
-        private Dictionary<Command, CommandUIPresenter> commandUIPresenters = new();
+        [SerializeField]
+        private Transform effectParent;
+
+        private readonly Dictionary<Command, CommandUIPresenter> commandUIPresenters = new();
 
         private void Start()
         {
@@ -88,6 +91,16 @@ namespace TAKACHIYO
                     var commandUIPresenter = this.commandUIPresenters[x.Value];
                     Destroy(commandUIPresenter.gameObject);
                     this.commandUIPresenters.Remove(x.Value);
+                });
+
+            actor.Broker.Receive<ActorEvent.RequestInstantiateEffect>()
+                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .Subscribe(x =>
+                {
+                    var effect = x.EffectPrefab.Rent();
+                    var t = effect.transform;
+                    t.SetParent(this.effectParent, false);
+                    t.localPosition = Vector3.zero;
                 });
         }
     }

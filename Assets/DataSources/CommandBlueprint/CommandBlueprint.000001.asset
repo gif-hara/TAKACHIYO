@@ -25,7 +25,10 @@ MonoBehaviour:
   condition:
     rid: 4657355583943606278
   actions:
+  - rid: 4657355583943606279
+  - rid: 4657355583943606280
   - rid: 4657355548082569222
+  - rid: 4657355583943606281
   references:
     version: 2
     RefIds:
@@ -36,3 +39,18 @@ MonoBehaviour:
         rate: 1
     - rid: 4657355583943606278
       type: {class: Always, ns: TAKACHIYO.CommandSystems.Conditions, asm: Assembly-CSharp}
+    - rid: 4657355583943606279
+      type: {class: InstantiateEffect, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        effectPrefab: {fileID: 1645127788450541223, guid: 5d5089d7f78332e4da0df3895e3bd0e0, type: 3}
+    - rid: 4657355583943606280
+      type: {class: Timer, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
+      data:
+        targetType: 0
+        delaySeconds: 0.1
+    - rid: 4657355583943606281
+      type: {class: Timer, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
+      data:
+        targetType: 0
+        delaySeconds: 1

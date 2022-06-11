@@ -42,5 +42,13 @@ namespace TAKACHIYO.ActorControllers
         public class RemovedAbnormalStatus : Message<RemovedAbnormalStatus>
         {
         }
+
+        /// <summary>
+        /// エフェクトの生成をリクエストするメッセージ
+        /// </summary>
+        public class RequestInstantiateEffect : Message<RequestInstantiateEffect, PoolableEffect>
+        {
+            public PoolableEffect EffectPrefab => this.param1;
+        }
     }
 }
