@@ -72,6 +72,12 @@ namespace TAKACHIYO.ActorControllers
                 deltaTime *= GameDesignParameter.Instance.ParalysisDelayRate;
             }
             
+            // 睡眠の場合は詠唱出来ない
+            if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Sleep))
+            {
+                deltaTime = 0.0f;
+            }
+            
             this.castedCommands.Clear();
             foreach (var castingCommand in this.castingCommands)
             {

@@ -27,6 +27,9 @@ namespace TAKACHIYO
 
         [SerializeField, Range(0.0f, 1.0f)]
         private float paralysisDelayRate;
+
+        [SerializeField]
+        private float sleepTimeSeconds;
         
         /// <summary>
         /// 毒ダメージの割合
@@ -55,6 +58,11 @@ namespace TAKACHIYO
         /// 麻痺による詠唱時間の減少割合
         /// </summary>
         public float ParalysisDelayRate => this.paralysisDelayRate;
+
+        /// <summary>
+        /// 睡眠にかかっている時間（秒）
+        /// </summary>
+        public float SleepTimeSeconds => this.sleepTimeSeconds;
 
         public static async UniTask LoadAsync()
         {

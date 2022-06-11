@@ -53,6 +53,7 @@ namespace TAKACHIYO.ActorControllers
                 case Define.AbnormalStatusType.Paralysis:
                     return new TimerAbnormalStatus(Define.AbnormalStatusType.Paralysis, GameDesignParameter.Instance.ParalysisTimeSeconds);
                 case Define.AbnormalStatusType.Sleep:
+                    return new TimerAbnormalStatus(Define.AbnormalStatusType.Sleep, GameDesignParameter.Instance.SleepTimeSeconds);
                 case Define.AbnormalStatusType.Exhaustion:
                 case Define.AbnormalStatusType.Brittle:
                 case Define.AbnormalStatusType.Trip:
