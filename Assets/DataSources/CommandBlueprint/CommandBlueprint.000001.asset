@@ -23,11 +23,12 @@ MonoBehaviour:
     m_LocalVariables: []
   castTime: 3
   condition:
-    rid: 4657355583943606278
+    rid: 4657355583943606284
   actions:
   - rid: 4657355583943606279
   - rid: 4657355583943606280
   - rid: 4657355548082569222
+  - rid: 4657355583943606286
   - rid: 4657355583943606281
   references:
     version: 2
@@ -37,8 +38,6 @@ MonoBehaviour:
       data:
         targetType: 1
         rate: 1
-    - rid: 4657355583943606278
-      type: {class: Always, ns: TAKACHIYO.CommandSystems.Conditions, asm: Assembly-CSharp}
     - rid: 4657355583943606279
       type: {class: InstantiateEffect, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
       data:
@@ -54,3 +53,12 @@ MonoBehaviour:
       data:
         targetType: 0
         delaySeconds: 1
+    - rid: 4657355583943606284
+      type: {class: InvokeCommandCount, ns: TAKACHIYO.CommandSystems.Conditions, asm: Assembly-CSharp}
+      data:
+        number: 0
+    - rid: 4657355583943606286
+      type: {class: AddAbnormalStatus, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        abnormalStatusTypes: 00000000

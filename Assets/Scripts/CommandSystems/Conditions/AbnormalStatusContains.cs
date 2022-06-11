@@ -1,3 +1,7 @@
+using System;
+using TAKACHIYO.ActorControllers;
+using TAKACHIYO.BattleSystems;
+using UniRx;
 using UnityEngine;
 
 namespace TAKACHIYO.CommandSystems.Conditions
@@ -26,6 +30,21 @@ namespace TAKACHIYO.CommandSystems.Conditions
         /// </summary>
         [SerializeField]
         private int number;
+
+        public override IObservable<Unit> TryCastAsObservable(Actor owner)
+        {
+            return Observable.Defer(() =>
+            {
+                var target = owner.GetTarget(this.targetType);
+
+                return Observable.Merge(
+                    BattleController.Broker.Receive<BattleEvent.StartBattle>().AsUnitObservable(),
+                    owner.Broker.Receive<ActorEvent.InvokedCommand>().AsUnitObservable(),
+                    target.Broker.Receive<ActorEvent.AddedAbnormalStatus>().AsUnitObservable(),
+                    target.Broker.Receive<ActorEvent.RemovedAbnormalStatus>().AsUnitObservable()
+                    );
+            });
+        }
         
         public override bool Evaluate(Command command)
         {

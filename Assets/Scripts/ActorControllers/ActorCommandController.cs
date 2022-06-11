@@ -105,22 +105,6 @@ namespace TAKACHIYO.ActorControllers
 
         public async UniTask SetupAsync()
         {
-            Observable.Merge(
-                    BattleController.Broker.Receive<BattleEvent.StartBattle>().AsUnitObservable(),
-                    this.owner.Broker.Receive<ActorEvent.InvokedCommand>().AsUnitObservable(),
-                    this.owner.Broker.Receive<ActorEvent.TakedDamage>().AsUnitObservable(),
-                    this.owner.Broker.Receive<ActorEvent.GivedDamage>().AsUnitObservable(),
-                    this.owner.Broker.Receive<ActorEvent.AddedAbnormalStatus>().AsUnitObservable(),
-                    this.owner.Broker.Receive<ActorEvent.RemovedAbnormalStatus>().AsUnitObservable(),
-                    this.owner.Opponent.Broker.Receive<ActorEvent.AddedAbnormalStatus>().AsUnitObservable(),
-                    this.owner.Opponent.Broker.Receive<ActorEvent.RemovedAbnormalStatus>().AsUnitObservable()
-                    )
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
-                .Subscribe(_ =>
-                {
-                    this.TryCastingCommands();
-                });
-
             this.commands = (await UniTask.WhenAll(
                 this.commandBlueprintSetupData
                     .Select(async data =>
@@ -130,27 +114,12 @@ namespace TAKACHIYO.ActorControllers
                     })
                 )).ToList();
         }
-        
-        /// <summary>
-        /// 待機中のコマンドが詠唱できる場合は詠唱を開始する
-        /// </summary>
-        private void TryCastingCommands()
-        {
-            this.enterCastingCommands.Clear();
-            foreach (var command in this.commands)
-            {
-                if (command.CanCasting)
-                {
-                    this.enterCastingCommands.Add(command);
-                }
-            }
 
-            foreach (var command in this.enterCastingCommands)
-            {
-                command.Reset();
-                this.commands.Remove(command);
-                this.castingCommands.Add(command);
-            }
+        public void AddCastingCommand(Command command)
+        {
+            command.Reset();
+            this.commands.Remove(command);
+            this.castingCommands.Add(command);
         }
     }
 }

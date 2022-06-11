@@ -1,3 +1,7 @@
+using System;
+using TAKACHIYO.ActorControllers;
+using UniRx;
+
 namespace TAKACHIYO.CommandSystems.Conditions
 {
     /// <summary>
@@ -5,6 +9,8 @@ namespace TAKACHIYO.CommandSystems.Conditions
     /// </summary>
     public abstract class CommandCondition : ICommandCondition
     {
+        public abstract IObservable<Unit> TryCastAsObservable(Actor owner);
+        
         public abstract bool Evaluate(Command command);
     }
 }

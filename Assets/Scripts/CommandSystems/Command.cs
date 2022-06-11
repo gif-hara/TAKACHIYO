@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TAKACHIYO.ActorControllers;
+using TAKACHIYO.BattleSystems;
 using UniRx;
 using UnityEngine;
 
@@ -49,6 +50,11 @@ namespace TAKACHIYO.CommandSystems
         /// 実行した回数
         /// </summary>
         public int InvokedCount { get; private set; }
+        
+        /// <summary>
+        /// 詠唱中か返す
+        /// </summary>
+        public bool IsCasting { get; set; }
 
         public Command(CommandBlueprint blueprint, ICommandBlueprintHolder blueprintHolder, Actor owner)
         {
@@ -57,8 +63,20 @@ namespace TAKACHIYO.CommandSystems
             this.Owner = owner;
             this.currentCastTime = new ReactiveProperty<float>();
             this.commandInvokeStreams = this.blueprint.Actions.Select(x => x.Invoke(this)).ToList();
+            this.blueprint.Condition.TryCastAsObservable(this.Owner)
+                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .Subscribe(_ =>
+                {
+                    if (this.IsCasting || !this.blueprint.Condition.Evaluate(this))
+                    {
+                        return;
+                    }
+                    
+                    this.IsCasting = true;
+                    this.Owner.CommandController.AddCastingCommand(this);
+                });
         }
-
+        
         public void Reset()
         {
             this.currentCastTime.Value = 0.0f;
@@ -77,6 +95,7 @@ namespace TAKACHIYO.CommandSystems
             {
                 this.InvokedCount++;
                 this.LastInvokedOrder = this.Owner.CommandController.TotalInvokedCount;
+                this.IsCasting = false;
 
                 return this.commandInvokeStreams
                     .Concat()

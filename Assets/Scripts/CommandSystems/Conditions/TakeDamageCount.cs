@@ -1,4 +1,6 @@
+using System;
 using TAKACHIYO.ActorControllers;
+using UniRx;
 using UnityEngine;
 
 namespace TAKACHIYO.CommandSystems.Conditions
@@ -10,6 +12,14 @@ namespace TAKACHIYO.CommandSystems.Conditions
     {
         [SerializeField]
         private int number = 1;
+
+        public override IObservable<Unit> TryCastAsObservable(Actor owner)
+        {
+            return Observable.Defer(() =>
+            {
+                return owner.Broker.Receive<ActorEvent.TakedDamage>().AsUnitObservable();
+            });
+        }
         
         public override bool Evaluate(Command command)
         {

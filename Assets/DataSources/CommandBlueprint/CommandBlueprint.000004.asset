@@ -39,5 +39,5 @@ MonoBehaviour:
       data:
         targetType: 0
         compareType: 1
-        rate: 0.9
+        rate: 0.7
         number: 1
