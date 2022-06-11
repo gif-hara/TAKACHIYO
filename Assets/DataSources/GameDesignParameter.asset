@@ -22,3 +22,4 @@ MonoBehaviour:
   exhaustionDamageRate: 0.5
   brittleTimeSeconds: 10
   brittleDamageRate: 2
+  tripTimeSeconds: 5

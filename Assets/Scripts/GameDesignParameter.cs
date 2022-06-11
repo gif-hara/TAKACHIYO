@@ -68,6 +68,11 @@ namespace TAKACHIYO
         /// 脆弱によるダメージ増加の割合
         /// </summary>
         public float brittleDamageRate;
+
+        /// <summary>
+        /// 躓きにかかっている時間（秒）
+        /// </summary>
+        public float tripTimeSeconds;
         
         public static async UniTask LoadAsync()
         {
