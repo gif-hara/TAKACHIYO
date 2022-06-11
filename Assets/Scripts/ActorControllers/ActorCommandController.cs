@@ -88,11 +88,11 @@ namespace TAKACHIYO.ActorControllers
                 {
                     this.commands.Add(castedCommand);
                     this.castingCommands.Remove(castedCommand);
+                    this.InvokedCount++;
                     streams.Add(
                         castedCommand.Invoke()
                             .Do(_ =>
                             {
-                                this.InvokedCount++;
                                 this.owner.Broker.Publish(ActorEvent.InvokedCommand.Get());
                             })
                         );
