@@ -29,6 +29,21 @@ namespace TAKACHIYO.MasterDataSystems
 
             public int recoveryPower;
 
+            public Define.AttributeType attributeType1;
+
+            public Define.AttributeType attributeType2;
+
+            public Define.AttributeType attributeType3;
+
+            private List<Define.AttributeType> _attributeTypes = null;
+
+            public List<Define.AttributeType> attributeTypes => this._attributeTypes ??= new List<Define.AttributeType>
+            {
+                attributeType1,
+                attributeType2,
+                attributeType3,
+            };
+
             public string Id => this.id;
 
             public Record(
@@ -38,7 +53,10 @@ namespace TAKACHIYO.MasterDataSystems
                 int strength,
                 int defense,
                 int speed,
-                int recoveryPower
+                int recoveryPower,
+                Define.AttributeType attributeType1,
+                Define.AttributeType attributeType2,
+                Define.AttributeType attributeType3
                 )
             {
                 this.id = id;
@@ -49,6 +67,9 @@ namespace TAKACHIYO.MasterDataSystems
                 this.defense = defense;
                 this.speed = speed;
                 this.recoveryPower = recoveryPower;
+                this.attributeType1 = attributeType1;
+                this.attributeType2 = attributeType2;
+                this.attributeType3 = attributeType3;
             }
         }
 
@@ -88,6 +109,12 @@ namespace TAKACHIYO.MasterDataSystems
 
             public int RecoveryPower;
 
+            public string AttributeType1;
+            
+            public string AttributeType2;
+
+            public string AttributeType3;
+
             public Record ToRecord() => new Record(
                 this.Id,
                 this.Name,
@@ -95,7 +122,10 @@ namespace TAKACHIYO.MasterDataSystems
                 this.Strength,
                 this.Defense,
                 this.Speed,
-                this.RecoveryPower
+                this.RecoveryPower,
+                Define.ConvertToAttributeType(this.AttributeType1),
+                Define.ConvertToAttributeType(this.AttributeType2),
+                Define.ConvertToAttributeType(this.AttributeType3)
                 );
         }
 #endif
