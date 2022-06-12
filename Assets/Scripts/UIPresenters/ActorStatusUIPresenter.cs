@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BattleSystems;
@@ -6,14 +5,13 @@ using TAKACHIYO.CommandSystems;
 using TAKACHIYO.UIViews;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.UI;
 using UniRx;
 
 namespace TAKACHIYO
 {
     /// <summary>
-    /// 
+    /// <see cref="Actor"/>の状態を表すプレゼンター
     /// </summary>
     public sealed class ActorStatusUIPresenter : MonoBehaviour
     {
@@ -65,6 +63,9 @@ namespace TAKACHIYO
                 });
         }
 
+        /// <summary>
+        /// 利用可能な状態にする
+        /// </summary>
         private void Setup(Actor actor)
         {
             this.actorName.text = actor.StatusController.LocalizedName;
@@ -82,6 +83,7 @@ namespace TAKACHIYO
                         );
                 });
 
+            // コマンドの詠唱が開始されたらUIに追加する
             actor.CommandController.CastingCommands
                 .ObserveAdd()
                 .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
@@ -92,6 +94,7 @@ namespace TAKACHIYO
                     this.commandUIPresenters.Add(x.Value, commandUIPresenter);
                 });
 
+            // コマンドの詠唱が終了したらUIも削除する
             actor.CommandController.CastingCommands
                 .ObserveRemove()
                 .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())

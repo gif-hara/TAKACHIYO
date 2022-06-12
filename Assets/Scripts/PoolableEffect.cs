@@ -2,7 +2,6 @@ using System;
 using HK.Framework;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace TAKACHIYO
 {
@@ -16,6 +15,9 @@ namespace TAKACHIYO
 
         private static readonly ObjectPoolBundle<PoolableEffect> poolBundle = new();
 
+        /// <summary>
+        /// Poolから実体を返す
+        /// </summary>
         public PoolableEffect Rent()
         {
             var pool = poolBundle.Get(this);

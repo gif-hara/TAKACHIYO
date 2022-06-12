@@ -1,26 +1,43 @@
-using UnityEngine;
-using UnityEngine.Assertions;
-
 namespace TAKACHIYO
 {
     /// <summary>
-    /// 
+    /// 定数定義
     /// </summary>
     public static class Define
     {
+        /// <summary>
+        /// アクターのタイプ
+        /// </summary>
         public enum ActorType
         {
             Player,
             Enemy,
         }
 
+        /// <summary>
+        /// ターゲットのタイプ
+        /// </summary>
         public enum TargetType
         {
+            /// <summary>
+            /// 自分
+            /// </summary>
             My,
+            
+            /// <summary>
+            /// 相手
+            /// </summary>
             Opponent,
+            
+            /// <summary>
+            /// 全員
+            /// </summary>
             All,
         }
 
+        /// <summary>
+        /// バトルの勝敗結果
+        /// </summary>
         public enum BattleJudgeType
         {
             PlayerWin,
@@ -44,6 +61,9 @@ namespace TAKACHIYO
             Less
         }
 
+        /// <summary>
+        /// 状態異常のタイプ
+        /// </summary>
         public enum AbnormalStatusType
         {
             /// <summary>

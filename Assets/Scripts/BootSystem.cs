@@ -1,17 +1,18 @@
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using TAKACHIYO.MasterDataSystems;
-using UniRx;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
 namespace TAKACHIYO.BootSystems
 {
     /// <summary>
-    /// 
+    /// ブートシステム
     /// </summary>
     public static class BootSystem
     {
+        /// <summary>
+        /// アプリが利用可能な状態になったか
+        /// </summary>
         public static UniTask Ready;
         
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
