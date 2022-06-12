@@ -42,6 +42,10 @@ MonoBehaviour:
     m_Localized: "\u811A\u9632\u5177001"
     m_Metadata:
       m_Items: []
+  - m_Id: 131637313732608
+    m_Localized: "\u30A2\u30AF\u30BB\u30B5\u30EA\u30FC001"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

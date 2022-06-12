@@ -29,6 +29,8 @@ namespace TAKACHIYO.MasterDataSystems
 
             public int recoveryPower;
 
+            public Define.EquipmentType equipmentType;
+
             public Define.AttributeType attributeType1;
 
             public Define.AttributeType attributeType2;
@@ -54,6 +56,7 @@ namespace TAKACHIYO.MasterDataSystems
                 int defense,
                 int speed,
                 int recoveryPower,
+                Define.EquipmentType equipmentType,
                 Define.AttributeType attributeType1,
                 Define.AttributeType attributeType2,
                 Define.AttributeType attributeType3
@@ -67,6 +70,7 @@ namespace TAKACHIYO.MasterDataSystems
                 this.defense = defense;
                 this.speed = speed;
                 this.recoveryPower = recoveryPower;
+                this.equipmentType = equipmentType;
                 this.attributeType1 = attributeType1;
                 this.attributeType2 = attributeType2;
                 this.attributeType3 = attributeType3;
@@ -109,6 +113,8 @@ namespace TAKACHIYO.MasterDataSystems
 
             public int RecoveryPower;
 
+            public string EquipmentType;
+
             public string AttributeType1;
             
             public string AttributeType2;
@@ -123,6 +129,7 @@ namespace TAKACHIYO.MasterDataSystems
                 this.Defense,
                 this.Speed,
                 this.RecoveryPower,
+                Define.ConvertToEquipmentType(this.EquipmentType),
                 Define.ConvertToAttributeType(this.AttributeType1),
                 Define.ConvertToAttributeType(this.AttributeType2),
                 Define.ConvertToAttributeType(this.AttributeType3)

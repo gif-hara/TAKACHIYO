@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: Legs001
     m_Metadata:
       m_Items: []
+  - m_Id: 131637313732608
+    m_Key: Accessory001
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

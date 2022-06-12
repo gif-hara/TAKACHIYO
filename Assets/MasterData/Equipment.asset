@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Equipment
   m_EditorClassIdentifier: 
   records:
-  - id: 10001
+  - id: 10101001
     localizedName:
       m_TableReference:
         m_TableCollectionName: Equipment
@@ -28,10 +28,11 @@ MonoBehaviour:
     defense: 0
     speed: 0
     recoveryPower: 0
+    equipmentType: 0
     attributeType1: 0
     attributeType2: 0
     attributeType3: 0
-  - id: 20001
+  - id: 10201001
     localizedName:
       m_TableReference:
         m_TableCollectionName: Equipment
@@ -46,10 +47,11 @@ MonoBehaviour:
     defense: 2
     speed: 0
     recoveryPower: 0
+    equipmentType: 1
     attributeType1: 0
     attributeType2: 0
     attributeType3: 0
-  - id: 30001
+  - id: 10301001
     localizedName:
       m_TableReference:
         m_TableCollectionName: Equipment
@@ -64,10 +66,11 @@ MonoBehaviour:
     defense: 3
     speed: 0
     recoveryPower: 0
+    equipmentType: 2
     attributeType1: 0
     attributeType2: 0
     attributeType3: 0
-  - id: 40001
+  - id: 10401001
     localizedName:
       m_TableReference:
         m_TableCollectionName: Equipment
@@ -82,10 +85,11 @@ MonoBehaviour:
     defense: 1
     speed: 0
     recoveryPower: 0
+    equipmentType: 3
     attributeType1: 0
     attributeType2: 0
     attributeType3: 0
-  - id: 50001
+  - id: 10501001
     localizedName:
       m_TableReference:
         m_TableCollectionName: Equipment
@@ -100,10 +104,11 @@ MonoBehaviour:
     defense: 2
     speed: 0
     recoveryPower: 0
+    equipmentType: 4
     attributeType1: 0
     attributeType2: 0
     attributeType3: 0
-  - id: 60001
+  - id: 10601001
     localizedName:
       m_TableReference:
         m_TableCollectionName: Equipment
@@ -118,6 +123,26 @@ MonoBehaviour:
     defense: 1
     speed: 0
     recoveryPower: 0
+    equipmentType: 5
+    attributeType1: 0
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10701001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Accessory001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 100
+    strength: 0
+    defense: 0
+    speed: 0
+    recoveryPower: 0
+    equipmentType: 6
     attributeType1: 0
     attributeType2: 0
     attributeType3: 0

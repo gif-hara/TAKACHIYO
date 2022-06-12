@@ -180,6 +180,44 @@ namespace TAKACHIYO
             Beast
         }
 
+        /// <summary>
+        /// 装備品タイプ
+        /// </summary>
+        public enum EquipmentType
+        {
+            Weapon,
+            ArmorHead,
+            ArmorChest,
+            ArmorArms,
+            ArmorTorso,
+            ArmorLegs,
+            Accessory,
+        }
+
+        public static EquipmentType ConvertToEquipmentType(string value)
+        {
+            switch (value)
+            {
+                case "武器":
+                    return EquipmentType.Weapon;
+                case "頭":
+                    return EquipmentType.ArmorHead;
+                case "胴":
+                    return EquipmentType.ArmorChest;
+                case "腕":
+                    return EquipmentType.ArmorArms;
+                case "腰":
+                    return EquipmentType.ArmorTorso;
+                case "脚":
+                    return EquipmentType.ArmorLegs;
+                case "アクセサリー":
+                    return EquipmentType.Accessory;
+                default:
+                    Assert.IsTrue(false, $"{value}は未対応です");
+                    return default;
+            }
+        }
+
         public static AttributeType ConvertToAttributeType(string value)
         {
             switch (value)
