@@ -64,3 +64,4 @@ UserSettings*
 bearer.txt
 masterdata_sheet_url.txt
 .vsconfig
+*.DS_Store*
