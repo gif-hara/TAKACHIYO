@@ -27,6 +27,8 @@ namespace TAKACHIYO.ActorControllers
         public IEnumerable<ICommandBlueprintSetupData> CreateCommandBlueprintSetupDataList(ActorEquipment actorEquipment)
         { 
             var masterDataEquipmentCommands = MasterDataEquipmentCommand.GetFromEquipmentId(this.masterDataEquipmentId);
+            
+            // TODO: これだと全部の装備品の合計になっちゃう
             var commandBlueprintHolder = new DebugCommandBlueprintHolder
             {
                 strength = actorEquipment.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.strength),
