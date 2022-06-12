@@ -526,15 +526,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSetupData:
     masterDataActorStatusId: 1
-    commandBlueprintSetupData:
-    - blueprintId: 100001
-      blueprintHolder:
-        strength: 10
-        recoveryPower: 0
-    - blueprintId: 100002
-      blueprintHolder:
-        strength: 10
-        recoveryPower: 20
+    actorEquipment:
+      instanceEquipments:
+      - equipmentPartType: 0
+        instanceEquipment:
+          masterDataEquipmentId: 10101001
   enemySetupData:
     masterDataActorStatusId: 2
     commandBlueprintSetupData:

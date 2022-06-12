@@ -85,7 +85,9 @@ namespace TAKACHIYO.MasterDataSystems
         public static IObservable<Unit> SetupAsync()
         {
             return Observable.WhenAll(
-                MasterDataActorStatus.SetupAsync("Assets/MasterData/ActorStatus.asset")
+                    MasterDataActorStatus.SetupAsync("Assets/MasterData/ActorStatus.asset"),
+                    MasterDataEquipment.SetupAsync("Assets/MasterData/Equipment.asset"),
+                    MasterDataEquipmentCommand.SetupAsync("Assets/MasterData/EquipmentCommand.asset")
                 )
                 .AsUnitObservable();
         }

@@ -15,10 +15,22 @@ namespace TAKACHIYO.ActorControllers
     {
         public string masterDataActorStatusId;
 
-        public List<DebugCommandBlueprintSetupData> commandBlueprintSetupData;
+        public ActorEquipment actorEquipment;
 
         public string MasterDataActorStatusId => this.masterDataActorStatusId;
-        
-        public IEnumerable<ICommandBlueprintSetupData> CommandBlueprintSetupData => this.commandBlueprintSetupData;
+
+        public IEnumerable<ICommandBlueprintSetupData> CommandBlueprintSetupData
+        {
+            get
+            {
+                var result = new List<ICommandBlueprintSetupData>();
+                foreach (var i in this.actorEquipment.InstanceEquipments)
+                {
+                    result.AddRange(i.instanceEquipment.CreateCommandBlueprintSetupDataList(this.actorEquipment));
+                }
+
+                return result;
+            }
+        }
     }
 }

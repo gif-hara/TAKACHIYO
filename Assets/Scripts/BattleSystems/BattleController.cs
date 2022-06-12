@@ -13,7 +13,7 @@ namespace TAKACHIYO.BattleSystems
     public sealed class BattleController : MonoBehaviour
     {
         [SerializeField]
-        private DebugActorSetupData playerSetupData;
+        private EquipmentActorSetupData playerSetupData;
 
         [SerializeField]
         private DebugActorSetupData enemySetupData;

@@ -14,10 +14,12 @@ namespace TAKACHIYO.ActorControllers
         [SerializeField]
         private List<InstanceEquipmentData> instanceEquipments;
 
+        public List<InstanceEquipmentData> InstanceEquipments => this.instanceEquipments;
+
         [Serializable]
-        private class InstanceEquipmentData
+        public class InstanceEquipmentData
         {
-            public Define.EquipmentType equipmentType;
+            public Define.EquipmentPartType equipmentPartType;
 
             public InstanceEquipment instanceEquipment;
         }

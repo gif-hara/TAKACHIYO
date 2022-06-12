@@ -193,6 +193,19 @@ namespace TAKACHIYO
             ArmorLegs,
             Accessory,
         }
+        
+        public enum EquipmentPartType
+        {
+            MainWeapon,
+            SubWeapon1,
+            SubWeapon2,
+            ArmorHead,
+            ArmorChest,
+            ArmorArms,
+            ArmorTorso,
+            ArmorLegs,
+            Accessory,
+        }
 
         public static EquipmentType ConvertToEquipmentType(string value)
         {

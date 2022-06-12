@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0313b12ff89791143b0edc2a10bca63c, type: 3}
   m_Name: EquipmentCommand
   m_EditorClassIdentifier: 
-  records: []
+  records:
+  - id: 1
+    equipmentId: 10101001
+    commandBlueprintId: 100001

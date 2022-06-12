@@ -13,7 +13,7 @@ namespace TAKACHIYO.MasterDataSystems
     [CreateAssetMenu(menuName = "TAKACHIYO/MasterData/EquipmentCommand")]
     public sealed class MasterDataEquipmentCommand : MasterData<MasterDataEquipmentCommand, MasterDataEquipmentCommand.Record>
     {
-        private Dictionary<string, List<Record>> equipmentIdTable;
+        private Dictionary<string, List<Record>> equipmentIdTable = new ();
         
         [Serializable]
         public class Record : IIdHolder<string>
