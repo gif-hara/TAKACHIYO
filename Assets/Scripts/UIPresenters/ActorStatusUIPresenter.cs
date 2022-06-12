@@ -91,6 +91,7 @@ namespace TAKACHIYO
                 {
                     var commandUIPresenter = Instantiate(this.commandUIPresenter, this.commandParent);
                     commandUIPresenter.Setup(x.Value);
+                    commandUIPresenter.PlayInAnimation();
                     this.commandUIPresenters.Add(x.Value, commandUIPresenter);
                 });
 
@@ -101,8 +102,12 @@ namespace TAKACHIYO
                 .Subscribe(x =>
                 {
                     var commandUIPresenter = this.commandUIPresenters[x.Value];
-                    Destroy(commandUIPresenter.gameObject);
                     this.commandUIPresenters.Remove(x.Value);
+                    commandUIPresenter.PlayOutAnimationAsync()
+                        .Subscribe(_ =>
+                        {
+                            Destroy(commandUIPresenter.gameObject);
+                        });
                 });
 
             actor.Broker.Receive<ActorEvent.RequestInstantiateEffect>()

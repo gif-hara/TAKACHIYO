@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TAKACHIYO.CommandSystems;
@@ -16,6 +17,15 @@ namespace TAKACHIYO
         [SerializeField]
         private Slider castTimeSlider;
 
+        [SerializeField]
+        private AnimationController animationController;
+
+        [SerializeField]
+        private AnimationClip inAnimation;
+
+        [SerializeField]
+        private AnimationClip outAnimation;
+
         public void Setup(Command command)
         {
             this.commandName.text = command.CommandName;
@@ -25,6 +35,16 @@ namespace TAKACHIYO
                 {
                     this.castTimeSlider.value = command.CastTimeRate;
                 });
+        }
+
+        public void PlayInAnimation()
+        {
+            this.animationController.Play(this.inAnimation);
+        }
+
+        public IObservable<Unit> PlayOutAnimationAsync()
+        {
+            return this.animationController.PlayAsync(this.outAnimation);
         }
     }
 }
