@@ -25,7 +25,7 @@ MonoBehaviour:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6871f26a3642c664d9c740b7f592854f
-    m_Address: Weapon_en
+    m_Address: Equipment_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

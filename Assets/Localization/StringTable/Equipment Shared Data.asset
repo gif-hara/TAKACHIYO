@@ -10,23 +10,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Weapon Shared Data
+  m_Name: Equipment Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Weapon
+  m_TableCollectionName: Equipment
   m_TableCollectionNameGuidString: c77d101e54e70b849a8defa1c8049efa
   m_Entries:
-  - m_Id: 44158877696
+  - m_Id: 160865386496
     m_Key: Weapon001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160877969408
+    m_Key: Head001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160877969409
+    m_Key: Chest001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160877969410
+    m_Key: Arms001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160877969411
+    m_Key: Torso001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160877969412
+    m_Key: Legs001
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 4657355506074779654
+    rid: 4657355608413175816
   references:
     version: 2
     RefIds:
-    - rid: 4657355506074779654
+    - rid: 4657355608413175816
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1654614183942
+        m_CustomEpoch: 1655004860275

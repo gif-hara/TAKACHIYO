@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c985709e592f6a4186cbe8df00effb0, type: 3}
+  m_Name: Equipment
+  m_EditorClassIdentifier: 
+  records:
+  - id: 10001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 100
+    strength: 10
+    defense: 0
+    speed: 0
+    recoveryPower: 0
+  - id: 20001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Head001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 100
+    strength: 0
+    defense: 2
+    speed: 0
+    recoveryPower: 0
+  - id: 30001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Chest001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 100
+    strength: 0
+    defense: 3
+    speed: 0
+    recoveryPower: 0
+  - id: 40001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Arms001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 100
+    strength: 0
+    defense: 1
+    speed: 0
+    recoveryPower: 0
+  - id: 50001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Torso001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 100
+    strength: 0
+    defense: 2
+    speed: 0
+    recoveryPower: 0
+  - id: 60001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Legs001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 100
+    strength: 0
+    defense: 1
+    speed: 0
+    recoveryPower: 0
+  references:
+    version: 2
+    RefIds: []

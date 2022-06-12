@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Weapon_ja
+  m_Name: Equipment_en
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: ja
+    m_Code: en
   m_SharedData: {fileID: 11400000, guid: c77d101e54e70b849a8defa1c8049efa, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 44158877696
-    m_Localized: "\u6B66\u5668001"
+  - m_Id: 160865386496
+    m_Localized: Weapon001
     m_Metadata:
       m_Items: []
   references:

@@ -23,7 +23,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c77d101e54e70b849a8defa1c8049efa
-    m_Address: Assets/Localization/StringTable/Weapon Shared Data.asset
+    m_Address: Assets/Localization/StringTable/Equipment Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

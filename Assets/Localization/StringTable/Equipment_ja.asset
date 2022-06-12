@@ -10,16 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Weapon_en
+  m_Name: Equipment_ja
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: en
+    m_Code: ja
   m_SharedData: {fileID: 11400000, guid: c77d101e54e70b849a8defa1c8049efa, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 44158877696
-    m_Localized: Weapon001
+  - m_Id: 160865386496
+    m_Localized: "\u6B66\u5668001"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160877969408
+    m_Localized: "\u982D\u9632\u5177001"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160877969409
+    m_Localized: "\u80F4\u9632\u5177001"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160877969410
+    m_Localized: "\u8155\u9632\u5177001"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160877969411
+    m_Localized: "\u8170\u9632\u5177001"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 160877969412
+    m_Localized: "\u811A\u9632\u5177001"
     m_Metadata:
       m_Items: []
   references:
