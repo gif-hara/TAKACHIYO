@@ -28,6 +28,9 @@ MonoBehaviour:
     defense: 0
     speed: 0
     recoveryPower: 0
+    attributeType1: 0
+    attributeType2: 0
+    attributeType3: 0
   - id: 20001
     localizedName:
       m_TableReference:
@@ -43,6 +46,9 @@ MonoBehaviour:
     defense: 2
     speed: 0
     recoveryPower: 0
+    attributeType1: 0
+    attributeType2: 0
+    attributeType3: 0
   - id: 30001
     localizedName:
       m_TableReference:
@@ -58,6 +64,9 @@ MonoBehaviour:
     defense: 3
     speed: 0
     recoveryPower: 0
+    attributeType1: 0
+    attributeType2: 0
+    attributeType3: 0
   - id: 40001
     localizedName:
       m_TableReference:
@@ -73,6 +82,9 @@ MonoBehaviour:
     defense: 1
     speed: 0
     recoveryPower: 0
+    attributeType1: 0
+    attributeType2: 0
+    attributeType3: 0
   - id: 50001
     localizedName:
       m_TableReference:
@@ -88,6 +100,9 @@ MonoBehaviour:
     defense: 2
     speed: 0
     recoveryPower: 0
+    attributeType1: 0
+    attributeType2: 0
+    attributeType3: 0
   - id: 60001
     localizedName:
       m_TableReference:
@@ -103,6 +118,9 @@ MonoBehaviour:
     defense: 1
     speed: 0
     recoveryPower: 0
+    attributeType1: 0
+    attributeType2: 0
+    attributeType3: 0
   references:
     version: 2
     RefIds: []

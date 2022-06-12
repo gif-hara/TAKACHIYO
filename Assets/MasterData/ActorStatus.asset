@@ -28,6 +28,9 @@ MonoBehaviour:
     defense: 0
     speed: 0
     recoveryPower: 0
+    attributeType1: 0
+    attributeType2: 0
+    attributeType3: 0
   - id: 2
     localizedName:
       m_TableReference:
@@ -43,6 +46,9 @@ MonoBehaviour:
     defense: 0
     speed: 0
     recoveryPower: 0
+    attributeType1: 18
+    attributeType2: 15
+    attributeType3: 0
   references:
     version: 2
     RefIds: []
