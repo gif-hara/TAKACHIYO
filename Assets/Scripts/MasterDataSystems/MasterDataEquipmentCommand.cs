@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Localization;
 
 namespace TAKACHIYO.MasterDataSystems
@@ -12,6 +13,8 @@ namespace TAKACHIYO.MasterDataSystems
     [CreateAssetMenu(menuName = "TAKACHIYO/MasterData/EquipmentCommand")]
     public sealed class MasterDataEquipmentCommand : MasterData<MasterDataEquipmentCommand, MasterDataEquipmentCommand.Record>
     {
+        private Dictionary<string, List<Record>> equipmentIdTable;
+        
         [Serializable]
         public class Record : IIdHolder<string>
         {
@@ -33,6 +36,27 @@ namespace TAKACHIYO.MasterDataSystems
                 this.equipmentId = equipmentId;
                 this.commandBlueprintId = commandBlueprintId;
             }
+        }
+
+        protected override void OnSetupped()
+        {
+            base.OnSetupped();
+            
+            foreach (var r in this.records)
+            {
+                if (!this.equipmentIdTable.ContainsKey(r.equipmentId))
+                {
+                    this.equipmentIdTable.Add(r.equipmentId, new List<Record>());
+                }
+                
+                this.equipmentIdTable[r.equipmentId].Add(r);
+            }
+        }
+
+        public static IReadOnlyList<Record> GetFromEquipmentId(string equipmentId)
+        {
+            Assert.IsTrue(Instance.equipmentIdTable.ContainsKey(equipmentId), $"{nameof(equipmentId)} = {equipmentId}は存在しません");
+            return Instance.equipmentIdTable[equipmentId];
         }
 
 #if UNITY_EDITOR
