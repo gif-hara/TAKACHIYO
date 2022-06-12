@@ -52,7 +52,7 @@ MonoBehaviour:
       type: {class: Timer, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
       data:
         targetType: 0
-        delaySeconds: 1
+        delaySeconds: 0.5
     - rid: 4657355583943606284
       type: {class: InvokeCommandCount, ns: TAKACHIYO.CommandSystems.Conditions, asm: Assembly-CSharp}
       data:

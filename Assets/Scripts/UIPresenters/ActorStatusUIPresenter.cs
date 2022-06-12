@@ -48,6 +48,12 @@ namespace TAKACHIYO
         [SerializeField]
         private AbnormalStatusIconUIView abnormalStatusIconUIViewPrefab;
 
+        [SerializeField]
+        private AnimationController informationAnimationController;
+
+        [SerializeField]
+        private AnimationClip informationDamageAnimation;
+
         private readonly Dictionary<Command, CommandUIPresenter> commandUIPresenters = new();
 
         private readonly Dictionary<Define.AbnormalStatusType, AbnormalStatusIconUIView> abnormalStatusIconUIViews = new();
@@ -135,6 +141,14 @@ namespace TAKACHIYO
                 {
                     Destroy(this.abnormalStatusIconUIViews[x.AbnormalStatusType].gameObject);
                     this.abnormalStatusIconUIViews.Remove(x.AbnormalStatusType);
+                });
+
+            actor.Broker.Receive<ActorEvent.TakedDamage>()
+                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .Where(x => x.Damage > 0)
+                .Subscribe(x =>
+                {
+                    this.informationAnimationController.Play(this.informationDamageAnimation);
                 });
         }
     }
