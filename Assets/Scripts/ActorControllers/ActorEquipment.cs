@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TAKACHIYO.BattleSystems;
 using TAKACHIYO.CommandSystems;
 using TAKACHIYO.MasterDataSystems;
 using UnityEngine;
@@ -26,11 +27,10 @@ namespace TAKACHIYO.ActorControllers
             {
                 var masterDataEquipmentCommands = i.instanceEquipment.MasterDataEquipmentCommands;
             
-                // TODO: これだと全部の装備品の合計になっちゃう
                 var commandBlueprintHolder = new DebugCommandBlueprintHolder
                 {
-                    strength = this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.strength),
-                    recoveryPower = this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.recoveryPower)
+                    strength = Calcurator.GetStrength(this, i.instanceEquipment, i.equipmentPartType),
+                    recoveryPower = Calcurator.GetRecoveryPower(this, i.instanceEquipment, i.equipmentPartType)
                 };
 
                 result.AddRange(masterDataEquipmentCommands.Select(r => new DebugCommandBlueprintSetupData

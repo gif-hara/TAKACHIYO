@@ -528,16 +528,15 @@ MonoBehaviour:
     masterDataActorStatusId: 1
     actorEquipment:
       instanceEquipments:
+      - equipmentPartType: 1
+        instanceEquipment:
+          masterDataEquipmentId: 10101001
       - equipmentPartType: 0
         instanceEquipment:
           masterDataEquipmentId: 10101001
   enemySetupData:
     masterDataActorStatusId: 2
-    commandBlueprintSetupData:
-    - blueprintId: 100001
-      blueprintHolder:
-        strength: 10
-        recoveryPower: 0
+    commandBlueprintSetupData: []
 --- !u!4 &1270532180
 Transform:
   m_ObjectHideFlags: 0

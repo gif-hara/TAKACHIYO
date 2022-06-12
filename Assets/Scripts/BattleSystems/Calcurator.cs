@@ -45,5 +45,69 @@ namespace TAKACHIYO.BattleSystems
 
             return damage;
         }
+
+        /// <summary>
+        /// 攻撃力を返す
+        /// </summary>
+        public static int GetStrength(
+            ActorEquipment actorEquipment,
+            InstanceEquipment instanceEquipment,
+            Define.EquipmentPartType equipmentPartType
+            )
+        {
+            var result = instanceEquipment.MasterDataEquipment.strength;
+            
+            // 防具の場合はこれ以降計算はしない
+            if (equipmentPartType.IsArmor())
+            {
+                return result;
+            }
+            
+            // 武器の場合はさらに防具に存在する攻撃力を加算する
+            if (equipmentPartType.IsWeapon())
+            {
+                foreach (var i in actorEquipment.InstanceEquipments)
+                {
+                    if (i.equipmentPartType.IsArmor())
+                    {
+                        result += i.instanceEquipment.MasterDataEquipment.strength;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 回復力を返す
+        /// </summary>
+        public static int GetRecoveryPower(
+            ActorEquipment actorEquipment,
+            InstanceEquipment instanceEquipment,
+            Define.EquipmentPartType equipmentPartType
+            )
+        {
+            var result = instanceEquipment.MasterDataEquipment.recoveryPower;
+            
+            // 防具の場合はこれ以降計算はしない
+            if (equipmentPartType.IsArmor())
+            {
+                return result;
+            }
+            
+            // 武器の場合はさらに防具に存在する攻撃力を加算する
+            if (equipmentPartType.IsWeapon())
+            {
+                foreach (var i in actorEquipment.InstanceEquipments)
+                {
+                    if (i.equipmentPartType.IsArmor())
+                    {
+                        result += i.instanceEquipment.MasterDataEquipment.recoveryPower;
+                    }
+                }
+            }
+
+            return result;
+        }
     }
 }

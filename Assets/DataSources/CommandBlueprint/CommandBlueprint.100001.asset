@@ -45,7 +45,7 @@ MonoBehaviour:
     - rid: 4657355608413175891
       type: {class: Attack, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
       data:
-        targetType: 0
+        targetType: 1
         rate: 1
     - rid: 4657355608413175892
       type: {class: Timer, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
