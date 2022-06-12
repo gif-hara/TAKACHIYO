@@ -23,24 +23,28 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ja
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: df0e8d5149772894cb1fb5fda8e50b49
     m_Address: Weapon_ja
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ja
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5cdcf10f9c5dc948a0887eee3db8956
     m_Address: Actor_ja
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ja
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 309caf80a763c9149a1049058849612b
     m_Address: Command_ja
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ja
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 41a5091dea25cc54997e474f2a3e7649, type: 2}
   m_SchemaSet:

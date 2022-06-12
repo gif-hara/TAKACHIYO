@@ -21,14 +21,17 @@ MonoBehaviour:
     m_Address: Assets/MasterData
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3fa558c7dd4de4e4cb5f9588a85cabdf
     m_Address: Assets/DataSources
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4f1c001167cb22c4894f53729f973525
     m_Address: Assets/Textures
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 41a5091dea25cc54997e474f2a3e7649, type: 2}
   m_SchemaSet:

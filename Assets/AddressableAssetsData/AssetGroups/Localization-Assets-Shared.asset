@@ -21,18 +21,22 @@ MonoBehaviour:
     m_Address: Assets/Localization/StringTable/Common Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c77d101e54e70b849a8defa1c8049efa
     m_Address: Assets/Localization/StringTable/Weapon Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83cf0132ee2347c4aa148e0bfefe0b77
     m_Address: Assets/Localization/StringTable/Actor Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce6354cad7206a743baf195cd8c5d224
     m_Address: Assets/Localization/StringTable/Command Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 41a5091dea25cc54997e474f2a3e7649, type: 2}
   m_SchemaSet:
