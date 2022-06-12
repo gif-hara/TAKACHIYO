@@ -54,6 +54,9 @@ namespace TAKACHIYO
         [SerializeField]
         private AnimationClip informationDamageAnimation;
 
+        [SerializeField]
+        private AnimationClip informationDeadAnimation;
+
         private readonly Dictionary<Command, CommandUIPresenter> commandUIPresenters = new();
 
         private readonly Dictionary<Define.AbnormalStatusType, AbnormalStatusIconUIView> abnormalStatusIconUIViews = new();
@@ -149,6 +152,14 @@ namespace TAKACHIYO
                 .Subscribe(x =>
                 {
                     this.informationAnimationController.Play(this.informationDamageAnimation);
+                });
+
+            actor.StatusController.HitPoint
+                .Where(_ => actor.StatusController.IsDead)
+                .Take(1)
+                .Subscribe(_ =>
+                {
+                    this.informationAnimationController.Play(this.informationDeadAnimation);
                 });
         }
     }

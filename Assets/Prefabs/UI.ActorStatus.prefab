@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 813035323169640926}
   - component: {fileID: 8605666784279576712}
   - component: {fileID: 8678061872053738321}
+  - component: {fileID: 1260152870246461877}
   m_Layer: 5
   m_Name: Informations
   m_TagString: Untagged
@@ -344,6 +345,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &1260152870246461877
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813035323169640921}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &813035323489582751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,6 +1423,7 @@ MonoBehaviour:
   abnormalStatusIconUIViewPrefab: {fileID: 1865243337358068122, guid: 2e1bf3d82f8df8d4794a785e258a2fd2, type: 3}
   informationAnimationController: {fileID: 8605666784279576712}
   informationDamageAnimation: {fileID: 7400000, guid: e37dcd40d28384b87879aab1208beae0, type: 2}
+  informationDeadAnimation: {fileID: 7400000, guid: a54293b6ae14949f4a2aae348e1f7853, type: 2}
 --- !u!1 &8827291749729791002
 GameObject:
   m_ObjectHideFlags: 0
