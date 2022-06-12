@@ -14,26 +14,17 @@ namespace TAKACHIYO.CommandSystems
     public sealed class CommandBlueprint : ScriptableObject
     {
         [SerializeField]
-        private LocalizedString commandName;
+        private CommandConditionBundle conditionBundle;
         
-        /// <summary>
-        /// 詠唱時間（秒）
-        /// </summary>
         [SerializeField]
-        private float castTime;
+        private CommandActionBundle actionBundle;
 
-        [SerializeReference, SubclassSelector(typeof(ICommandCondition))]
-        private ICommandCondition condition;
-        
-        [SerializeReference, SubclassSelector(typeof(ICommandAction))]
-        private List<ICommandAction> actions;
+        public string CommandName => this.actionBundle.CommandName;
 
-        public string CommandName => this.commandName.GetLocalizedString();
+        public float CastTime => this.actionBundle.CastTime;
 
-        public float CastTime => this.castTime;
+        public IReadOnlyList<ICommandCondition> Conditions => this.conditionBundle.Conditions;
 
-        public ICommandCondition Condition => this.condition;
-
-        public IReadOnlyList<ICommandAction> Actions => this.actions;
+        public IReadOnlyList<ICommandAction> Actions => this.actionBundle.Actions;
     }
 }

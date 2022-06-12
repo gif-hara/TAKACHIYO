@@ -2,6 +2,7 @@ using System;
 using TAKACHIYO.ActorControllers;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Search;
 
 namespace TAKACHIYO.CommandSystems.Actions
 {
@@ -11,6 +12,7 @@ namespace TAKACHIYO.CommandSystems.Actions
     public sealed class InstantiateEffect : CommandAction
     {
         [SerializeField]
+        [SearchContext("t:Prefab Effect.")]
         private PoolableEffect effectPrefab;
         
         public override IObservable<Unit> Invoke(Command command)

@@ -34,7 +34,7 @@ namespace TAKACHIYO.CommandSystems
         /// <summary>
         /// 詠唱を開始できるか返す
         /// </summary>
-        public bool CanCasting => this.blueprint.Condition.Evaluate(this);
+        private bool CanCasting => this.blueprint.Conditions.All(condition => condition.Evaluate(this));
         
         /// <summary>
         /// 最後に実行した時のコマンド実行回数
@@ -63,11 +63,12 @@ namespace TAKACHIYO.CommandSystems
             this.Owner = owner;
             this.currentCastTime = new ReactiveProperty<float>();
             this.commandInvokeStreams = this.blueprint.Actions.Select(x => x.Invoke(this)).ToList();
-            this.blueprint.Condition.TryCastAsObservable(this.Owner)
+            this.blueprint.Conditions.Select(x => x.TryCastAsObservable(this.Owner))
+                .Merge()
                 .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(_ =>
                 {
-                    if (this.IsCasting || !this.blueprint.Condition.Evaluate(this))
+                    if (this.IsCasting || !this.CanCasting)
                     {
                         return;
                     }

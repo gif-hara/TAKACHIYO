@@ -527,18 +527,18 @@ MonoBehaviour:
   playerSetupData:
     masterDataActorStatusId: 1
     commandBlueprintSetupData:
-    - blueprintId: 000001
+    - blueprintId: 100001
       blueprintHolder:
         strength: 10
         recoveryPower: 0
-    - blueprintId: 000006
+    - blueprintId: 100002
       blueprintHolder:
         strength: 10
         recoveryPower: 20
   enemySetupData:
     masterDataActorStatusId: 2
     commandBlueprintSetupData:
-    - blueprintId: 000001
+    - blueprintId: 100001
       blueprintHolder:
         strength: 10
         recoveryPower: 0
