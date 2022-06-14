@@ -536,6 +536,7 @@ MonoBehaviour:
     commandBlueprintSetupData:
     - blueprintId: 100002
       blueprintHolder:
+        equipmentPartType: 0
         physicsStrength: 20
         magicStrength: 0
         recoveryPower: 0
