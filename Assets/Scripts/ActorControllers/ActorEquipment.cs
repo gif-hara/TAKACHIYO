@@ -78,6 +78,15 @@ namespace TAKACHIYO.ActorControllers
                 .Where(x => scopeType.IsMatch(x.equipmentPartType))
                 .Select(x => x.instanceEquipment);
         }
+        
+        /// <summary>
+        /// <paramref name="partType"/>の部位に装備している装備品を返す
+        /// </summary>
+        public InstanceEquipment GetOrNull(Define.EquipmentPartType partType)
+        {
+            var result = this.InstanceEquipments.Find(x => x.equipmentPartType == partType);
+            return result?.instanceEquipment;
+        }
 
         [Serializable]
         public class InstanceEquipmentData

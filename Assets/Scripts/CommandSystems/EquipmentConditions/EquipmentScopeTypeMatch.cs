@@ -6,14 +6,14 @@ namespace TAKACHIYO.CommandSystems.EquipmentConditions
     /// <summary>
     /// 指定した部位に装備していたら実行可能
     /// </summary>
-    public sealed class EquipmentPartTypeMatch : EquipmentCondition
+    public sealed class EquipmentScopeTypeMatch : EquipmentCondition
     {
         [SerializeField]
-        private Define.EquipmentPartType target;
+        private Define.EquipmentScopeType target;
         
         public override bool Evaluate(Actor owner, Actor opponent, ICommandBlueprintHolder commandBlueprintHolder)
         {
-            return commandBlueprintHolder.EquipmentPartType == target;
+            return this.target.IsMatch(commandBlueprintHolder.EquipmentPartType);
         }
     }
 }
