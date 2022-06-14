@@ -51,9 +51,9 @@ namespace TAKACHIYO.BattleSystems
         }
 
         /// <summary>
-        /// 攻撃力を返す
+        /// 物理攻撃力を返す
         /// </summary>
-        public static int GetStrength(
+        public static int GetPhysicsStrength(
             ActorEquipment actorEquipment,
             InstanceEquipment instanceEquipment,
             Define.EquipmentPartType equipmentPartType
@@ -75,6 +75,38 @@ namespace TAKACHIYO.BattleSystems
                     if (i.equipmentPartType.IsArmor())
                     {
                         result += i.instanceEquipment.MasterDataEquipment.physicsStrength;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 魔法攻撃力を返す
+        /// </summary>
+        public static int GetMagicStrength(
+            ActorEquipment actorEquipment,
+            InstanceEquipment instanceEquipment,
+            Define.EquipmentPartType equipmentPartType
+            )
+        {
+            var result = instanceEquipment.MasterDataEquipment.magicStrength;
+            
+            // 防具の場合はこれ以降計算はしない
+            if (equipmentPartType.IsArmor())
+            {
+                return result;
+            }
+            
+            // 武器の場合はさらに防具に存在する攻撃力を加算する
+            if (equipmentPartType.IsWeapon())
+            {
+                foreach (var i in actorEquipment.InstanceEquipments)
+                {
+                    if (i.equipmentPartType.IsArmor())
+                    {
+                        result += i.instanceEquipment.MasterDataEquipment.magicStrength;
                     }
                 }
             }
@@ -112,6 +144,17 @@ namespace TAKACHIYO.BattleSystems
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// 詠唱時間の加算値を返す
+        /// </summary>
+        public static float GetAddCastTime(Actor actor, float deltaTime)
+        {
+            var baseSpeed = GameDesignParameter.Instance.baseSpeed;
+            var speed = ((float)actor.StatusController.TotalSpeed + baseSpeed) / baseSpeed;
+            speed = Mathf.Max(speed, 0.1f);
+            return speed * deltaTime;
         }
     }
 }

@@ -54,27 +54,29 @@ namespace TAKACHIYO.ActorControllers
 
         public void Update(float deltaTime)
         {
+            var addCastTime = Calcurator.GetAddCastTime(this.owner, deltaTime);
+            
             // 睡眠の場合は詠唱出来ない
             if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Sleep))
             {
-                deltaTime = 0.0f;
+                addCastTime = 0.0f;
             }
             
             // 麻痺の場合は詠唱時間が増える
             if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Paralysis))
             {
-                deltaTime *= GameDesignParameter.Instance.paralysisDelayRate;
+                addCastTime *= GameDesignParameter.Instance.paralysisDelayRate;
             }
 
             if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.FleetSpeed))
             {
-                deltaTime *= GameDesignParameter.Instance.fleetSpeedSpeedRate;
+                addCastTime *= GameDesignParameter.Instance.fleetSpeedSpeedRate;
             }
             
             this.castedCommands.Clear();
             foreach (var castingCommand in this.castingCommands)
             {
-                castingCommand.Update(deltaTime);
+                castingCommand.Update(addCastTime);
                 if (castingCommand.CanInvoke)
                 {
                     this.castedCommands.Add(castingCommand);

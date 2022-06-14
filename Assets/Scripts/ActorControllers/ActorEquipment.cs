@@ -36,6 +36,14 @@ namespace TAKACHIYO.ActorControllers
         /// </remarks>
         public int TotalMagicDefense => this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.magicDefense);
 
+        /// <summary>
+        /// 総合素早さを返す
+        /// </summary>
+        /// <remarks>
+        /// 全ての素早さを参照したい場合は<see cref="ActorStatusController.TotalSpeed"/>を参照してください
+        /// </remarks>
+        public int TotalSpeed => this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.speed);
+
         public List<ICommandBlueprintSetupData> CreateCommandBlueprintSetupDataList()
         {
             var result = new List<ICommandBlueprintSetupData>();
@@ -45,7 +53,8 @@ namespace TAKACHIYO.ActorControllers
             
                 var commandBlueprintHolder = new DebugCommandBlueprintHolder
                 {
-                    physicsStrength = Calcurator.GetStrength(this, i.instanceEquipment, i.equipmentPartType),
+                    physicsStrength = Calcurator.GetPhysicsStrength(this, i.instanceEquipment, i.equipmentPartType),
+                    magicStrength = Calcurator.GetMagicStrength(this, i.instanceEquipment, i.equipmentPartType),
                     recoveryPower = Calcurator.GetRecoveryPower(this, i.instanceEquipment, i.equipmentPartType)
                 };
 

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GameDesignParameter
   m_EditorClassIdentifier: 
   baseDefense: 20
+  baseSpeed: 80
   poisonDamageRate: 0.2
   poisonDamageSeconds: 5
   poisonDamageCount: 5

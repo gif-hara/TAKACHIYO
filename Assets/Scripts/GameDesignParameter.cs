@@ -19,6 +19,11 @@ namespace TAKACHIYO
         public int baseDefense;
 
         /// <summary>
+        /// 素早さの基本値
+        /// </summary>
+        public int baseSpeed;
+
+        /// <summary>
         /// 毒ダメージの割合
         /// </summary>
         /// <remarks>
