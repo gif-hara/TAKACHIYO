@@ -133,6 +133,12 @@ namespace TAKACHIYO
             /// 一定時間HPが増える
             /// </summary>
             PhysicalStrength,
+            
+            /// <summary>
+            /// 鉄壁
+            /// 一度だけダメージを無効化する. その後この状態異常は解除される
+            /// </summary>
+            IronWall,
         }
 
         /// <summary>

@@ -533,7 +533,12 @@ MonoBehaviour:
           masterDataEquipmentId: 10101001
   enemySetupData:
     masterDataActorStatusId: 2
-    commandBlueprintSetupData: []
+    commandBlueprintSetupData:
+    - blueprintId: 100002
+      blueprintHolder:
+        physicsStrength: 20
+        magicStrength: 0
+        recoveryPower: 0
 --- !u!4 &1270532180
 Transform:
   m_ObjectHideFlags: 0

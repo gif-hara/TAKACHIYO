@@ -29,6 +29,7 @@ MonoBehaviour:
     actions:
     - rid: 4657355608413175896
     - rid: 4657355608413175897
+    - rid: 4657355661447528524
     - rid: 4657355608413175898
   references:
     version: 2
@@ -50,8 +51,14 @@ MonoBehaviour:
       data:
         targetType: 1
         rate: 1.5
+        attackType: 0
     - rid: 4657355608413175898
       type: {class: Timer, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
       data:
         targetType: 0
         delaySeconds: 0.5
+    - rid: 4657355661447528524
+      type: {class: AddAbnormalStatus, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
+      data:
+        targetType: 0
+        abnormalStatusTypes: 0b000000

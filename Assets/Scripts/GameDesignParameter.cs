@@ -143,6 +143,11 @@ namespace TAKACHIYO
         /// 体力増強によるHP増加の割合
         /// </summary>
         public float physicalStrengthHitPointUpRate;
+
+        /// <summary>
+        /// 鉄壁にかかっている時間（秒）
+        /// </summary>
+        public float ironWallTimeSeconds;
         
         public static async UniTask LoadAsync()
         {

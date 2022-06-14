@@ -36,3 +36,4 @@ MonoBehaviour:
   stubbornDamageRate: 0.5
   physicalStrengthTimeSeconds: 30
   physicalStrengthHitPointUpRate: 0.5
+  ironWallTimeSeconds: 6000

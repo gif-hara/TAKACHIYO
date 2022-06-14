@@ -60,6 +60,12 @@ namespace TAKACHIYO.ActorControllers
 
         public void TakeDamage(Actor attacker, int damage, bool isPublishDamageEvent)
         {
+            if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.IronWall))
+            {
+                damage = 0;
+                this.owner.AbnormalStatusController.Remove(Define.AbnormalStatusType.IronWall);
+            }
+            
             this.TakeDamageRaw(damage);
             
             if (isPublishDamageEvent)
