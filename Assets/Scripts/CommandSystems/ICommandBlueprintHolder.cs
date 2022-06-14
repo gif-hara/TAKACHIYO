@@ -14,6 +14,11 @@ namespace TAKACHIYO.CommandSystems
         int PhysicsStrength { get; }
         
         /// <summary>
+        /// 魔法攻撃力
+        /// </summary>
+        int MagicStrength { get; }
+        
+        /// <summary>
         /// 回復力
         /// </summary>
         int RecoveryPower { get; }

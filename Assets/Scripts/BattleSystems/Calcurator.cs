@@ -12,10 +12,14 @@ namespace TAKACHIYO.BattleSystems
         /// <summary>
         /// 攻撃した際のダメージ量を返す
         /// </summary>
-        public static int GetAttackDamage(Actor attacker, Actor defenser, Command command, float rate)
+        public static int GetAttackDamage(Actor attacker, Actor defenser, Command command, float rate, Define.AttackType attackType)
         {
-            var strength = attacker.StatusController.BaseStatus.physicsStrength + command.BlueprintHolder.PhysicsStrength;
-            var defense = 20 + defenser.StatusController.TotalPhysicsDefense;
+            var strength = attackType == Define.AttackType.Physics
+                ? attacker.StatusController.BaseStatus.physicsStrength + command.BlueprintHolder.PhysicsStrength
+                : attacker.StatusController.BaseStatus.magicStrength + command.BlueprintHolder.MagicStrength;
+            var defense = attackType == Define.AttackType.Magic
+                ? 20 + defenser.StatusController.TotalPhysicsDefense
+                : 20 + defenser.StatusController.TotalMagicDefense;
 
             var damage = Mathf.FloorToInt((float)(strength * strength) / defense);
             

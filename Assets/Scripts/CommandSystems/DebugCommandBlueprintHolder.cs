@@ -12,12 +12,16 @@ namespace TAKACHIYO.CommandSystems
     {
         public int physicsStrength;
 
+        public int magicStrength;
+
         public int recoveryPower;
 
         /// <summary>
         /// 物理攻撃力
         /// </summary>
         public int PhysicsStrength => this.physicsStrength;
+
+        public int MagicStrength => this.magicStrength;
 
         /// <summary>
         /// 回復力

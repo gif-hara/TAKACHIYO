@@ -207,6 +207,22 @@ namespace TAKACHIYO
             Accessory,
         }
 
+        /// <summary>
+        /// 攻撃タイプ
+        /// </summary>
+        public enum AttackType
+        {
+            /// <summary>
+            /// 物理
+            /// </summary>
+            Physics,
+            
+            /// <summary>
+            /// 魔法
+            /// </summary>
+            Magic,
+        }
+
         public static EquipmentType ConvertToEquipmentType(string value)
         {
             switch (value)

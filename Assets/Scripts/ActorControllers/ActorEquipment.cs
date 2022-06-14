@@ -28,6 +28,14 @@ namespace TAKACHIYO.ActorControllers
         /// </remarks>
         public int TotalPhysicsDefense => this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.physicsDefense);
 
+        /// <summary>
+        /// 総合魔法防御力を返す
+        /// </summary>
+        /// <remarks>
+        /// 全ての魔法防御力を参照したい場合は<see cref="ActorStatusController.TotalMagicDefense"/>を参照してください
+        /// </remarks>
+        public int TotalMagicDefense => this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.magicDefense);
+
         public List<ICommandBlueprintSetupData> CreateCommandBlueprintSetupDataList()
         {
             var result = new List<ICommandBlueprintSetupData>();

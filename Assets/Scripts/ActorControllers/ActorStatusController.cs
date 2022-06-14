@@ -32,6 +32,11 @@ namespace TAKACHIYO.ActorControllers
         /// 全ての物理防御力を返す
         /// </summary>
         public int TotalPhysicsDefense => this.BaseStatus.physicsDefense + this.owner.Equipment.TotalPhysicsDefense;
+
+        /// <summary>
+        /// 全ての魔法防御力を返す
+        /// </summary>
+        public int TotalMagicDefense => this.BaseStatus.magicDefense + this.owner.Equipment.TotalMagicDefense;
         
         /// <summary>
         /// ダメージを受けた回数

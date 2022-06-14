@@ -25,6 +25,10 @@ namespace TAKACHIYO.MasterDataSystems
 
             public int physicsDefense;
 
+            public int magicStrength;
+
+            public int magicDefense;
+
             public int speed;
 
             public int recoveryPower;
@@ -54,6 +58,8 @@ namespace TAKACHIYO.MasterDataSystems
                 int hitPoint,
                 int physicsStrength,
                 int physicsDefense,
+                int magicStrength,
+                int magicDefense,
                 int speed,
                 int recoveryPower,
                 Define.EquipmentType equipmentType,
@@ -68,6 +74,8 @@ namespace TAKACHIYO.MasterDataSystems
                 this.hitPoint = hitPoint;
                 this.physicsStrength = physicsStrength;
                 this.physicsDefense = physicsDefense;
+                this.magicStrength = magicStrength;
+                this.magicDefense = magicDefense;
                 this.speed = speed;
                 this.recoveryPower = recoveryPower;
                 this.equipmentType = equipmentType;
@@ -108,6 +116,10 @@ namespace TAKACHIYO.MasterDataSystems
             public int PhysicsStrength;
 
             public int PhysicsDefense;
+            
+            public int MagicStrength;
+
+            public int MagicDefense;
 
             public int Speed;
 
@@ -127,6 +139,8 @@ namespace TAKACHIYO.MasterDataSystems
                 this.HitPoint,
                 this.PhysicsStrength,
                 this.PhysicsDefense,
+                this.MagicStrength,
+                this.MagicDefense,
                 this.Speed,
                 this.RecoveryPower,
                 Define.ConvertToEquipmentType(this.EquipmentType),

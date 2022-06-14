@@ -12,6 +12,9 @@ namespace TAKACHIYO.CommandSystems.Actions
     {
         [SerializeField]
         private float rate = 1.0f;
+
+        [SerializeField]
+        private Define.AttackType attackType;
         
         public override IObservable<Unit> Invoke(Command command)
         {
@@ -19,7 +22,7 @@ namespace TAKACHIYO.CommandSystems.Actions
             {
                 foreach (var target in command.Owner.GetTargets(this.targetType))
                 {
-                    var damage = Calcurator.GetAttackDamage(command.Owner, target, command, this.rate);
+                    var damage = Calcurator.GetAttackDamage(command.Owner, target, command, this.rate, this.attackType);
 
                     target.StatusController.TakeDamage(
                         command.Owner,

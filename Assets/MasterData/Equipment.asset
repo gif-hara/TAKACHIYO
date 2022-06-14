@@ -26,6 +26,8 @@ MonoBehaviour:
     hitPoint: 100
     physicsStrength: 10
     physicsDefense: 0
+    magicStrength: 10
+    magicDefense: 0
     speed: 0
     recoveryPower: 0
     equipmentType: 0
@@ -45,6 +47,8 @@ MonoBehaviour:
     hitPoint: 100
     physicsStrength: 0
     physicsDefense: 2
+    magicStrength: 0
+    magicDefense: 2
     speed: 0
     recoveryPower: 0
     equipmentType: 1
@@ -64,6 +68,8 @@ MonoBehaviour:
     hitPoint: 100
     physicsStrength: 0
     physicsDefense: 3
+    magicStrength: 0
+    magicDefense: 3
     speed: 0
     recoveryPower: 0
     equipmentType: 2
@@ -83,6 +89,8 @@ MonoBehaviour:
     hitPoint: 100
     physicsStrength: 0
     physicsDefense: 1
+    magicStrength: 0
+    magicDefense: 1
     speed: 0
     recoveryPower: 0
     equipmentType: 3
@@ -102,6 +110,8 @@ MonoBehaviour:
     hitPoint: 100
     physicsStrength: 0
     physicsDefense: 2
+    magicStrength: 0
+    magicDefense: 2
     speed: 0
     recoveryPower: 0
     equipmentType: 4
@@ -121,6 +131,8 @@ MonoBehaviour:
     hitPoint: 100
     physicsStrength: 0
     physicsDefense: 1
+    magicStrength: 0
+    magicDefense: 1
     speed: 0
     recoveryPower: 0
     equipmentType: 5
@@ -140,6 +152,8 @@ MonoBehaviour:
     hitPoint: 100
     physicsStrength: 0
     physicsDefense: 0
+    magicStrength: 0
+    magicDefense: 0
     speed: 0
     recoveryPower: 0
     equipmentType: 6
