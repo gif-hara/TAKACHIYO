@@ -35,7 +35,11 @@ namespace TAKACHIYO.ActorControllers
 
         public void Remove(Define.AbnormalStatusType abnormalStatusType)
         {
-            Assert.IsTrue(this.abnormalStatuses.ContainsKey(abnormalStatusType), $"{abnormalStatusType}は存在しません");
+            if (!this.abnormalStatuses.ContainsKey(abnormalStatusType))
+            {
+                return;
+            }
+            
             this.abnormalStatuses[abnormalStatusType].Dispose();
             this.abnormalStatuses.Remove(abnormalStatusType);
             this.owner.Broker.Publish(ActorEvent.RemovedAbnormalStatus.Get(abnormalStatusType));
