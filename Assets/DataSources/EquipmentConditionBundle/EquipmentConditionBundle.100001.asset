@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EquipmentConditionBundle.100001
   m_EditorClassIdentifier: 
   conditions:
-  - rid: 4657355664758407201
+  - rid: 4657355664758407213
   references:
     version: 2
     RefIds:
-    - rid: 4657355664758407201
-      type: {class: WeaponMainOnly, ns: TAKACHIYO.CommandSystems.EquipmentConditions, asm: Assembly-CSharp}
+    - rid: 4657355664758407213
+      type: {class: Always, ns: TAKACHIYO.CommandSystems.EquipmentConditions, asm: Assembly-CSharp}
