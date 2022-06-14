@@ -26,7 +26,7 @@ namespace TAKACHIYO.ActorControllers
         /// <remarks>
         /// 全ての物理防御力を参照したい場合は<see cref="ActorStatusController.TotalPhysicsDefense"/>を参照してください
         /// </remarks>
-        public int TotalPhysicsDefense => this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.defense);
+        public int TotalPhysicsDefense => this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.physicsDefense);
 
         public List<ICommandBlueprintSetupData> CreateCommandBlueprintSetupDataList()
         {

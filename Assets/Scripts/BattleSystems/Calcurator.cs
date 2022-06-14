@@ -55,7 +55,7 @@ namespace TAKACHIYO.BattleSystems
             Define.EquipmentPartType equipmentPartType
             )
         {
-            var result = instanceEquipment.MasterDataEquipment.strength;
+            var result = instanceEquipment.MasterDataEquipment.physicsStrength;
             
             // 防具の場合はこれ以降計算はしない
             if (equipmentPartType.IsArmor())
@@ -70,7 +70,7 @@ namespace TAKACHIYO.BattleSystems
                 {
                     if (i.equipmentPartType.IsArmor())
                     {
-                        result += i.instanceEquipment.MasterDataEquipment.strength;
+                        result += i.instanceEquipment.MasterDataEquipment.physicsStrength;
                     }
                 }
             }

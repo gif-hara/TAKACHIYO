@@ -24,8 +24,8 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 100
-    strength: 10
-    defense: 0
+    physicsStrength: 10
+    physicsDefense: 0
     speed: 0
     recoveryPower: 0
     equipmentType: 0
@@ -43,8 +43,8 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 100
-    strength: 0
-    defense: 2
+    physicsStrength: 0
+    physicsDefense: 2
     speed: 0
     recoveryPower: 0
     equipmentType: 1
@@ -62,8 +62,8 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 100
-    strength: 0
-    defense: 3
+    physicsStrength: 0
+    physicsDefense: 3
     speed: 0
     recoveryPower: 0
     equipmentType: 2
@@ -81,8 +81,8 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 100
-    strength: 0
-    defense: 1
+    physicsStrength: 0
+    physicsDefense: 1
     speed: 0
     recoveryPower: 0
     equipmentType: 3
@@ -100,8 +100,8 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 100
-    strength: 0
-    defense: 2
+    physicsStrength: 0
+    physicsDefense: 2
     speed: 0
     recoveryPower: 0
     equipmentType: 4
@@ -119,8 +119,8 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 100
-    strength: 0
-    defense: 1
+    physicsStrength: 0
+    physicsDefense: 1
     speed: 0
     recoveryPower: 0
     equipmentType: 5
@@ -138,8 +138,8 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 100
-    strength: 0
-    defense: 0
+    physicsStrength: 0
+    physicsDefense: 0
     speed: 0
     recoveryPower: 0
     equipmentType: 6

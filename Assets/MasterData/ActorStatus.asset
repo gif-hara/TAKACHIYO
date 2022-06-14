@@ -24,8 +24,8 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 100
-    strength: 0
-    defense: 0
+    physicsStrength: 0
+    physicsDefense: 0
     speed: 0
     recoveryPower: 0
     attributeType1: 0
@@ -42,8 +42,8 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 100
-    strength: 0
-    defense: 0
+    physicsStrength: 0
+    physicsDefense: 0
     speed: 0
     recoveryPower: 0
     attributeType1: 18
