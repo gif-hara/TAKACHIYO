@@ -24,11 +24,7 @@ namespace TAKACHIYO.CommandSystems.Actions
                 {
                     var damage = Calcurator.GetAttackDamage(command.Owner, target, command, this.rate, this.attackType);
 
-                    target.StatusController.TakeDamage(
-                        command.Owner,
-                        damage,
-                        true
-                        );
+                    target.StatusController.TakeDamage(command.Owner, damage);
                 }
 
                 return Observable.ReturnUnit();

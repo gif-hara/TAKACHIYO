@@ -58,7 +58,7 @@ namespace TAKACHIYO.ActorControllers
         {
         }
 
-        public void TakeDamage(Actor attacker, int damage, bool isPublishDamageEvent)
+        public void TakeDamage(Actor attacker, int damage)
         {
             // 鉄壁が存在する場合はダメージ無効化して削除する
             if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.IronWall))
@@ -83,10 +83,7 @@ namespace TAKACHIYO.ActorControllers
                 attacker.StatusController.TakeDamageRaw(-absorptionRecovery);
             }
 
-            if (isPublishDamageEvent)
-            {
-                attacker.Broker.Publish(ActorEvent.GivedDamage.Get());
-            }
+            attacker.Broker.Publish(ActorEvent.GivedDamage.Get());
         }
 
         public void TakeDamageRaw(int damage)
