@@ -139,6 +139,12 @@ namespace TAKACHIYO
             /// 一度だけダメージを無効化する. その後この状態異常は解除される
             /// </summary>
             IronWall,
+            
+            /// <summary>
+            /// 跳返
+            /// 受けたダメージの一部を返す
+            /// </summary>
+            Counter,
         }
 
         /// <summary>

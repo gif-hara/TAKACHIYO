@@ -60,6 +60,7 @@ namespace TAKACHIYO.ActorControllers
 
         public void TakeDamage(Actor attacker, int damage, bool isPublishDamageEvent)
         {
+            // 鉄壁が存在する場合はダメージ無効化して削除する
             if (this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.IronWall))
             {
                 damage = 0;
@@ -68,9 +69,15 @@ namespace TAKACHIYO.ActorControllers
             
             this.TakeDamageRaw(damage);
             
+            // 跳返が存在する場合は一部ダメージを相手に与える
+            if (damage > 0 && this.owner.AbnormalStatusController.Contains(Define.AbnormalStatusType.Counter))
+            {
+                var counterDamage = Mathf.FloorToInt(damage * GameDesignParameter.Instance.counterDamageRate);
+                attacker.StatusController.TakeDamageRaw(counterDamage);
+            }
+
             if (isPublishDamageEvent)
             {
-                this.owner.Broker.Publish(ActorEvent.TakedDamage.Get(damage));
                 attacker.Broker.Publish(ActorEvent.GivedDamage.Get());
             }
         }
@@ -82,7 +89,6 @@ namespace TAKACHIYO.ActorControllers
                 return;
             }
             
-            this.TakeDamageCount++;
             var result = this.hitPoint.Value;
             result = Mathf.Max(result - damage, 0);
             this.hitPoint.Value = result;
@@ -90,6 +96,11 @@ namespace TAKACHIYO.ActorControllers
             if (damage < 0)
             {
                 this.owner.Broker.Publish(ActorEvent.Recoverd.Get(-damage));
+            }
+            else if(damage > 0)
+            {
+                this.TakeDamageCount++;
+                this.owner.Broker.Publish(ActorEvent.TakedDamage.Get(damage));
             }
         }
 

@@ -148,6 +148,16 @@ namespace TAKACHIYO
         /// 鉄壁にかかっている時間（秒）
         /// </summary>
         public float ironWallTimeSeconds;
+
+        /// <summary>
+        /// 跳返にかかっている時間（秒）
+        /// </summary>
+        public float counterTimeSeconds;
+
+        /// <summary>
+        /// 跳返による返すダメージの割合
+        /// </summary>
+        public float counterDamageRate;
         
         public static async UniTask LoadAsync()
         {

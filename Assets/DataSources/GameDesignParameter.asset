@@ -37,3 +37,5 @@ MonoBehaviour:
   physicalStrengthTimeSeconds: 30
   physicalStrengthHitPointUpRate: 0.5
   ironWallTimeSeconds: 6000
+  counterTimeSeconds: 10
+  counterDamageRate: 0.5
