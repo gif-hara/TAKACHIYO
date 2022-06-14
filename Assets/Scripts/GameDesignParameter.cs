@@ -14,6 +14,11 @@ namespace TAKACHIYO
         public static GameDesignParameter Instance { get; private set; }
 
         /// <summary>
+        /// 防御力の基本値
+        /// </summary>
+        public int baseDefense;
+
+        /// <summary>
         /// 毒ダメージの割合
         /// </summary>
         /// <remarks>

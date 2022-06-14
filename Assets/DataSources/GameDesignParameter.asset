@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803cb1ab995aa4644b219e44f21bcbbd, type: 3}
   m_Name: GameDesignParameter
   m_EditorClassIdentifier: 
+  baseDefense: 20
   poisonDamageRate: 0.2
   poisonDamageSeconds: 5
   poisonDamageCount: 5

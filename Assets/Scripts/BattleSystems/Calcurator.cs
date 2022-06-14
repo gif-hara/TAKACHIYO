@@ -18,8 +18,8 @@ namespace TAKACHIYO.BattleSystems
                 ? attacker.StatusController.BaseStatus.physicsStrength + command.BlueprintHolder.PhysicsStrength
                 : attacker.StatusController.BaseStatus.magicStrength + command.BlueprintHolder.MagicStrength;
             var defense = attackType == Define.AttackType.Magic
-                ? 20 + defenser.StatusController.TotalPhysicsDefense
-                : 20 + defenser.StatusController.TotalMagicDefense;
+                ? GameDesignParameter.Instance.baseDefense + defenser.StatusController.TotalPhysicsDefense
+                : GameDesignParameter.Instance.baseDefense + defenser.StatusController.TotalMagicDefense;
 
             var damage = Mathf.FloorToInt((float)(strength * strength) / defense);
             
