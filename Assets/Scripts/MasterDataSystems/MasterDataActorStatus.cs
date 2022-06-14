@@ -21,9 +21,9 @@ namespace TAKACHIYO.MasterDataSystems
 
             public int hitPoint;
 
-            public int strength;
+            public int physicsStrength;
 
-            public int defense;
+            public int physicsDefense;
 
             public int speed;
 
@@ -50,8 +50,8 @@ namespace TAKACHIYO.MasterDataSystems
                 string id,
                 string name,
                 int hitPoint,
-                int strength,
-                int defense,
+                int physicsStrength,
+                int physicsDefense,
                 int speed,
                 int recoveryPower,
                 Define.AttributeType attributeType1,
@@ -63,8 +63,8 @@ namespace TAKACHIYO.MasterDataSystems
                 this.localizedName = new LocalizedString();
                 this.localizedName.SetReference("Actor", name);
                 this.hitPoint = hitPoint;
-                this.strength = strength;
-                this.defense = defense;
+                this.physicsStrength = physicsStrength;
+                this.physicsDefense = physicsDefense;
                 this.speed = speed;
                 this.recoveryPower = recoveryPower;
                 this.attributeType1 = attributeType1;
@@ -101,9 +101,9 @@ namespace TAKACHIYO.MasterDataSystems
 
             public int HitPoint;
 
-            public int Strength;
+            public int PhysicsStrength;
 
-            public int Defense;
+            public int PhysicsDefense;
 
             public int Speed;
 
@@ -119,8 +119,8 @@ namespace TAKACHIYO.MasterDataSystems
                 this.Id,
                 this.Name,
                 this.HitPoint,
-                this.Strength,
-                this.Defense,
+                this.PhysicsStrength,
+                this.PhysicsDefense,
                 this.Speed,
                 this.RecoveryPower,
                 Define.ConvertToAttributeType(this.AttributeType1),

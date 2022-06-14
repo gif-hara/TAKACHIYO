@@ -10,14 +10,14 @@ namespace TAKACHIYO.CommandSystems
     [Serializable]
     public sealed class DebugCommandBlueprintHolder : ICommandBlueprintHolder
     {
-        public int strength;
+        public int physicsStrength;
 
         public int recoveryPower;
 
         /// <summary>
-        /// 攻撃力
+        /// 物理攻撃力
         /// </summary>
-        public int Strength => this.strength;
+        public int PhysicsStrength => this.physicsStrength;
 
         /// <summary>
         /// 回復力

@@ -14,8 +14,8 @@ namespace TAKACHIYO.BattleSystems
         /// </summary>
         public static int GetAttackDamage(Actor attacker, Actor defenser, Command command, float rate)
         {
-            var strength = attacker.StatusController.BaseStatus.strength + command.BlueprintHolder.Strength;
-            var defense = 20 + defenser.StatusController.BaseStatus.defense;
+            var strength = attacker.StatusController.BaseStatus.physicsStrength + command.BlueprintHolder.PhysicsStrength;
+            var defense = 20 + defenser.StatusController.BaseStatus.physicsDefense;
 
             var damage = Mathf.FloorToInt((float)(strength * strength) / defense);
             

@@ -29,7 +29,7 @@ namespace TAKACHIYO.ActorControllers
             
                 var commandBlueprintHolder = new DebugCommandBlueprintHolder
                 {
-                    strength = Calcurator.GetStrength(this, i.instanceEquipment, i.equipmentPartType),
+                    physicsStrength = Calcurator.GetStrength(this, i.instanceEquipment, i.equipmentPartType),
                     recoveryPower = Calcurator.GetRecoveryPower(this, i.instanceEquipment, i.equipmentPartType)
                 };
 

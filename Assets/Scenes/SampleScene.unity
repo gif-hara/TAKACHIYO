@@ -528,10 +528,10 @@ MonoBehaviour:
     masterDataActorStatusId: 1
     actorEquipment:
       instanceEquipments:
-      - equipmentPartType: 1
+      - equipmentPartType: 0
         instanceEquipment:
           masterDataEquipmentId: 10101001
-      - equipmentPartType: 0
+      - equipmentPartType: 1
         instanceEquipment:
           masterDataEquipmentId: 10101001
   enemySetupData:
