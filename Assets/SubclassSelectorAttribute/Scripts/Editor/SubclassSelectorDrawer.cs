@@ -57,7 +57,7 @@ public class SubclassSelectorDrawer : PropertyDrawer
 
     private void GetInheritedTypeNameArrays()
     {
-        typePopupNameArray = inheritedTypes.Select(type => type == null ? "<null>" : type.ToString()).ToArray();
+        typePopupNameArray = inheritedTypes.Select(type => type == null ? "<null>" : type.Name.ToString()).ToArray();
         typeFullNameArray = inheritedTypes.Select(type => type == null ? "" : string.Format("{0} {1}", type.Assembly.ToString().Split(',')[0], type.FullName)).ToArray();
     }
 
