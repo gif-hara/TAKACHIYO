@@ -50,5 +50,33 @@ namespace TAKACHIYO
                     return default;
             }
         }
+        
+        /// <summary>
+        /// スコープと部位が一致しているか返す
+        /// </summary>
+        public static bool IsMatch(this Define.EquipmentScopeType self, Define.EquipmentPartType partType)
+        {
+            switch (self)
+            {
+                case Define.EquipmentScopeType.Main:
+                    return partType == Define.EquipmentPartType.MainWeapon;
+                case Define.EquipmentScopeType.Sub:
+                    return partType == Define.EquipmentPartType.SubWeapon1
+                        || partType == Define.EquipmentPartType.SubWeapon2;
+                case Define.EquipmentScopeType.Armor:
+                    return partType == Define.EquipmentPartType.ArmorHead
+                        || partType == Define.EquipmentPartType.ArmorChest
+                        || partType == Define.EquipmentPartType.ArmorArms
+                        || partType == Define.EquipmentPartType.ArmorTorso
+                        || partType == Define.EquipmentPartType.ArmorLegs;
+                case Define.EquipmentScopeType.Accessory:
+                    return partType == Define.EquipmentPartType.Accessory;
+                case Define.EquipmentScopeType.All:
+                    return true;
+                default:
+                    Assert.IsTrue(false, $"{self}は未対応です");
+                    return default;
+            }
+        }
     }
 }

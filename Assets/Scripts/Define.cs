@@ -174,8 +174,8 @@ namespace TAKACHIYO
             Leather,
             /// <summary>金属</summary>
             Metal,
-            /// <summary>木材</summary>
-            Wood,
+            /// <summary>布</summary>
+            Cloth,
             /// <summary>火</summary>
             Fire,
             /// <summary>氷</summary>
@@ -212,6 +212,9 @@ namespace TAKACHIYO
             Accessory,
         }
         
+        /// <summary>
+        /// 装備品の部位タイプ
+        /// </summary>
         public enum EquipmentPartType
         {
             MainWeapon,
@@ -223,6 +226,18 @@ namespace TAKACHIYO
             ArmorTorso,
             ArmorLegs,
             Accessory,
+        }
+        
+        /// <summary>
+        /// 装備品のスコープタイプ
+        /// </summary>
+        public enum EquipmentScopeType
+        {
+            Main,
+            Sub,
+            Armor,
+            Accessory,
+            All,
         }
 
         /// <summary>
@@ -285,8 +300,8 @@ namespace TAKACHIYO
                     return AttributeType.Leather;
                 case "金属":
                     return AttributeType.Metal;
-                case "木材":
-                    return AttributeType.Wood;
+                case "布":
+                    return AttributeType.Cloth;
                 case "火":
                     return AttributeType.Fire;
                 case "氷":

@@ -69,6 +69,16 @@ namespace TAKACHIYO.ActorControllers
             return result;
         }
 
+        /// <summary>
+        /// <paramref name="scopeType"/>と一致する装備品を返す
+        /// </summary>
+        public IEnumerable<InstanceEquipment> Get(Define.EquipmentScopeType scopeType)
+        {
+            return this.InstanceEquipments
+                .Where(x => scopeType.IsMatch(x.equipmentPartType))
+                .Select(x => x.instanceEquipment);
+        }
+
         [Serializable]
         public class InstanceEquipmentData
         {

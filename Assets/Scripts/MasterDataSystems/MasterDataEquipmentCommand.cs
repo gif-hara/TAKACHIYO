@@ -53,10 +53,18 @@ namespace TAKACHIYO.MasterDataSystems
             }
         }
 
+        private static readonly List<Record> nullList = new();
+        
         public static IReadOnlyList<Record> GetFromEquipmentId(string equipmentId)
         {
-            Assert.IsTrue(Instance.equipmentIdTable.ContainsKey(equipmentId), $"{nameof(equipmentId)} = {equipmentId}は存在しません");
-            return Instance.equipmentIdTable[equipmentId];
+            if (Instance.equipmentIdTable.ContainsKey(equipmentId))
+            {
+                return Instance.equipmentIdTable[equipmentId];
+            }
+            else
+            {
+                return nullList;
+            }
         }
 
 #if UNITY_EDITOR

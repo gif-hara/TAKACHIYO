@@ -41,14 +41,29 @@ namespace TAKACHIYO.MasterDataSystems
 
             public Define.AttributeType attributeType3;
 
-            private List<Define.AttributeType> _attributeTypes;
+            private List<Define.AttributeType> _attributeTypes = null;
 
-            public List<Define.AttributeType> attributeTypes => this._attributeTypes ??= new List<Define.AttributeType>
+            public List<Define.AttributeType> attributeTypes
             {
-                this.attributeType1,
-                this.attributeType2,
-                this.attributeType3,
-            };
+                get
+                {
+// なんかUnityがおかしい. シリアライズされないものでもされているっぽい
+#if UNITY_EDITOR
+                    this._attributeTypes = null;
+#endif
+                    if (this._attributeTypes == null)
+                    {
+                        this._attributeTypes = new List<Define.AttributeType>
+                        {
+                            this.attributeType1,
+                            this.attributeType2,
+                            this.attributeType3
+                        };
+                    }
+
+                    return this._attributeTypes;
+                }
+            }
 
             public string Id => this.id;
 

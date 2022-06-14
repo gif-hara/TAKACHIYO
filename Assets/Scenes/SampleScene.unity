@@ -531,6 +531,21 @@ MonoBehaviour:
       - equipmentPartType: 0
         instanceEquipment:
           masterDataEquipmentId: 10101001
+      - equipmentPartType: 3
+        instanceEquipment:
+          masterDataEquipmentId: 10201001
+      - equipmentPartType: 4
+        instanceEquipment:
+          masterDataEquipmentId: 10301001
+      - equipmentPartType: 5
+        instanceEquipment:
+          masterDataEquipmentId: 10401001
+      - equipmentPartType: 6
+        instanceEquipment:
+          masterDataEquipmentId: 10501001
+      - equipmentPartType: 7
+        instanceEquipment:
+          masterDataEquipmentId: 10601001
   enemySetupData:
     masterDataActorStatusId: 2
     commandBlueprintSetupData:

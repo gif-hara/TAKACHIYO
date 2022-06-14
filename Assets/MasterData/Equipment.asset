@@ -31,7 +31,7 @@ MonoBehaviour:
     speed: 0
     recoveryPower: 0
     equipmentType: 0
-    attributeType1: 0
+    attributeType1: 1
     attributeType2: 0
     attributeType3: 0
   - id: 10201001
@@ -52,7 +52,7 @@ MonoBehaviour:
     speed: 0
     recoveryPower: 0
     equipmentType: 1
-    attributeType1: 0
+    attributeType1: 6
     attributeType2: 0
     attributeType3: 0
   - id: 10301001
@@ -73,7 +73,7 @@ MonoBehaviour:
     speed: 0
     recoveryPower: 0
     equipmentType: 2
-    attributeType1: 0
+    attributeType1: 6
     attributeType2: 0
     attributeType3: 0
   - id: 10401001
@@ -94,7 +94,7 @@ MonoBehaviour:
     speed: 0
     recoveryPower: 0
     equipmentType: 3
-    attributeType1: 0
+    attributeType1: 6
     attributeType2: 0
     attributeType3: 0
   - id: 10501001
@@ -115,7 +115,7 @@ MonoBehaviour:
     speed: 0
     recoveryPower: 0
     equipmentType: 4
-    attributeType1: 0
+    attributeType1: 6
     attributeType2: 0
     attributeType3: 0
   - id: 10601001
@@ -136,7 +136,7 @@ MonoBehaviour:
     speed: 0
     recoveryPower: 0
     equipmentType: 5
-    attributeType1: 0
+    attributeType1: 6
     attributeType2: 0
     attributeType3: 0
   - id: 10701001
