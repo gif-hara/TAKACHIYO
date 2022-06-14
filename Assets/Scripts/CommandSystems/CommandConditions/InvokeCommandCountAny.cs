@@ -3,7 +3,7 @@ using TAKACHIYO.ActorControllers;
 using UniRx;
 using UnityEngine;
 
-namespace TAKACHIYO.CommandSystems.Conditions
+namespace TAKACHIYO.CommandSystems.CommandConditions
 {
     /// <summary>
     /// 何かコマンドがn回実行したら実行可能

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using TAKACHIYO.CommandSystems.Conditions;
+using TAKACHIYO.CommandSystems.CommandConditions;
 using UnityEngine;
 using UnityEngine.Assertions;
 

@@ -2,7 +2,7 @@ using System;
 using TAKACHIYO.ActorControllers;
 using UniRx;
 
-namespace TAKACHIYO.CommandSystems.Conditions
+namespace TAKACHIYO.CommandSystems.CommandConditions
 {
     /// <summary>
     /// 

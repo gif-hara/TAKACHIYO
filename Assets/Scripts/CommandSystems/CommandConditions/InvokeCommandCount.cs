@@ -4,7 +4,7 @@ using TAKACHIYO.BattleSystems;
 using UniRx;
 using UnityEngine;
 
-namespace TAKACHIYO.CommandSystems.Conditions
+namespace TAKACHIYO.CommandSystems.CommandConditions
 {
     /// <summary>
     /// n回だけ実行可能

@@ -3,7 +3,7 @@ using TAKACHIYO.ActorControllers;
 using UniRx;
 using UnityEngine;
 
-namespace TAKACHIYO.CommandSystems.Conditions
+namespace TAKACHIYO.CommandSystems.CommandConditions
 {
     /// <summary>
     /// ダメージをn回受けたら実行可能

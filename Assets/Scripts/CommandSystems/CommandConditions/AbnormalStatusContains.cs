@@ -4,7 +4,7 @@ using TAKACHIYO.BattleSystems;
 using UniRx;
 using UnityEngine;
 
-namespace TAKACHIYO.CommandSystems.Conditions
+namespace TAKACHIYO.CommandSystems.CommandConditions
 {
     /// <summary>
     /// 状態異常が存在する場合に実行可能

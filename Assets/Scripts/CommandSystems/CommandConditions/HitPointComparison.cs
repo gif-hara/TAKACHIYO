@@ -5,7 +5,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace TAKACHIYO.CommandSystems.Conditions
+namespace TAKACHIYO.CommandSystems.CommandConditions
 {
     /// <summary>
     /// HPの比較で実行可能
