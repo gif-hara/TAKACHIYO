@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8cae087a2694e449e05aed098643b0, type: 3}
+  m_Name: CommandActionBundle.100002
+  m_EditorClassIdentifier: 
+  commandName:
+    m_TableReference:
+      m_TableCollectionName: GUID:ce6354cad7206a743baf195cd8c5d224
+    m_TableEntryReference:
+      m_KeyId: 344373352136704
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  castTime: 4
+  actions:
+  - rid: 4657355661447528569
+  - rid: 4657355661447528572
+  - rid: 4657355661447528570
+  - rid: 4657355661447528574
+  references:
+    version: 2
+    RefIds:
+    - rid: 4657355661447528569
+      type: {class: InstantiateEffect, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        effectPrefab: {fileID: 1645127788450541223, guid: 5d5089d7f78332e4da0df3895e3bd0e0, type: 3}
+    - rid: 4657355661447528570
+      type: {class: Attack, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        rate: 1.5
+        attackType: 0
+    - rid: 4657355661447528572
+      type: {class: Timer, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
+      data:
+        targetType: 0
+        delaySeconds: 0.1
+    - rid: 4657355661447528574
+      type: {class: Timer, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
+      data:
+        targetType: 0
+        delaySeconds: 0.5

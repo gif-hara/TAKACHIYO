@@ -9,8 +9,8 @@ namespace TAKACHIYO.CommandSystems
     /// <summary>
     /// 
     /// </summary>
-    [Serializable]
-    public sealed class CommandConditionBundle
+    [CreateAssetMenu(menuName = "TAKACHIYO/CommandConditionBundle")]
+    public sealed class CommandConditionBundle : ScriptableObject
     {
         [SerializeReference, SubclassSelector(typeof(ICommandCondition))]
         private List<ICommandCondition> conditions;

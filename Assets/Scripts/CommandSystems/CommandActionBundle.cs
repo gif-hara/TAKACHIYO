@@ -1,17 +1,15 @@
-using System;
 using System.Collections.Generic;
 using TAKACHIYO.CommandSystems.Actions;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityEngine.Search;
 
 namespace TAKACHIYO.CommandSystems
 {
     /// <summary>
     /// 
     /// </summary>
-    [Serializable]
-    public sealed class CommandActionBundle
+    [CreateAssetMenu(menuName = "TAKACHIYO/CommandActionBundle")]
+    public sealed class CommandActionBundle : ScriptableObject
     {
         [SerializeField]
         private LocalizedString commandName;
