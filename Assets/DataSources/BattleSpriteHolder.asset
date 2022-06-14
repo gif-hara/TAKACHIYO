@@ -39,3 +39,5 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d899d9a63265af64eb50cf8ea158938f, type: 3}
   - abnormalStatusType: 12
     sprite: {fileID: 21300000, guid: fdd0b038f28a03e4ea2a3f51088d3f1a, type: 3}
+  - abnormalStatusType: 13
+    sprite: {fileID: 21300000, guid: ef2b9c4efa88f5c4591c4f45c49f0261, type: 3}

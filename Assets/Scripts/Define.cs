@@ -145,6 +145,12 @@ namespace TAKACHIYO
             /// 受けたダメージの一部を返す
             /// </summary>
             Counter,
+            
+            /// <summary>
+            /// 吸収
+            /// 与えたダメージの一部を吸収して回復する
+            /// </summary>
+            Absorption,
         }
 
         /// <summary>

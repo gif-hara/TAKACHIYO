@@ -39,3 +39,5 @@ MonoBehaviour:
   ironWallTimeSeconds: 6000
   counterTimeSeconds: 10
   counterDamageRate: 0.5
+  absorptionTimeSeconds: 10
+  absorptionRecoveryRate: 0.3

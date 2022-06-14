@@ -76,6 +76,13 @@ namespace TAKACHIYO.ActorControllers
                 attacker.StatusController.TakeDamageRaw(counterDamage);
             }
 
+            // 吸収が存在する場合は一部ダメージを吸収して回復する
+            if (damage > 0 && attacker.AbnormalStatusController.Contains(Define.AbnormalStatusType.Absorption))
+            {
+                var absorptionRecovery = Mathf.FloorToInt(damage * GameDesignParameter.Instance.absorptionRecoveryRate);
+                attacker.StatusController.TakeDamageRaw(-absorptionRecovery);
+            }
+
             if (isPublishDamageEvent)
             {
                 attacker.Broker.Publish(ActorEvent.GivedDamage.Get());

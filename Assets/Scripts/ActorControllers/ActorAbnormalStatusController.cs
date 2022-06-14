@@ -80,6 +80,8 @@ namespace TAKACHIYO.ActorControllers
                     return new TimerAbnormalStatus(Define.AbnormalStatusType.IronWall, GameDesignParameter.Instance.ironWallTimeSeconds);
                 case Define.AbnormalStatusType.Counter:
                     return new TimerAbnormalStatus(Define.AbnormalStatusType.Counter, GameDesignParameter.Instance.counterTimeSeconds);
+                case Define.AbnormalStatusType.Absorption:
+                    return new TimerAbnormalStatus(Define.AbnormalStatusType.Absorption, GameDesignParameter.Instance.absorptionTimeSeconds);
                 default:
                     Assert.IsTrue(false, $"{abnormalStatusType}は未対応です");
                     return null;

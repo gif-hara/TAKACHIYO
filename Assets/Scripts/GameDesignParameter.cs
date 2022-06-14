@@ -158,6 +158,16 @@ namespace TAKACHIYO
         /// 跳返による返すダメージの割合
         /// </summary>
         public float counterDamageRate;
+
+        /// <summary>
+        /// 吸収にかかっている時間（秒）
+        /// </summary>
+        public float absorptionTimeSeconds;
+
+        /// <summary>
+        /// 吸収による回復量の割合
+        /// </summary>
+        public float absorptionRecoveryRate;
         
         public static async UniTask LoadAsync()
         {
