@@ -13,5 +13,7 @@ namespace TAKACHIYO.ActorControllers
         public string MasterDataActorStatusId { get; }
 
         public IEnumerable<ICommandBlueprintSetupData> CommandBlueprintSetupData { get; }
+        
+        public ActorEquipment ActorEquipment { get; }
     }
 }

@@ -16,9 +16,17 @@ namespace TAKACHIYO.ActorControllers
     public sealed class ActorEquipment
     {
         [SerializeField]
-        private List<InstanceEquipmentData> instanceEquipments;
+        private List<InstanceEquipmentData> instanceEquipments = new();
 
         public List<InstanceEquipmentData> InstanceEquipments => this.instanceEquipments;
+
+        /// <summary>
+        /// 総合物理防御力を返す
+        /// </summary>
+        /// <remarks>
+        /// 全ての物理防御力を参照したい場合は<see cref="ActorStatusController.TotalPhysicsDefense"/>を参照してください
+        /// </remarks>
+        public int TotalPhysicsDefense => this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.defense);
 
         public List<ICommandBlueprintSetupData> CreateCommandBlueprintSetupDataList()
         {

@@ -27,6 +27,11 @@ namespace TAKACHIYO.ActorControllers
         public float HitPointRate => (float)this.hitPoint.Value / this.hitPointMax.Value;
 
         public bool IsDead => this.hitPoint.Value <= 0;
+
+        /// <summary>
+        /// 全ての物理防御力を返す
+        /// </summary>
+        public int TotalPhysicsDefense => this.BaseStatus.physicsDefense + this.owner.Equipment.TotalPhysicsDefense;
         
         /// <summary>
         /// ダメージを受けた回数
