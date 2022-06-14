@@ -9,6 +9,11 @@ namespace TAKACHIYO.CommandSystems
     public interface ICommandBlueprintHolder
     {
         /// <summary>
+        /// どの部位に装備しているか
+        /// </summary>
+        Define.EquipmentPartType EquipmentPartType { get; }
+        
+        /// <summary>
         /// 物理攻撃力
         /// </summary>
         int PhysicsStrength { get; }

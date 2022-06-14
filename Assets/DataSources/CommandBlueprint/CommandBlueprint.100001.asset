@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c64c96d5d2b344fad16a1ddd0e5237, type: 3}
   m_Name: CommandBlueprint.100001
   m_EditorClassIdentifier: 
-  conditionBundle: {fileID: 11400000, guid: 8fecc05c0d5db7d4da0b10cd5cf653ff, type: 2}
+  equipmentConditionBundle: {fileID: 11400000, guid: 7d2eb7112b1e50b4ab8948002a8988f0, type: 2}
+  commandConditionBundle: {fileID: 11400000, guid: 8fecc05c0d5db7d4da0b10cd5cf653ff, type: 2}
   actionBundle: {fileID: 11400000, guid: 8a7291ceab8442e4b910d162178ebf54, type: 2}

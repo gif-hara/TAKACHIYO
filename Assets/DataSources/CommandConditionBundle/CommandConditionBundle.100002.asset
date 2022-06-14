@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: CommandConditionBundle.100002
   m_EditorClassIdentifier: 
   conditions:
-  - rid: 4657355661447528562
+  - rid: 4657355661447528595
   references:
     version: 2
     RefIds:
-    - rid: 4657355661447528562
-      type: {class: HitPointComparison, ns: TAKACHIYO.CommandSystems.Conditions, asm: Assembly-CSharp}
+    - rid: 4657355661447528595
+      type: {class: HitPointComparison, ns: TAKACHIYO.CommandSystems.CommandConditions, asm: Assembly-CSharp}
       data:
         targetType: 0
         compareType: 1

@@ -10,12 +10,16 @@ namespace TAKACHIYO.CommandSystems
     [Serializable]
     public sealed class DebugCommandBlueprintHolder : ICommandBlueprintHolder
     {
+        public Define.EquipmentPartType equipmentPartType;
+        
         public int physicsStrength;
 
         public int magicStrength;
 
         public int recoveryPower;
 
+        public Define.EquipmentPartType EquipmentPartType => this.equipmentPartType;
+        
         /// <summary>
         /// 物理攻撃力
         /// </summary>

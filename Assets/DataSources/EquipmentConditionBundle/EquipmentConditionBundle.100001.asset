@@ -9,15 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cb35761be5ebb04c9007ba676a62cd1, type: 3}
-  m_Name: CommandConditionBundle.100001
+  m_Script: {fileID: 11500000, guid: 7846e865c4ce57c46ac29b1ad011da09, type: 3}
+  m_Name: EquipmentConditionBundle.100001
   m_EditorClassIdentifier: 
   conditions:
-  - rid: 4657355661447528594
+  - rid: 4657355661447528597
   references:
     version: 2
     RefIds:
-    - rid: 4657355661447528594
-      type: {class: InvokeCommandCount, ns: TAKACHIYO.CommandSystems.CommandConditions, asm: Assembly-CSharp}
-      data:
-        number: 0
+    - rid: 4657355661447528597
+      type: {class: Always, ns: TAKACHIYO.CommandSystems.EquipmentConditions, asm: Assembly-CSharp}

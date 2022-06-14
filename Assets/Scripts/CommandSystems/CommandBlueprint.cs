@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using TAKACHIYO.CommandSystems.Actions;
 using TAKACHIYO.CommandSystems.CommandConditions;
+using TAKACHIYO.CommandSystems.EquipmentConditions;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Localization;
+using UnityEngine.Serialization;
 
 namespace TAKACHIYO.CommandSystems
 {
@@ -14,7 +16,10 @@ namespace TAKACHIYO.CommandSystems
     public sealed class CommandBlueprint : ScriptableObject
     {
         [SerializeField]
-        private CommandConditionBundle conditionBundle;
+        private EquipmentConditionBundle equipmentConditionBundle;
+        
+        [SerializeField]
+        private CommandConditionBundle commandConditionBundle;
         
         [SerializeField]
         private CommandActionBundle actionBundle;
@@ -23,7 +28,9 @@ namespace TAKACHIYO.CommandSystems
 
         public float CastTime => this.actionBundle.CastTime;
 
-        public IReadOnlyList<ICommandCondition> Conditions => this.conditionBundle.Conditions;
+        public IReadOnlyList<IEquipmentCondition> EquipmentConditions => this.equipmentConditionBundle.Conditions;
+        
+        public IReadOnlyList<ICommandCondition> CommandConditions => this.commandConditionBundle.Conditions;
 
         public IReadOnlyList<ICommandAction> Actions => this.actionBundle.Actions;
     }
