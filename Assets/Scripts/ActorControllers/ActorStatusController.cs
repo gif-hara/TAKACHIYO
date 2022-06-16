@@ -38,6 +38,9 @@ namespace TAKACHIYO.ActorControllers
         /// </summary>
         public int TotalMagicDefense => this.BaseStatus.magicDefense + this.owner.Equipment.TotalMagicDefense;
 
+        /// <summary>
+        /// 全ての素早さを返す
+        /// </summary>
         public int TotalSpeed => this.BaseStatus.speed + this.owner.Equipment.TotalSpeed;
         
         /// <summary>
@@ -49,8 +52,8 @@ namespace TAKACHIYO.ActorControllers
         {
             this.owner = owner;
             this.BaseStatus = masterDataActorStatus;
-            this.hitPointMax = new ReactiveProperty<int>(this.BaseStatus.hitPoint);
-            this.hitPoint = new ReactiveProperty<int>(this.BaseStatus.hitPoint);
+            this.hitPointMax = new ReactiveProperty<int>(this.BaseStatus.hitPoint + this.owner.Equipment.TotalHitPoint);
+            this.hitPoint = new ReactiveProperty<int>(this.HitPointMax.Value);
         }
 
         public ActorStatusController(Actor owner, string masterDataActorStatusId)

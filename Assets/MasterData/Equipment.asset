@@ -19,19 +19,313 @@ MonoBehaviour:
         m_TableCollectionName: Equipment
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: Weapon001
+        m_Key: Weapon10101001
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 100
-    physicsStrength: 10
+    hitPoint: 0
+    physicsStrength: 99
     physicsDefense: 0
-    magicStrength: 10
+    magicStrength: 0
+    magicDefense: 0
+    speed: -3
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 1
+    attributeType2: 7
+    attributeType3: 0
+  - id: 10101002
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10101002
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 102
+    physicsDefense: 0
+    magicStrength: 0
+    magicDefense: 0
+    speed: -3
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 1
+    attributeType2: 7
+    attributeType3: 0
+  - id: 10101003
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10101003
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 107
+    physicsDefense: 0
+    magicStrength: 0
+    magicDefense: 0
+    speed: -3
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 1
+    attributeType2: 7
+    attributeType3: 0
+  - id: 10102001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10102001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 71
+    physicsDefense: 0
+    magicStrength: 0
+    magicDefense: 0
+    speed: 4
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 2
+    attributeType2: 7
+    attributeType3: 0
+  - id: 10102002
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10102002
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 72
+    physicsDefense: 0
+    magicStrength: 0
+    magicDefense: 0
+    speed: 4
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 2
+    attributeType2: 7
+    attributeType3: 0
+  - id: 10102003
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10102003
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 75
+    physicsDefense: 0
+    magicStrength: 0
+    magicDefense: 0
+    speed: 4
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 2
+    attributeType2: 7
+    attributeType3: 0
+  - id: 10103001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10103001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 57
+    physicsDefense: 0
+    magicStrength: 0
     magicDefense: 0
     speed: 0
     recoveryPower: 0
     equipmentType: 0
-    attributeType1: 1
+    attributeType1: 3
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10103002
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10103002
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 58
+    physicsDefense: 0
+    magicStrength: 0
+    magicDefense: 0
+    speed: 0
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 3
+    attributeType2: 7
+    attributeType3: 0
+  - id: 10103003
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10103003
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 60
+    physicsDefense: 0
+    magicStrength: 0
+    magicDefense: 0
+    speed: 0
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 3
+    attributeType2: 7
+    attributeType3: 0
+  - id: 10104001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10104001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 0
+    physicsDefense: 0
+    magicStrength: 95
+    magicDefense: 0
+    speed: 0
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 4
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10104002
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10104002
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 0
+    physicsDefense: 0
+    magicStrength: 97
+    magicDefense: 0
+    speed: 0
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 4
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10104003
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10104003
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 0
+    physicsDefense: 0
+    magicStrength: 101
+    magicDefense: 0
+    speed: 0
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 4
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10105001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10105001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 91
+    physicsDefense: 0
+    magicStrength: 0
+    magicDefense: 0
+    speed: 0
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 5
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10105002
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10105002
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 93
+    physicsDefense: 0
+    magicStrength: 0
+    magicDefense: 0
+    speed: 0
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 5
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10105003
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Weapon10105003
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 0
+    physicsStrength: 95
+    physicsDefense: 0
+    magicStrength: 0
+    magicDefense: 0
+    speed: 0
+    recoveryPower: 0
+    equipmentType: 0
+    attributeType1: 5
     attributeType2: 0
     attributeType3: 0
   - id: 10201001
@@ -40,17 +334,17 @@ MonoBehaviour:
         m_TableCollectionName: Equipment
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: Head001
+        m_Key: Head101001
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 100
+    hitPoint: 58
     physicsStrength: 0
-    physicsDefense: 2
+    physicsDefense: 17
     magicStrength: 0
-    magicDefense: 2
-    speed: 0
-    recoveryPower: 0
+    magicDefense: 10
+    speed: 2
+    recoveryPower: 10
     equipmentType: 1
     attributeType1: 6
     attributeType2: 0
@@ -61,16 +355,16 @@ MonoBehaviour:
         m_TableCollectionName: Equipment
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: Chest001
+        m_Key: Chest101001
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 100
+    hitPoint: 63
     physicsStrength: 0
-    physicsDefense: 3
+    physicsDefense: 20
     magicStrength: 0
-    magicDefense: 3
-    speed: 0
+    magicDefense: 12
+    speed: 3
     recoveryPower: 0
     equipmentType: 2
     attributeType1: 6
@@ -82,16 +376,16 @@ MonoBehaviour:
         m_TableCollectionName: Equipment
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: Arms001
+        m_Key: Arms101001
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 100
-    physicsStrength: 0
-    physicsDefense: 1
+    hitPoint: 47
+    physicsStrength: 1
+    physicsDefense: 15
     magicStrength: 0
-    magicDefense: 1
-    speed: 0
+    magicDefense: 9
+    speed: 3
     recoveryPower: 0
     equipmentType: 3
     attributeType1: 6
@@ -103,16 +397,16 @@ MonoBehaviour:
         m_TableCollectionName: Equipment
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: Torso001
+        m_Key: Torso101001
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 100
+    hitPoint: 69
     physicsStrength: 0
-    physicsDefense: 2
+    physicsDefense: 17
     magicStrength: 0
-    magicDefense: 2
-    speed: 0
+    magicDefense: 10
+    speed: 4
     recoveryPower: 0
     equipmentType: 4
     attributeType1: 6
@@ -124,19 +418,229 @@ MonoBehaviour:
         m_TableCollectionName: Equipment
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: Legs001
+        m_Key: Legs101001
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 100
+    hitPoint: 41
     physicsStrength: 0
-    physicsDefense: 1
+    physicsDefense: 12
     magicStrength: 0
-    magicDefense: 1
-    speed: 0
+    magicDefense: 7
+    speed: 5
     recoveryPower: 0
     equipmentType: 5
     attributeType1: 6
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10202001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Head102001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 70
+    physicsStrength: 0
+    physicsDefense: 21
+    magicStrength: 0
+    magicDefense: 7
+    speed: -4
+    recoveryPower: 5
+    equipmentType: 1
+    attributeType1: 7
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10302001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Chest102001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 77
+    physicsStrength: 0
+    physicsDefense: 25
+    magicStrength: 0
+    magicDefense: 9
+    speed: -3
+    recoveryPower: 0
+    equipmentType: 2
+    attributeType1: 7
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10402001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Arms102001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 57
+    physicsStrength: 3
+    physicsDefense: 19
+    magicStrength: 0
+    magicDefense: 7
+    speed: -2
+    recoveryPower: 0
+    equipmentType: 3
+    attributeType1: 7
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10502001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Torso102001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 84
+    physicsStrength: 0
+    physicsDefense: 21
+    magicStrength: 0
+    magicDefense: 7
+    speed: -2
+    recoveryPower: 0
+    equipmentType: 4
+    attributeType1: 7
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10602001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Legs102001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 50
+    physicsStrength: 0
+    physicsDefense: 15
+    magicStrength: 0
+    magicDefense: 5
+    speed: -1
+    recoveryPower: 0
+    equipmentType: 5
+    attributeType1: 7
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10203001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Head103001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 56
+    physicsStrength: 0
+    physicsDefense: 15
+    magicStrength: 0
+    magicDefense: 21
+    speed: 1
+    recoveryPower: 20
+    equipmentType: 1
+    attributeType1: 8
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10303001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Chest103001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 61
+    physicsStrength: 0
+    physicsDefense: 18
+    magicStrength: 0
+    magicDefense: 26
+    speed: 2
+    recoveryPower: 0
+    equipmentType: 2
+    attributeType1: 8
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10403001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Arms103001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 45
+    physicsStrength: 0
+    physicsDefense: 14
+    magicStrength: 3
+    magicDefense: 19
+    speed: 2
+    recoveryPower: 0
+    equipmentType: 3
+    attributeType1: 8
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10503001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Torso103001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 66
+    physicsStrength: 0
+    physicsDefense: 15
+    magicStrength: 0
+    magicDefense: 21
+    speed: 3
+    recoveryPower: 0
+    equipmentType: 4
+    attributeType1: 8
+    attributeType2: 0
+    attributeType3: 0
+  - id: 10603001
+    localizedName:
+      m_TableReference:
+        m_TableCollectionName: Equipment
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: Legs103001
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    hitPoint: 39
+    physicsStrength: 0
+    physicsDefense: 11
+    magicStrength: 0
+    magicDefense: 15
+    speed: 4
+    recoveryPower: 0
+    equipmentType: 5
+    attributeType1: 8
     attributeType2: 0
     attributeType3: 0
   - id: 10701001
@@ -145,7 +649,7 @@ MonoBehaviour:
         m_TableCollectionName: Equipment
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: Accessory001
+        m_Key: Accessory101001
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []

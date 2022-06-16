@@ -549,10 +549,10 @@ MonoBehaviour:
   enemySetupData:
     masterDataActorStatusId: 2
     commandBlueprintSetupData:
-    - blueprintId: 100002
+    - blueprintId: 100001
       blueprintHolder:
         equipmentPartType: 0
-        physicsStrength: 20
+        physicsStrength: 0
         magicStrength: 0
         recoveryPower: 0
 --- !u!4 &1270532180

@@ -28,10 +28,10 @@ namespace TAKACHIYO.ActorControllers
         
         public Actor(IActorSetupData setupData)
         {
+            this.Equipment = setupData.ActorEquipment;
             this.StatusController = new ActorStatusController(this, setupData.MasterDataActorStatusId);
             this.CommandController = new ActorCommandController(this, setupData.CommandBlueprintSetupData);
             this.AbnormalStatusController = new ActorAbnormalStatusController(this);
-            this.Equipment = setupData.ActorEquipment;
         }
 
         public UniTask SetupAsync(Actor opponent)

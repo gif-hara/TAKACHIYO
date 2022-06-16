@@ -15,32 +15,136 @@ MonoBehaviour:
   m_TableCollectionName: Equipment
   m_TableCollectionNameGuidString: c77d101e54e70b849a8defa1c8049efa
   m_Entries:
-  - m_Id: 160865386496
-    m_Key: Weapon001
+  - m_Id: 1604553859596288
+    m_Key: Weapon10101001
     m_Metadata:
       m_Items: []
-  - m_Id: 160877969408
-    m_Key: Head001
+  - m_Id: 1604553893150720
+    m_Key: Weapon10101002
     m_Metadata:
       m_Items: []
-  - m_Id: 160877969409
-    m_Key: Chest001
+  - m_Id: 1604553893150721
+    m_Key: Weapon10101003
     m_Metadata:
       m_Items: []
-  - m_Id: 160877969410
-    m_Key: Arms001
+  - m_Id: 1604553893150722
+    m_Key: Weapon10102001
     m_Metadata:
       m_Items: []
-  - m_Id: 160877969411
-    m_Key: Torso001
+  - m_Id: 1604553893150723
+    m_Key: Weapon10102002
     m_Metadata:
       m_Items: []
-  - m_Id: 160877969412
-    m_Key: Legs001
+  - m_Id: 1604553893150724
+    m_Key: Weapon10102003
     m_Metadata:
       m_Items: []
-  - m_Id: 131637313732608
-    m_Key: Accessory001
+  - m_Id: 1604553893150725
+    m_Key: Weapon10103001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150726
+    m_Key: Weapon10103002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150727
+    m_Key: Weapon10103003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150728
+    m_Key: Weapon10104001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150729
+    m_Key: Weapon10104002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150730
+    m_Key: Weapon10104003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150731
+    m_Key: Weapon10105001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150732
+    m_Key: Weapon10105002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150733
+    m_Key: Weapon10105003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150734
+    m_Key: Head101001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150735
+    m_Key: Chest101001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150736
+    m_Key: Arms101001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150737
+    m_Key: Torso101001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150738
+    m_Key: Legs101001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150739
+    m_Key: Head102001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150740
+    m_Key: Chest102001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150741
+    m_Key: Arms102001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150742
+    m_Key: Torso102001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150743
+    m_Key: Legs102001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150744
+    m_Key: Head103001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150745
+    m_Key: Chest103001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150746
+    m_Key: Arms103001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150747
+    m_Key: Torso103001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150748
+    m_Key: Legs103001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150749
+    m_Key: Accessory101001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150750
+    m_Key: Accessory101002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1604553893150751
+    m_Key: Accessory102001
     m_Metadata:
       m_Items: []
   m_Metadata:

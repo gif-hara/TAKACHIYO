@@ -25,10 +25,10 @@ MonoBehaviour:
       m_LocalVariables: []
     hitPoint: 100
     physicsStrength: 0
-    physicsDefense: 0
+    physicsDefense: 1
     magicStrength: 0
-    magicDefense: 0
-    speed: 0
+    magicDefense: 1
+    speed: 80
     recoveryPower: 0
     attributeType1: 0
     attributeType2: 0
@@ -43,12 +43,12 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 100
-    physicsStrength: 0
-    physicsDefense: 0
+    hitPoint: 942
+    physicsStrength: 62
+    physicsDefense: 52
     magicStrength: 0
-    magicDefense: 0
-    speed: 0
+    magicDefense: 51
+    speed: 75
     recoveryPower: 0
     attributeType1: 18
     attributeType2: 15

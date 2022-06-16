@@ -21,6 +21,14 @@ namespace TAKACHIYO.ActorControllers
         public List<InstanceEquipmentData> InstanceEquipments => this.instanceEquipments;
 
         /// <summary>
+        /// 総合ヒットポイントを返す
+        /// </summary>
+        /// <remarks>
+        /// 全てのヒットポイントを参照したい場合は<see cref="ActorStatusController.HitPointMax"/>を参照してください
+        /// </remarks>
+        public int TotalHitPoint => this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.hitPoint);
+        
+        /// <summary>
         /// 総合物理防御力を返す
         /// </summary>
         /// <remarks>

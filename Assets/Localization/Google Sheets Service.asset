@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ApiKey: 
   m_ClientId: 567456815912-s7v8hejfbbp5bvjrbvlseb7mro6t8mtn.apps.googleusercontent.com
-  m_ClientSecret: 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
+  m_ClientSecret: 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
   m_AuthenticationType: 1
   m_ApplicationName: TAKACHIYO
   m_NewSheetProperties:
