@@ -17,11 +17,11 @@ namespace TAKACHIYO.BattleSystems
             var strength = attackType == Define.AttackType.Physics
                 ? attacker.StatusController.BaseStatus.physicsStrength + command.BlueprintHolder.PhysicsStrength
                 : attacker.StatusController.BaseStatus.magicStrength + command.BlueprintHolder.MagicStrength;
-            var defense = attackType == Define.AttackType.Magic
+            var defense = attackType == Define.AttackType.Physics
                 ? GameDesignParameter.Instance.baseDefense + defenser.StatusController.TotalPhysicsDefense
                 : GameDesignParameter.Instance.baseDefense + defenser.StatusController.TotalMagicDefense;
 
-            var damage = Mathf.FloorToInt((float)(strength * strength) / defense);
+            var damage = Mathf.FloorToInt(((float)(strength * strength) / defense) * rate);
             
             // 脱力にかかっている場合はダメージが減る
             if (attacker.AbnormalStatusController.Contains(Define.AbnormalStatusType.Exhaustion))
@@ -152,7 +152,7 @@ namespace TAKACHIYO.BattleSystems
         public static float GetAddCastTime(Actor actor, float deltaTime)
         {
             var baseSpeed = GameDesignParameter.Instance.baseSpeed;
-            var speed = ((float)actor.StatusController.TotalSpeed + baseSpeed) / baseSpeed;
+            var speed = ((float)actor.StatusController.TotalSpeed) / baseSpeed;
             speed = Mathf.Max(speed, 0.1f);
             return speed * deltaTime;
         }
