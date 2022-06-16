@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text;
 using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BattleSystems;
 using TAKACHIYO.CommandSystems;
@@ -7,6 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
+using UniRx.Triggers;
 
 namespace TAKACHIYO
 {
@@ -56,6 +58,12 @@ namespace TAKACHIYO
 
         [SerializeField]
         private AnimationClip informationDeadAnimation;
+
+        [SerializeField]
+        private GameObject debugRoot;
+
+        [SerializeField]
+        private TextMeshProUGUI debugMessage;
 
         private readonly Dictionary<Command, CommandUIPresenter> commandUIPresenters = new();
 
@@ -161,6 +169,25 @@ namespace TAKACHIYO
                 {
                     this.informationAnimationController.Play(this.informationDeadAnimation);
                 });
+            
+#if DEBUG
+            this.debugRoot.SetActive(true);
+            this.UpdateAsObservable()
+                .Subscribe(_ =>
+                {
+                    var s = new StringBuilder();
+                    s.AppendLine($"HP    = {actor.StatusController.HitPoint.Value}/{actor.StatusController.HitPointMax.Value}");
+                    s.AppendLine($"P STR = {actor.StatusController.TotalPhysicsStrength}");
+                    s.AppendLine($"P DEF = {actor.StatusController.TotalPhysicsDefense}");
+                    s.AppendLine($"M STR = {actor.StatusController.TotalMagicStrength}");
+                    s.AppendLine($"M DEF = {actor.StatusController.TotalMagicDefense}");
+                    s.AppendLine($"SPD   = {actor.StatusController.TotalSpeed}");
+
+                    this.debugMessage.text = s.ToString();
+                });
+#else
+            this.debugRoot.SetActive(false);
+#endif
         }
     }
 }
