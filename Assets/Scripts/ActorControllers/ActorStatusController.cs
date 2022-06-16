@@ -29,6 +29,16 @@ namespace TAKACHIYO.ActorControllers
         public bool IsDead => this.hitPoint.Value <= 0;
 
         /// <summary>
+        /// 全ての物理攻撃力を返す
+        /// </summary>
+        public int TotalPhysicsStrength => this.BaseStatus.physicsStrength + this.owner.Equipment.TotalPhysicsStrength;
+
+        /// <summary>
+        /// 全ての物理攻撃力を返す
+        /// </summary>
+        public int TotalMagicStrength => this.BaseStatus.magicStrength + this.owner.Equipment.TotalMagicStrength;
+
+        /// <summary>
         /// 全ての物理防御力を返す
         /// </summary>
         public int TotalPhysicsDefense => this.BaseStatus.physicsDefense + this.owner.Equipment.TotalPhysicsDefense;

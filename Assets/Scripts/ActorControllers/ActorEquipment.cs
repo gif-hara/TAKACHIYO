@@ -29,6 +29,16 @@ namespace TAKACHIYO.ActorControllers
         public int TotalHitPoint => this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.hitPoint);
         
         /// <summary>
+        /// 総合物理攻撃力を返す
+        /// </summary>
+        public int TotalPhysicsStrength => this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.physicsStrength);
+        
+        /// <summary>
+        /// 総合物理攻撃力を返す
+        /// </summary>
+        public int TotalMagicStrength => this.InstanceEquipments.Sum(x => x.instanceEquipment.MasterDataEquipment.magicStrength);
+        
+        /// <summary>
         /// 総合物理防御力を返す
         /// </summary>
         /// <remarks>
