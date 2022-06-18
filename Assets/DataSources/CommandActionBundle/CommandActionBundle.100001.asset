@@ -27,7 +27,6 @@ MonoBehaviour:
   - rid: 4657355661447528572
   - rid: 4657355661447528570
   - rid: 4657355661447528574
-  - rid: 4657355742006214708
   references:
     version: 2
     RefIds:
@@ -52,8 +51,3 @@ MonoBehaviour:
       data:
         targetType: 0
         delaySeconds: 0.5
-    - rid: 4657355742006214708
-      type: {class: Recovery, ns: TAKACHIYO.CommandSystems.Actions, asm: Assembly-CSharp}
-      data:
-        targetType: 0
-        rate: 1
