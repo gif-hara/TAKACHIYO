@@ -108,7 +108,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 0
-    physicsStrength: 72
+    physicsStrength: 73
     physicsDefense: 0
     magicStrength: 0
     magicDefense: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 0
-    physicsStrength: 58
+    physicsStrength: 59
     physicsDefense: 0
     magicStrength: 0
     magicDefense: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 0
-    physicsStrength: 60
+    physicsStrength: 61
     physicsDefense: 0
     magicStrength: 0
     magicDefense: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     hitPoint: 0
-    physicsStrength: 95
+    physicsStrength: 96
     physicsDefense: 0
     magicStrength: 0
     magicDefense: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
     physicsStrength: 0
     physicsDefense: 17
     magicStrength: 0
-    magicDefense: 10
+    magicDefense: 11
     speed: 2
     recoveryPower: 10
     equipmentType: 1
@@ -359,11 +359,11 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 63
+    hitPoint: 64
     physicsStrength: 0
-    physicsDefense: 20
+    physicsDefense: 21
     magicStrength: 0
-    magicDefense: 12
+    magicDefense: 13
     speed: 3
     recoveryPower: 0
     equipmentType: 2
@@ -382,10 +382,10 @@ MonoBehaviour:
       m_LocalVariables: []
     hitPoint: 47
     physicsStrength: 1
-    physicsDefense: 15
+    physicsDefense: 16
     magicStrength: 0
-    magicDefense: 9
-    speed: 3
+    magicDefense: 10
+    speed: 4
     recoveryPower: 0
     equipmentType: 3
     attributeType1: 6
@@ -405,8 +405,8 @@ MonoBehaviour:
     physicsStrength: 0
     physicsDefense: 17
     magicStrength: 0
-    magicDefense: 10
-    speed: 4
+    magicDefense: 11
+    speed: 5
     recoveryPower: 0
     equipmentType: 4
     attributeType1: 6
@@ -426,8 +426,8 @@ MonoBehaviour:
     physicsStrength: 0
     physicsDefense: 12
     magicStrength: 0
-    magicDefense: 7
-    speed: 5
+    magicDefense: 8
+    speed: 6
     recoveryPower: 0
     equipmentType: 5
     attributeType1: 6
@@ -443,11 +443,11 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 70
+    hitPoint: 71
     physicsStrength: 0
     physicsDefense: 21
     magicStrength: 0
-    magicDefense: 7
+    magicDefense: 8
     speed: -4
     recoveryPower: 5
     equipmentType: 1
@@ -464,12 +464,12 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 77
+    hitPoint: 78
     physicsStrength: 0
     physicsDefense: 25
     magicStrength: 0
     magicDefense: 9
-    speed: -3
+    speed: -4
     recoveryPower: 0
     equipmentType: 2
     attributeType1: 7
@@ -490,7 +490,7 @@ MonoBehaviour:
     physicsDefense: 19
     magicStrength: 0
     magicDefense: 7
-    speed: -2
+    speed: -3
     recoveryPower: 0
     equipmentType: 3
     attributeType1: 7
@@ -510,7 +510,7 @@ MonoBehaviour:
     physicsStrength: 0
     physicsDefense: 21
     magicStrength: 0
-    magicDefense: 7
+    magicDefense: 8
     speed: -2
     recoveryPower: 0
     equipmentType: 4
@@ -531,8 +531,8 @@ MonoBehaviour:
     physicsStrength: 0
     physicsDefense: 15
     magicStrength: 0
-    magicDefense: 5
-    speed: -1
+    magicDefense: 6
+    speed: -2
     recoveryPower: 0
     equipmentType: 5
     attributeType1: 7
@@ -550,10 +550,10 @@ MonoBehaviour:
       m_LocalVariables: []
     hitPoint: 56
     physicsStrength: 0
-    physicsDefense: 15
+    physicsDefense: 16
     magicStrength: 0
-    magicDefense: 21
-    speed: 1
+    magicDefense: 22
+    speed: 2
     recoveryPower: 20
     equipmentType: 1
     attributeType1: 8
@@ -569,9 +569,9 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 61
+    hitPoint: 62
     physicsStrength: 0
-    physicsDefense: 18
+    physicsDefense: 19
     magicStrength: 0
     magicDefense: 26
     speed: 2
@@ -594,8 +594,8 @@ MonoBehaviour:
     physicsStrength: 0
     physicsDefense: 14
     magicStrength: 3
-    magicDefense: 19
-    speed: 2
+    magicDefense: 20
+    speed: 3
     recoveryPower: 0
     equipmentType: 3
     attributeType1: 8
@@ -611,11 +611,11 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 66
+    hitPoint: 67
     physicsStrength: 0
-    physicsDefense: 15
+    physicsDefense: 16
     magicStrength: 0
-    magicDefense: 21
+    magicDefense: 22
     speed: 3
     recoveryPower: 0
     equipmentType: 4
@@ -632,11 +632,11 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 39
+    hitPoint: 40
     physicsStrength: 0
     physicsDefense: 11
     magicStrength: 0
-    magicDefense: 15
+    magicDefense: 16
     speed: 4
     recoveryPower: 0
     equipmentType: 5
@@ -653,7 +653,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 100
+    hitPoint: 0
     physicsStrength: 0
     physicsDefense: 0
     magicStrength: 0

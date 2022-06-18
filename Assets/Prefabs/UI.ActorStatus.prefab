@@ -1390,6 +1390,7 @@ RectTransform:
   - {fileID: 813035323984931765}
   - {fileID: 813035323169640926}
   - {fileID: 813035322850413597}
+  - {fileID: 5094473879347484703}
   - {fileID: 6353640431004605821}
   m_Father: {fileID: 0}
   m_RootOrder: -1
@@ -1425,6 +1426,9 @@ MonoBehaviour:
   informationAnimationController: {fileID: 8605666784279576712}
   informationDamageAnimation: {fileID: 7400000, guid: e37dcd40d28384b87879aab1208beae0, type: 2}
   informationDeadAnimation: {fileID: 7400000, guid: a54293b6ae14949f4a2aae348e1f7853, type: 2}
+  damageRoot: {fileID: 5094473879347484703}
+  damageElement: {fileID: 4969828122494258244, guid: a8674ba2e9701eb41a0cb0e568893a7d, type: 3}
+  recoveryElement: {fileID: 4969828122494258244, guid: 72ff52ed5d53f3c4d891c010532f8066, type: 3}
   debugRoot: {fileID: 4084629035286373587}
   debugMessage: {fileID: 4360687502876950049}
 --- !u!1 &1289446005089050980
@@ -1639,6 +1643,42 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &7618269943146555983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5094473879347484703}
+  m_Layer: 5
+  m_Name: Damage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5094473879347484703
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7618269943146555983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 813035324662297466}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -248.00003}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &8827291749729791002
 GameObject:
   m_ObjectHideFlags: 0

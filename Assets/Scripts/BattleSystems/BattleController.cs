@@ -46,6 +46,7 @@ namespace TAKACHIYO.BattleSystems
                     player.StatusController.HitPoint.Where(x => x <= 0),
                     enemy.StatusController.HitPoint.Where(x => x <= 0)
                     )
+                .DelayFrame(1)
                 .Subscribe(_ =>
                 {
                     if (player.StatusController.IsDead && enemy.StatusController.IsDead)

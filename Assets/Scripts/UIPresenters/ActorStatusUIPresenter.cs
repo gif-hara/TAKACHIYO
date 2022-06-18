@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
+using HK.Framework;
 using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BattleSystems;
 using TAKACHIYO.CommandSystems;
@@ -60,6 +61,15 @@ namespace TAKACHIYO
         private AnimationClip informationDeadAnimation;
 
         [SerializeField]
+        private Transform damageRoot;
+
+        [SerializeField]
+        private DamageElementUIView damageElement;
+
+        [SerializeField]
+        private DamageElementUIView recoveryElement;
+
+        [SerializeField]
         private GameObject debugRoot;
 
         [SerializeField]
@@ -69,8 +79,11 @@ namespace TAKACHIYO
 
         private readonly Dictionary<Define.AbnormalStatusType, AbnormalStatusIconUIView> abnormalStatusIconUIViews = new();
 
+        private ObjectPoolBundle<DamageElementUIView> damageElementObjectPool;
+
         private void Start()
         {
+            this.damageElementObjectPool = new ObjectPoolBundle<DamageElementUIView>();
             BattleController.Broker.Receive<BattleEvent.SetupBattle>()
                 .TakeUntilDestroy(this)
                 .Subscribe(x =>
@@ -156,18 +169,28 @@ namespace TAKACHIYO
 
             actor.Broker.Receive<ActorEvent.TakedDamage>()
                 .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
-                .Where(x => x.Damage > 0)
                 .Subscribe(x =>
                 {
-                    this.informationAnimationController.Play(this.informationDamageAnimation);
+                    if (x.Damage > 0)
+                    {
+                        if (!actor.StatusController.IsDead)
+                        {
+                            this.informationAnimationController.Play(this.informationDamageAnimation);
+                        }
+                        else
+                        {
+                            this.informationAnimationController.Play(this.informationDeadAnimation);
+                        }
+                    }
+                    
+                    this.CreateDamageElement(x.Damage, this.damageElementObjectPool.Get(this.damageElement));
                 });
 
-            actor.StatusController.HitPoint
-                .Where(_ => actor.StatusController.IsDead)
-                .Take(1)
-                .Subscribe(_ =>
+            actor.Broker.Receive<ActorEvent.Recoverd>()
+                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .Subscribe(x =>
                 {
-                    this.informationAnimationController.Play(this.informationDeadAnimation);
+                    this.CreateDamageElement(x.Value, this.damageElementObjectPool.Get(this.recoveryElement));
                 });
             
 #if DEBUG
@@ -188,6 +211,19 @@ namespace TAKACHIYO
 #else
             this.debugRoot.SetActive(false);
 #endif
+        }
+
+        private void CreateDamageElement(int damage, ObjectPool<DamageElementUIView> pool)
+        {
+            var element = pool.Rent();
+            element.transform.SetParent(this.damageRoot, false);
+            element.Damage = Mathf.Abs(damage).ToString();
+            element.PlayAnimationAsync()
+                .Subscribe(_ =>
+                {
+                    pool.Return(element);
+                });
+
         }
     }
 }
