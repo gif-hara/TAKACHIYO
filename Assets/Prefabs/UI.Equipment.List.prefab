@@ -540,8 +540,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -460.06}
-  m_SizeDelta: {x: 0, y: -920.12}
+  m_AnchoredPosition: {x: 0, y: -432.56}
+  m_SizeDelta: {x: 0, y: -865.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5364884849357615884
 GameObject:
@@ -984,7 +984,9 @@ MonoBehaviour:
   outAnimationClip: {fileID: 7400000, guid: b0b00f2cc01ebe44fb9760a263c936f2, type: 2}
   listParent: {fileID: 7747911150600562834}
   equipmentButtonPrefab: {fileID: 6293332579100479681, guid: fa26f4cf2bad4224c985474914c1293d, type: 3}
-  equipmentInformationUIPresenter: {fileID: 0}
+  leftButton: {fileID: 1629880021842865573}
+  rightButton: {fileID: 2324386435345755190}
+  page: {fileID: 587400903653834309}
 --- !u!225 &5817250654218338883
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1064,8 +1066,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 80}
-  m_SizeDelta: {x: 0, y: -160}
+  m_AnchoredPosition: {x: 0, y: 107.5}
+  m_SizeDelta: {x: 0, y: -215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7747911150600562834
 MonoBehaviour:
