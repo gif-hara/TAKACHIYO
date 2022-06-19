@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e79f655a3387044195d7f18ae28d0d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  editEquipmentUIPresenter: {fileID: 6529242057760950953, guid: ce7509d20433e50408a6ec99a54ecf61, type: 3}
+  editEquipmentUIPresenter: {fileID: 5393874631267110618, guid: 2b9c448b57135e04584499e41fb2d6c5, type: 3}
 --- !u!4 &1422925916
 Transform:
   m_ObjectHideFlags: 0
