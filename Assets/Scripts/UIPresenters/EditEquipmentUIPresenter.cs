@@ -44,8 +44,8 @@ namespace TAKACHIYO.UISystems
                         .SelectInstanceEquipmentAsObservable()
                         .Subscribe(instanceEquipment =>
                         {
-                            var _ = this.OpenEquipmentChange();
                             UserData.Instance.ActorEquipment.AddOrUpdate(x.ChangeTarget, instanceEquipment);
+                            this.OpenEquipmentChange();
                             selectInstanceEquipment?.Dispose();
                         });
                     await UniTask.WhenAll(
@@ -82,9 +82,9 @@ namespace TAKACHIYO.UISystems
                 );
         }
 
-        private async UniTask OpenEquipmentChange()
+        private void OpenEquipmentChange()
         {
-            await UniTask.WhenAll(
+            UniTask.WhenAll(
                 this.equipmentChangeUIPresenter.OpenAsync(),
                 this.equipmentListUIPresenter.CloseAsync()
                 );
