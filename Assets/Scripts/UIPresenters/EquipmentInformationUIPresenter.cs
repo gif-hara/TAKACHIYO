@@ -4,16 +4,14 @@ using TAKACHIYO.ActorControllers;
 using TAKACHIYO.CommandSystems;
 using TAKACHIYO.MasterDataSystems;
 using TMPro;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace TAKACHIYO.UISystems
 {
     /// <summary>
     /// 
     /// </summary>
-    public sealed class EquipmentInformationUIPresenter : UIPresenter
+    public sealed class EquipmentInformationUIPresenter : AnimatableUIPresenter
     {
         [SerializeField]
         private GameObject root;

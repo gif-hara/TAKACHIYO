@@ -12,6 +12,7 @@ namespace TAKACHIYO.UISystems
     {
         public virtual async UniTask UIInitialize()
         {
+            this.gameObject.SetActive(false);
         }
         
         public virtual async void UIFinalize()

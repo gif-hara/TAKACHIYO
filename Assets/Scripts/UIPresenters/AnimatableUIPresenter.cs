@@ -19,10 +19,9 @@ namespace TAKACHIYO.UISystems
 
         public override async UniTask OpenAsync()
         {
-            await UniTask.WhenAll(
-                base.OpenAsync(),
-                this.animationController.PlayAsync(this.inAnimationClip).ToUniTask()
-                );
+            await base.OpenAsync();
+            this.gameObject.SetActive(true);
+            await this.animationController.PlayAsync(this.inAnimationClip).ToUniTask();
         }
 
         public override async UniTask CloseAsync()
@@ -31,6 +30,8 @@ namespace TAKACHIYO.UISystems
                 base.CloseAsync(),
                 this.animationController.PlayAsync(this.outAnimationClip).ToUniTask()
                 );
+            
+            this.gameObject.SetActive(false);
         }
     }
 }

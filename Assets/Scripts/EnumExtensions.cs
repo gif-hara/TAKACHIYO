@@ -84,5 +84,34 @@ namespace TAKACHIYO
         {
             return new LocalizedString("Common", $"AttributeType.{(int)self:00}").GetLocalizedString();
         }
+
+        /// <summary>
+        /// <paramref name="self"/>に<paramref name="equipmentType"/>が装備可能か返す
+        /// </summary>
+        public static bool CanEquip(this Define.EquipmentPartType self, Define.EquipmentType equipmentType)
+        {
+            switch (self)
+            {
+                case Define.EquipmentPartType.MainWeapon:
+                case Define.EquipmentPartType.SubWeapon1:
+                case Define.EquipmentPartType.SubWeapon2:
+                    return equipmentType == Define.EquipmentType.Weapon;
+                case Define.EquipmentPartType.ArmorHead:
+                    return equipmentType == Define.EquipmentType.ArmorHead;
+                case Define.EquipmentPartType.ArmorChest:
+                    return equipmentType == Define.EquipmentType.ArmorChest;
+                case Define.EquipmentPartType.ArmorArms:
+                    return equipmentType == Define.EquipmentType.ArmorArms;
+                case Define.EquipmentPartType.ArmorTorso:
+                    return equipmentType == Define.EquipmentType.ArmorTorso;
+                case Define.EquipmentPartType.ArmorLegs:
+                    return equipmentType == Define.EquipmentType.ArmorLegs;
+                case Define.EquipmentPartType.Accessory:
+                    return equipmentType == Define.EquipmentType.Accessory;
+                default:
+                    Assert.IsTrue(false, $"{self}は未対応です");
+                    return default;
+            }
+        }
     }
 }

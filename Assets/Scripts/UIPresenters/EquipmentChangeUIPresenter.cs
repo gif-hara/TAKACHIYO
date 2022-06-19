@@ -1,5 +1,7 @@
+using System;
 using Cysharp.Threading.Tasks;
 using HK.Framework;
+using HK.Framework.EventSystems;
 using TAKACHIYO.BootSystems;
 using TAKACHIYO.SaveData;
 using UnityEngine;
@@ -22,16 +24,15 @@ namespace TAKACHIYO.UISystems
         [SerializeField]
         private EquipmentInformationUIPresenter equipmentInformationUIPresenter;
 
+        private IMessageBroker broker = new MessageBroker();
+
         private ObjectPool<EquipmentButtonUIView> buttonPool;
 
-        public override UniTask UIInitialize()
+        public IObservable<OnRequestOpenList> OnRequestOpenListAsObservable() => this.broker.Receive<OnRequestOpenList>();
+
+        public override async UniTask UIInitialize()
         {
             this.buttonPool = new ObjectPool<EquipmentButtonUIView>(this.equipmentButtonPrefab);
-            return base.UIInitialize();
-        }
-        
-        public override async UniTask OpenAsync()
-        {
             this.buttonPool.ReturnAll();
             await UniTask.WhenAll(
                 this.CreateButton(Define.EquipmentPartType.MainWeapon),
@@ -44,9 +45,10 @@ namespace TAKACHIYO.UISystems
                 this.CreateButton(Define.EquipmentPartType.ArmorLegs),
                 this.CreateButton(Define.EquipmentPartType.Accessory)
                 );
-            await base.OpenAsync();
-        }
 
+            await base.UIInitialize();
+        }
+        
         public override void UIFinalize()
         {
             this.buttonPool.Dispose();
@@ -68,11 +70,27 @@ namespace TAKACHIYO.UISystems
             }
 
             button.OnMouseEnterAsObservable()
-                .TakeUntilDisable(button)
                 .Subscribe(async _ =>
                 {
                     await this.equipmentInformationUIPresenter.SetupAsync(instanceEquipment);
                 });
+
+            button.OnClickedButtonAsObservable()
+                .Subscribe(x =>
+                {
+                    this.broker.Publish(OnRequestOpenList.Get(partType));
+                });
+        }
+
+        /// <summary>
+        /// 装備変更するためにリストの表示をリクエストするメッセージ
+        /// </summary>
+        public class OnRequestOpenList : Message<OnRequestOpenList, Define.EquipmentPartType>
+        {
+            /// <summary>
+            /// 変更したい部位
+            /// </summary>
+            public Define.EquipmentPartType ChangeTarget => this.param1;
         }
     }
 }

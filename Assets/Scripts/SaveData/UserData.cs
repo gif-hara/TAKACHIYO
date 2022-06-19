@@ -29,7 +29,7 @@ namespace TAKACHIYO.SaveData
         
         public string Name => this.name;
         
-        public IReadOnlyList<InstanceEquipment> InstanceEquipments;
+        public IReadOnlyList<InstanceEquipment> InstanceEquipments => this.instanceEquipments;
 
         public ActorEquipment ActorEquipment => this.actorEquipment;
 
