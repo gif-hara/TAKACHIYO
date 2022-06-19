@@ -35,7 +35,7 @@ namespace TAKACHIYO.UISystems
 
         public override async UniTask OpenAsync()
         {
-            UniTask.WhenAll(
+            await UniTask.WhenAll(
                 this.changeEquipmentUIPresenter.OpenAsync(),
                 this.equipmentInformationUIPresenter.OpenAsync(),
                 base.OpenAsync()
@@ -44,7 +44,7 @@ namespace TAKACHIYO.UISystems
 
         public override async UniTask CloseAsync()
         {
-            UniTask.WhenAll(
+            await UniTask.WhenAll(
                 this.changeEquipmentUIPresenter.CloseAsync(),
                 this.equipmentInformationUIPresenter.CloseAsync(),
                 base.CloseAsync()

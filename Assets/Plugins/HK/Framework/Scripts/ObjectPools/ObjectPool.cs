@@ -39,10 +39,13 @@ namespace HK.Framework
 
         public void ReturnAll()
         {
-            foreach (var i in this.instances)
+            var tempList = new List<T>(this.instances);
+            foreach (var i in tempList)
             {
-                Return(i);
+                this.Return(i);
             }
+            
+            this.instances.Clear();
         }
     }
 }

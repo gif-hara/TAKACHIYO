@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -29,6 +30,11 @@ namespace TAKACHIYO
                 .First()
                 .Select(x => x.Result);
             });
+        }
+
+        public static async UniTask<T> LoadAsyncTask<T>(string path)
+        {
+            return await Addressables.LoadAssetAsync<T>(path);
         }
 
         public static IObservable<bool> IsExists(string path)

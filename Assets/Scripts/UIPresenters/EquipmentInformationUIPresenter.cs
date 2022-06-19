@@ -1,5 +1,10 @@
+using Cysharp.Threading.Tasks;
+using HK.Framework;
 using TAKACHIYO.ActorControllers;
+using TAKACHIYO.CommandSystems;
+using TAKACHIYO.MasterDataSystems;
 using TMPro;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -46,8 +51,21 @@ namespace TAKACHIYO.UISystems
         [SerializeField]
         private TextMeshProUGUI attribute3;
 
+        [SerializeField]
+        private Transform commandUIViewRoot;
+        
+        [SerializeField]
+        private EquipmentInformationCommandUIView commandUIView;
 
-        public void Setup(InstanceEquipment instanceEquipment)
+        private ObjectPool<EquipmentInformationCommandUIView> commandUIViewPool;
+
+        public override UniTask UIInitialize()
+        {
+            this.commandUIViewPool = new ObjectPool<EquipmentInformationCommandUIView>(this.commandUIView);
+            return base.UIInitialize();
+        }
+        
+        public async UniTask SetupAsync(InstanceEquipment instanceEquipment)
         {
             if (instanceEquipment == null)
             {
@@ -56,18 +74,29 @@ namespace TAKACHIYO.UISystems
             }
             
             this.root.SetActive(true);
-            var masterData = instanceEquipment.MasterDataEquipment;
-            this.equipmentName.text = masterData.localizedName.GetLocalizedString();
-            this.hitPoint.text = masterData.hitPoint.ToString();
-            this.physicsStrength.text = masterData.physicsStrength.ToString();
-            this.physicsDefense.text = masterData.physicsDefense.ToString();
-            this.magicStrength.text = masterData.magicStrength.ToString();
-            this.magicDefense.text = masterData.magicDefense.ToString();
-            this.speed.text = masterData.speed.ToString();
-            this.recoveryPower.text = masterData.recoveryPower.ToString();
-            this.attribute1.text = masterData.attributeType1.LocalizedText();
-            this.attribute2.text = masterData.attributeType2.LocalizedText();
-            this.attribute3.text = masterData.attributeType3.LocalizedText();
+            var masterDataEquipment = instanceEquipment.MasterDataEquipment;
+            this.equipmentName.text = masterDataEquipment.localizedName.GetLocalizedString();
+            this.hitPoint.text = masterDataEquipment.hitPoint.ToString();
+            this.physicsStrength.text = masterDataEquipment.physicsStrength.ToString();
+            this.physicsDefense.text = masterDataEquipment.physicsDefense.ToString();
+            this.magicStrength.text = masterDataEquipment.magicStrength.ToString();
+            this.magicDefense.text = masterDataEquipment.magicDefense.ToString();
+            this.speed.text = masterDataEquipment.speed.ToString();
+            this.recoveryPower.text = masterDataEquipment.recoveryPower.ToString();
+            this.attribute1.text = masterDataEquipment.attributeType1.LocalizedText();
+            this.attribute2.text = masterDataEquipment.attributeType2.LocalizedText();
+            this.attribute3.text = masterDataEquipment.attributeType3.LocalizedText();
+            
+            this.commandUIViewPool.ReturnAll();
+            var masterDataEquipmentCommands = MasterDataEquipmentCommand.GetFromEquipmentId(masterDataEquipment.Id);
+            foreach (var i in masterDataEquipmentCommands)
+            {
+                var commandUIView = this.commandUIViewPool.Rent();
+                commandUIView.transform.SetParent(this.commandUIViewRoot, false);
+                var result = await AssetLoader.LoadAsyncTask<CommandBlueprint>($"Assets/DataSources/CommandBlueprint/CommandBlueprint.{i.commandBlueprintId}.asset");
+                commandUIView.CommandName = result.CommandName;
+                commandUIView.CastTime = result.CastTime.ToString("0.00s");
+            }
         }
     }
 }

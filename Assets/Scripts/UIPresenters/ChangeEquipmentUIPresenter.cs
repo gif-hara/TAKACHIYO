@@ -69,9 +69,9 @@ namespace TAKACHIYO.UISystems
 
             button.OnMouseEnterAsObservable()
                 .TakeUntilDisable(button)
-                .Subscribe(_ =>
+                .Subscribe(async _ =>
                 {
-                    this.equipmentInformationUIPresenter.Setup(instanceEquipment);
+                    await this.equipmentInformationUIPresenter.SetupAsync(instanceEquipment);
                 });
         }
     }
