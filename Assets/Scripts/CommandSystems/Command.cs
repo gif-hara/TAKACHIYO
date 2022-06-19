@@ -72,7 +72,7 @@ namespace TAKACHIYO.CommandSystems
             this.commandInvokeStreams = this.blueprint.Actions.Select(x => x.Invoke(this)).ToList();
             this.blueprint.CommandConditions.Select(x => x.TryCastAsObservable(this.Owner))
                 .Merge()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .TakeUntil(BattleSceneController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(_ =>
                 {
                     if (this.IsCasting || !this.CanCasting)

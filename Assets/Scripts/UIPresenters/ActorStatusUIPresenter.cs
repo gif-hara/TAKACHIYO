@@ -4,6 +4,7 @@ using HK.Framework;
 using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BattleSystems;
 using TAKACHIYO.CommandSystems;
+using TAKACHIYO.UISystems;
 using TAKACHIYO.UIViews;
 using TMPro;
 using UnityEngine;
@@ -16,7 +17,7 @@ namespace TAKACHIYO
     /// <summary>
     /// <see cref="Actor"/>の状態を表すプレゼンター
     /// </summary>
-    public sealed class ActorStatusUIPresenter : MonoBehaviour
+    public sealed class ActorStatusUIPresenter : UIPresenter
     {
         [SerializeField]
         private Define.ActorType target;
@@ -84,7 +85,7 @@ namespace TAKACHIYO
         private void Start()
         {
             this.damageElementObjectPool = new ObjectPoolBundle<DamageElementUIView>();
-            BattleController.Broker.Receive<BattleEvent.SetupBattle>()
+            BattleSceneController.Broker.Receive<BattleEvent.SetupBattle>()
                 .TakeUntilDestroy(this)
                 .Subscribe(x =>
                 {
@@ -116,7 +117,7 @@ namespace TAKACHIYO
             // コマンドの詠唱が開始されたらUIに追加する
             actor.CommandController.CastingCommands
                 .ObserveAdd()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .TakeUntil(BattleSceneController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(x =>
                 {
                     var commandUIPresenter = Instantiate(this.commandUIPresenter, this.commandParent);
@@ -128,7 +129,7 @@ namespace TAKACHIYO
             // コマンドの詠唱が終了したらUIも削除する
             actor.CommandController.CastingCommands
                 .ObserveRemove()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .TakeUntil(BattleSceneController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(x =>
                 {
                     var commandUIPresenter = this.commandUIPresenters[x.Value];
@@ -141,7 +142,7 @@ namespace TAKACHIYO
                 });
 
             actor.Broker.Receive<ActorEvent.RequestInstantiateEffect>()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .TakeUntil(BattleSceneController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(x =>
                 {
                     var effect = x.EffectPrefab.Rent();
@@ -151,7 +152,7 @@ namespace TAKACHIYO
                 });
 
             actor.Broker.Receive<ActorEvent.AddedAbnormalStatus>()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .TakeUntil(BattleSceneController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(x =>
                 {
                     var icon = Instantiate(this.abnormalStatusIconUIViewPrefab, this.abnormalStatusIconParent);
@@ -160,7 +161,7 @@ namespace TAKACHIYO
                 });
 
             actor.Broker.Receive<ActorEvent.RemovedAbnormalStatus>()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .TakeUntil(BattleSceneController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(x =>
                 {
                     Destroy(this.abnormalStatusIconUIViews[x.AbnormalStatusType].gameObject);
@@ -168,7 +169,7 @@ namespace TAKACHIYO
                 });
 
             actor.Broker.Receive<ActorEvent.TakedDamage>()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .TakeUntil(BattleSceneController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(x =>
                 {
                     if (x.Damage > 0)
@@ -187,7 +188,7 @@ namespace TAKACHIYO
                 });
 
             actor.Broker.Receive<ActorEvent.Recoverd>()
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .TakeUntil(BattleSceneController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(x =>
                 {
                     this.CreateDamageElement(x.Value, this.damageElementObjectPool.Get(this.recoveryElement));

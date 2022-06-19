@@ -38,7 +38,7 @@ namespace TAKACHIYO.CommandSystems.CommandConditions
                 var target = owner.GetTarget(this.targetType);
 
                 return Observable.Merge(
-                    BattleController.Broker.Receive<BattleEvent.StartBattle>().AsUnitObservable(),
+                    BattleSceneController.Broker.Receive<BattleEvent.StartBattle>().AsUnitObservable(),
                     owner.Broker.Receive<ActorEvent.InvokedCommand>().AsUnitObservable(),
                     target.Broker.Receive<ActorEvent.AddedAbnormalStatus>().AsUnitObservable(),
                     target.Broker.Receive<ActorEvent.RemovedAbnormalStatus>().AsUnitObservable()

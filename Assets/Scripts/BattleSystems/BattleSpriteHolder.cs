@@ -20,6 +20,9 @@ namespace TAKACHIYO.BattleSystems
 
         public static async UniTask SetupAsync()
         {
+#if UNITY_EDITOR
+            Instance = null;
+#endif
             if (Instance != null)
             {
                 Assert.IsTrue(false, $"{nameof(BattleSpriteHolder)}は既にセットアップ済みです");

@@ -35,7 +35,7 @@ RectTransform:
   - {fileID: 8148766806451616449}
   - {fileID: 8148766806833979984}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494653b6ed77fd14c897591d74cbc4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  root: {fileID: 0}
+  root: {fileID: 8148766806833979984}
 --- !u!223 &8148766806445925297
 Canvas:
   m_ObjectHideFlags: 0

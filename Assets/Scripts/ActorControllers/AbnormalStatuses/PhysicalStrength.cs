@@ -20,7 +20,7 @@ namespace TAKACHIYO.ActorControllers.AbnormalStatuses
             this.hitPointUpValue = Mathf.FloorToInt(owner.StatusController.BaseStatus.hitPoint * GameDesignParameter.Instance.physicalStrengthHitPointUpRate);
             owner.StatusController.AddHitPointMax(this.hitPointUpValue);
             Observable.Timer(TimeSpan.FromSeconds(GameDesignParameter.Instance.physicalStrengthTimeSeconds))
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .TakeUntil(BattleSceneController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(_ =>
                 {
                     owner.StatusController.AddHitPointMax(-this.hitPointUpValue);

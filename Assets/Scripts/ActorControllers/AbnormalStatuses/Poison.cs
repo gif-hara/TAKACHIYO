@@ -15,7 +15,7 @@ namespace TAKACHIYO.ActorControllers.AbnormalStatuses
             var parameter = GameDesignParameter.Instance;
             var seconds = parameter.poisonDamageSeconds / parameter.poisonDamageCount;
             Observable.Interval(TimeSpan.FromSeconds(seconds))
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .TakeUntil(BattleSceneController.Broker.Receive<BattleEvent.EndBattle>())
                 .Take(parameter.poisonDamageCount)
                 .Subscribe(_ =>
                 {

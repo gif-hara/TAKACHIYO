@@ -19,7 +19,7 @@ namespace TAKACHIYO.CommandSystems.CommandConditions
             return Observable.Defer(() =>
             {
                 return Observable.Merge(
-                    BattleController.Broker.Receive<BattleEvent.StartBattle>().AsUnitObservable(),
+                    BattleSceneController.Broker.Receive<BattleEvent.StartBattle>().AsUnitObservable(),
                     owner.Broker.Receive<ActorEvent.InvokedCommand>().AsUnitObservable()
                     );
             });

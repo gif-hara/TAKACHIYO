@@ -24,7 +24,7 @@ namespace TAKACHIYO.ActorControllers.AbnormalStatuses
             base.Setup(owner);
 
             Observable.Timer(TimeSpan.FromSeconds(this.delaySeconds))
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .TakeUntil(BattleSceneController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(_ =>
                 {
                     owner.AbnormalStatusController.Remove(this.abnormalStatusType);

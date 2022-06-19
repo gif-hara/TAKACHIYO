@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BootSystems;
+using TAKACHIYO.UISystems;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -10,8 +11,11 @@ namespace TAKACHIYO.BattleSystems
     /// <summary>
     /// 
     /// </summary>
-    public sealed class BattleController : MonoBehaviour
+    public sealed class BattleSceneController : MonoBehaviour
     {
+        [SerializeField]
+        private BattleUIPresenter battleUIPresenter;
+        
         [SerializeField]
         private EquipmentActorSetupData playerSetupData;
 
@@ -24,6 +28,8 @@ namespace TAKACHIYO.BattleSystems
         {
             await BootSystem.Ready;
             await BattleSpriteHolder.SetupAsync();
+
+            await UIManager.Instance.OpenAsync(this.battleUIPresenter);
 
             var player = new Actor(this.playerSetupData);
             var enemy = new Actor(this.enemySetupData);

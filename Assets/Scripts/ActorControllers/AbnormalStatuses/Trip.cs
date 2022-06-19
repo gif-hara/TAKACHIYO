@@ -18,7 +18,7 @@ namespace TAKACHIYO.ActorControllers.AbnormalStatuses
             }
             var parameter = GameDesignParameter.Instance;
             Observable.Timer(TimeSpan.FromSeconds(parameter.tripTimeSeconds))
-                .TakeUntil(BattleController.Broker.Receive<BattleEvent.EndBattle>())
+                .TakeUntil(BattleSceneController.Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(_ =>
                 {
                     owner.AbnormalStatusController.Remove(Define.AbnormalStatusType.Trip);
