@@ -14,16 +14,16 @@ namespace TAKACHIYO.UISystems
         {
         }
         
+        public virtual async void UIFinalize()
+        {
+        }
+
         public virtual async UniTask OpenAsync()
         {
             this.gameObject.SetActive(true);
         }
         
         public virtual async UniTask CloseAsync()
-        {
-        }
-        
-        public virtual async void UIFinalize()
         {
         }
     }

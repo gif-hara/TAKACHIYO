@@ -1,7 +1,5 @@
 using Cysharp.Threading.Tasks;
-using HK.Framework;
-using TAKACHIYO.BootSystems;
-using TAKACHIYO.SaveData;
+using TAKACHIYO.UISystems;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -10,59 +8,47 @@ namespace TAKACHIYO.UISystems
     /// <summary>
     /// 
     /// </summary>
-    public sealed class EditEquipmentUIPresenter : AnimatableUIPresenter
+    public sealed class EditEquipmentUIPresenter : UIPresenter
     {
         [SerializeField]
-        private Transform currentEquipmentParent;
+        private ChangeEquipmentUIPresenter changeEquipmentUIPresenter;
 
         [SerializeField]
-        private EditEquipmentButtonUIView editEquipmentButtonPrefab;
+        private EquipmentInformationUIPresenter equipmentInformationUIPresenter;
 
-        private ObjectPool<EditEquipmentButtonUIView> buttonPool;
-
-        public override UniTask UIInitialize()
-        {
-            this.buttonPool = new ObjectPool<EditEquipmentButtonUIView>(this.editEquipmentButtonPrefab);
-            return base.UIInitialize();
-        }
-        
-        public override async UniTask OpenAsync()
+        public override async UniTask UIInitialize()
         {
             await UniTask.WhenAll(
-                this.CreateButton(Define.EquipmentPartType.MainWeapon),
-                this.CreateButton(Define.EquipmentPartType.ArmorHead),
-                this.CreateButton(Define.EquipmentPartType.ArmorChest),
-                this.CreateButton(Define.EquipmentPartType.SubWeapon1),
-                this.CreateButton(Define.EquipmentPartType.ArmorArms),
-                this.CreateButton(Define.EquipmentPartType.ArmorTorso),
-                this.CreateButton(Define.EquipmentPartType.SubWeapon2),
-                this.CreateButton(Define.EquipmentPartType.ArmorLegs),
-                this.CreateButton(Define.EquipmentPartType.Accessory)
+                this.changeEquipmentUIPresenter.UIInitialize(),
+                this.equipmentInformationUIPresenter.UIInitialize()
                 );
-            await base.OpenAsync();
+            
+            await base.UIInitialize();
         }
 
         public override void UIFinalize()
         {
-            this.buttonPool.Dispose();
+            this.changeEquipmentUIPresenter.UIFinalize();
+            this.equipmentInformationUIPresenter.UIFinalize();
             base.UIFinalize();
         }
 
-        private async UniTask CreateButton(Define.EquipmentPartType partType)
+        public override async UniTask OpenAsync()
         {
-            var button = this.buttonPool.Rent();
-            button.transform.SetParent(this.currentEquipmentParent, false);
-            var instanceEquipment = UserData.Instance.ActorEquipment.GetOrNull(partType);
-            if (instanceEquipment != null)
-            {
-                button.Thumbnail = await instanceEquipment.MasterDataEquipment.GetThumbnail();
-                button.SetActiveThumbnail(true);
-            }
-            else
-            {
-                button.Thumbnail = null;
-                button.SetActiveThumbnail(false);
-            }
+            UniTask.WhenAll(
+                this.changeEquipmentUIPresenter.OpenAsync(),
+                this.equipmentInformationUIPresenter.OpenAsync(),
+                base.OpenAsync()
+                );
+        }
+
+        public override async UniTask CloseAsync()
+        {
+            UniTask.WhenAll(
+                this.changeEquipmentUIPresenter.CloseAsync(),
+                this.equipmentInformationUIPresenter.CloseAsync(),
+                base.CloseAsync()
+                );
         }
     }
 }
