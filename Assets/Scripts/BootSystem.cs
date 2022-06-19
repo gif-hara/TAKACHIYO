@@ -77,11 +77,38 @@ namespace TAKACHIYO.BootSystems
             var userData = new UserData("1", actorEquipment);
             userData.SetName("Hoge");
 
-            for (var i = 0; i < 20; i++)
+            for (var i = 0; i < 5; i++)
             {
                 userData.AddInstanceEquipment(new InstanceEquipment("10101002"));
                 userData.AddInstanceEquipment(new InstanceEquipment("10101003"));
                 userData.AddInstanceEquipment(new InstanceEquipment("10102001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10102002"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10102003"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10103001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10103002"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10103003"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10104001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10104002"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10104003"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10105001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10105002"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10105003"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10201001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10301001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10401001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10501001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10601001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10202001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10302001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10402001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10502001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10602001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10203001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10303001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10403001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10503001"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10603001"));
+
             }
 
             UserData.Instance = userData;
