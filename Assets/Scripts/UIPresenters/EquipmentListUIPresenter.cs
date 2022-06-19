@@ -128,6 +128,7 @@ namespace TAKACHIYO.UISystems
                 }
                 var instanceEquipment = this.targets[i];
                 var button = this.buttonPool.Rent();
+                button.transform.SetAsLastSibling();
                 button.transform.SetParent(this.listParent.transform, false);
                 button.SetActiveThumbnail(false);
                 instanceEquipment.MasterDataEquipment.GetThumbnail()
@@ -135,6 +136,7 @@ namespace TAKACHIYO.UISystems
                     .TakeUntil(this.buttonPool.OnBeforeReturnAsObservable(button))
                     .Subscribe(x =>
                     {
+                        Debug.Log(instanceEquipment.MasterDataEquipment.id, button.gameObject);
                         button.Thumbnail = x;
                         button.SetActiveThumbnail(true);
                     });
