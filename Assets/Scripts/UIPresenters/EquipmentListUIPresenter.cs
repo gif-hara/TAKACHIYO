@@ -23,9 +23,6 @@ namespace TAKACHIYO.UISystems
         [SerializeField]
         private EquipmentButtonUIView equipmentButtonPrefab;
 
-        [SerializeField]
-        private EquipmentInformationUIPresenter equipmentInformationUIPresenter;
-
         private readonly Subject<InstanceEquipment> selectInstanceEquipmentSubject = new();
 
         private ObjectPool<EquipmentButtonUIView> buttonPool;

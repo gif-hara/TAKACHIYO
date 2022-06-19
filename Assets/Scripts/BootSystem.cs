@@ -73,9 +73,16 @@ namespace TAKACHIYO.BootSystems
                 equipmentPartType = Define.EquipmentPartType.ArmorLegs,
                 instanceEquipment = new InstanceEquipment("10601001")
             });
-
+            
             var userData = new UserData("1", actorEquipment);
             userData.SetName("Hoge");
+
+            for (var i = 0; i < 20; i++)
+            {
+                userData.AddInstanceEquipment(new InstanceEquipment("10101002"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10101003"));
+                userData.AddInstanceEquipment(new InstanceEquipment("10102001"));
+            }
 
             UserData.Instance = userData;
 

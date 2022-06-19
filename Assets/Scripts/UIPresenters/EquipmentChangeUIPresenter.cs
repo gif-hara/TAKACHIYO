@@ -57,12 +57,13 @@ namespace TAKACHIYO.UISystems
 
         private async UniTask CreateButton(Define.EquipmentPartType partType)
         {
+            var userData = UserData.Instance;
             var button = this.buttonPool.Rent();
             button.transform.SetParent(this.currentEquipmentParent, false);
             button.Thumbnail = null;
             button.SetActiveThumbnail(false);
 
-            var instanceEquipment = UserData.Instance.ActorEquipment.GetOrNull(partType);
+            var instanceEquipment = userData.ActorEquipment.GetOrNull(partType);
             if (instanceEquipment != null)
             {
                 button.Thumbnail = await instanceEquipment.MasterDataEquipment.GetThumbnail();
@@ -70,15 +71,29 @@ namespace TAKACHIYO.UISystems
             }
 
             button.OnMouseEnterAsObservable()
+                .TakeUntil(this.buttonPool.OnBeforeReturnAsObservable(button))
                 .Subscribe(async _ =>
                 {
-                    await this.equipmentInformationUIPresenter.SetupAsync(instanceEquipment);
+                    await this.equipmentInformationUIPresenter.SetupAsync(userData.ActorEquipment.GetOrNull(partType));
                 });
 
             button.OnClickedButtonAsObservable()
+                .TakeUntil(this.buttonPool.OnBeforeReturnAsObservable(button))
                 .Subscribe(x =>
                 {
                     this.broker.Publish(OnRequestOpenList.Get(partType));
+                });
+
+            userData.ActorEquipment.UpdateInstanceEquipmentDataAsObservable()
+                .TakeUntil(this.buttonPool.OnBeforeReturnAsObservable(button))
+                .Where(x => x.InstanceEquipmentData.equipmentPartType == partType)
+                .Subscribe(async x =>
+                {
+                    if (x.InstanceEquipmentData.instanceEquipment != null)
+                    {
+                        button.Thumbnail = await x.InstanceEquipmentData.instanceEquipment.MasterDataEquipment.GetThumbnail();
+                        button.SetActiveThumbnail(true);
+                    }
                 });
         }
 

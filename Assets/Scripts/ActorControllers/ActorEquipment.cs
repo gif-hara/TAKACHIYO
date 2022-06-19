@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using HK.Framework.EventSystems;
 using TAKACHIYO.BattleSystems;
 using TAKACHIYO.CommandSystems;
 using TAKACHIYO.MasterDataSystems;
@@ -19,9 +20,11 @@ namespace TAKACHIYO.ActorControllers
         [SerializeField]
         private List<InstanceEquipmentData> instanceEquipments = new();
 
-        public IMessageBroker Broker { get; } = new MessageBroker();
+        private readonly MessageBroker broker = new();
 
         public List<InstanceEquipmentData> InstanceEquipments => this.instanceEquipments;
+
+        public IObservable<UpdateInstanceEquipmentData> UpdateInstanceEquipmentDataAsObservable() => this.broker.Receive<UpdateInstanceEquipmentData>();
 
         /// <summary>
         /// 総合ヒットポイントを返す
@@ -109,12 +112,39 @@ namespace TAKACHIYO.ActorControllers
             return result?.instanceEquipment;
         }
 
+        public void AddOrUpdate(Define.EquipmentPartType partType, InstanceEquipment instanceEquipment)
+        {
+            InstanceEquipmentData updateData;
+            var findInstanceEquipment = GetOrNull(partType);
+            if (findInstanceEquipment == null)
+            {
+                updateData = new InstanceEquipmentData
+                {
+                    equipmentPartType = partType,
+                    instanceEquipment = instanceEquipment
+                };
+                this.instanceEquipments.Add(updateData);
+            }
+            else
+            {
+                updateData = this.instanceEquipments.Find(x => x.instanceEquipment == findInstanceEquipment);
+                updateData.instanceEquipment = instanceEquipment;
+            }
+            
+            this.broker.Publish(UpdateInstanceEquipmentData.Get(updateData));
+        }
+
         [Serializable]
         public class InstanceEquipmentData
         {
             public Define.EquipmentPartType equipmentPartType;
 
             public InstanceEquipment instanceEquipment;
+        }
+
+        public class UpdateInstanceEquipmentData : Message<UpdateInstanceEquipmentData, InstanceEquipmentData>
+        {
+            public InstanceEquipmentData InstanceEquipmentData => this.param1;
         }
     }
 }

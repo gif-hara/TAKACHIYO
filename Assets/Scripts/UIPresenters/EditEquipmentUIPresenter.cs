@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using TAKACHIYO.SaveData;
@@ -38,6 +39,15 @@ namespace TAKACHIYO.UISystems
                         .Where(instanceEquipment => x.ChangeTarget.CanEquip(instanceEquipment.MasterDataEquipment.equipmentType))
                         .ToList();
                     this.equipmentListUIPresenter.Setup(targets, 0);
+                    IDisposable selectInstanceEquipment = null;
+                    selectInstanceEquipment = this.equipmentListUIPresenter
+                        .SelectInstanceEquipmentAsObservable()
+                        .Subscribe(instanceEquipment =>
+                        {
+                            var _ = this.OpenEquipmentChange();
+                            UserData.Instance.ActorEquipment.AddOrUpdate(x.ChangeTarget, instanceEquipment);
+                            selectInstanceEquipment?.Dispose();
+                        });
                     await UniTask.WhenAll(
                         this.equipmentListUIPresenter.OpenAsync(),
                         this.equipmentChangeUIPresenter.CloseAsync()
@@ -68,6 +78,14 @@ namespace TAKACHIYO.UISystems
                 base.CloseAsync(),
                 this.equipmentChangeUIPresenter.CloseAsync(),
                 this.equipmentInformationUIPresenter.CloseAsync(),
+                this.equipmentListUIPresenter.CloseAsync()
+                );
+        }
+
+        private async UniTask OpenEquipmentChange()
+        {
+            await UniTask.WhenAll(
+                this.equipmentChangeUIPresenter.OpenAsync(),
                 this.equipmentListUIPresenter.CloseAsync()
                 );
         }
