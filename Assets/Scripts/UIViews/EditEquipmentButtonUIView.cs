@@ -18,10 +18,6 @@ namespace TAKACHIYO
         [SerializeField]
         private Image thumbnail;
         
-        private ObjectPool<EditEquipmentButtonUIView> pool;
-
-        private static ObjectPoolBundle<EditEquipmentButtonUIView> objectPoolBundle = new();
-
         public IObservable<Unit> OnClickedButtonAsObservable() => this.button.OnClickAsObservable();
 
         public Sprite Thumbnail
@@ -29,20 +25,9 @@ namespace TAKACHIYO
             set => this.thumbnail.sprite = value;
         }
 
-        public EditEquipmentButtonUIView Rent()
+        public void SetActiveThumbnail(bool isActive)
         {
-            if (this.pool == null)
-            {
-                this.pool = objectPoolBundle.Get(this);
-            }
-
-            return this.pool.Rent();
-        }
-
-        public void Return()
-        {
-            Assert.IsNotNull(this.pool);
-            this.pool.Return(this);
+            this.thumbnail.enabled = isActive;
         }
     }
 }

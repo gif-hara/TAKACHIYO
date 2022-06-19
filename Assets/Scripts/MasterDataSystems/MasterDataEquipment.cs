@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -63,6 +64,11 @@ namespace TAKACHIYO.MasterDataSystems
 
                     return this._attributeTypes;
                 }
+            }
+
+            public async UniTask<Sprite> GetThumbnail()
+            {
+                return await AssetLoader.LoadAsync<Sprite>($"Assets/Textures/Equipment.{this.Id}.png").ToUniTask();
             }
 
             public string Id => this.id;

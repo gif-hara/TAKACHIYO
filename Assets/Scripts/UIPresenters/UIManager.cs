@@ -29,6 +29,7 @@ namespace TAKACHIYO.UISystems
         public async UniTask<UIPresenter> OpenAsync(UIPresenter presenterPrefab)
         {
             var newPresenter = Instantiate(presenterPrefab, this.root);
+            newPresenter.gameObject.SetActive(false);
             await newPresenter.UIInitialize();
             if (this.currentPresenter != null)
             {

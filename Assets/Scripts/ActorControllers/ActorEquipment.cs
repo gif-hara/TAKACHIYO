@@ -4,6 +4,7 @@ using System.Linq;
 using TAKACHIYO.BattleSystems;
 using TAKACHIYO.CommandSystems;
 using TAKACHIYO.MasterDataSystems;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -17,6 +18,8 @@ namespace TAKACHIYO.ActorControllers
     {
         [SerializeField]
         private List<InstanceEquipmentData> instanceEquipments = new();
+
+        public IMessageBroker Broker { get; } = new MessageBroker();
 
         public List<InstanceEquipmentData> InstanceEquipments => this.instanceEquipments;
 

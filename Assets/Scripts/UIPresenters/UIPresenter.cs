@@ -16,6 +16,7 @@ namespace TAKACHIYO.UISystems
         
         public virtual async UniTask OpenAsync()
         {
+            this.gameObject.SetActive(true);
         }
         
         public virtual async UniTask CloseAsync()
