@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using TAKACHIYO.ActorControllers;
 using TAKACHIYO.MasterDataSystems;
 using TAKACHIYO.SaveData;
+using TAKACHIYO.UISystems;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
@@ -24,7 +25,8 @@ namespace TAKACHIYO.BootSystems
                 InitializeLocalization(),
                 MasterData.SetupAsync().ToUniTask(),
                 GameDesignParameter.LoadAsync(),
-                CreateUserData()
+                CreateUserData(),
+                UIManager.SetupAsync()
                 );
             
         }
@@ -75,8 +77,9 @@ namespace TAKACHIYO.BootSystems
             var userData = new UserData("1", actorEquipment);
             userData.SetName("Hoge");
 
-            var json = JsonUtility.ToJson(userData);
+            UserData.Instance = userData;
 
+            var json = JsonUtility.ToJson(userData);
             var u = JsonUtility.FromJson<UserData>(json);
         }
     }

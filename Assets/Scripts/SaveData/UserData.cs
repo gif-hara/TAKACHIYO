@@ -13,6 +13,8 @@ namespace TAKACHIYO.SaveData
     [Serializable]
     public sealed class UserData
     {
+        public static UserData Instance { get; set; }
+        
         [SerializeField]
         private string name;
 

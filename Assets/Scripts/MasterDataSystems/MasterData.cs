@@ -23,10 +23,11 @@ namespace TAKACHIYO.MasterDataSystems
 
         public List<TRecord> Records => this.records;
 
-        protected Dictionary<string, TRecord> raw = new Dictionary<string, TRecord>();
+        protected Dictionary<string, TRecord> raw = new();
 
         private void Setup()
         {
+            this.raw.Clear();
             foreach (var i in this.records)
             {
                 this.raw.Add(i.Id, i);

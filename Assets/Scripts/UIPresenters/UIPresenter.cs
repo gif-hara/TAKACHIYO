@@ -1,0 +1,29 @@
+using Cysharp.Threading.Tasks;
+using TAKACHIYO.UISystems;
+using UnityEngine;
+using UnityEngine.Assertions;
+
+namespace TAKACHIYO.UISystems
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public abstract class UIPresenter : MonoBehaviour, IUIPresenter
+    {
+        public virtual async UniTask UIInitialize()
+        {
+        }
+        
+        public virtual async UniTask OpenAsync()
+        {
+        }
+        
+        public virtual async UniTask CloseAsync()
+        {
+        }
+        
+        public virtual async void UIFinalize()
+        {
+        }
+    }
+}
