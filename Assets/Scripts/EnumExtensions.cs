@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Localization;
 
 namespace TAKACHIYO
 {
@@ -77,6 +78,11 @@ namespace TAKACHIYO
                     Assert.IsTrue(false, $"{self}は未対応です");
                     return default;
             }
+        }
+
+        public static string LocalizedText(this Define.AttributeType self)
+        {
+            return new LocalizedString("Common", $"AttributeType.{(int)self:00}").GetLocalizedString();
         }
     }
 }

@@ -4,6 +4,7 @@ using TAKACHIYO.BootSystems;
 using TAKACHIYO.SaveData;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UniRx;
 
 namespace TAKACHIYO.UISystems
 {
@@ -17,6 +18,9 @@ namespace TAKACHIYO.UISystems
 
         [SerializeField]
         private EditEquipmentButtonUIView editEquipmentButtonPrefab;
+
+        [SerializeField]
+        private EquipmentInformationUIPresenter equipmentInformationUIPresenter;
 
         private ObjectPool<EditEquipmentButtonUIView> buttonPool;
 
@@ -62,6 +66,13 @@ namespace TAKACHIYO.UISystems
                 button.Thumbnail = await instanceEquipment.MasterDataEquipment.GetThumbnail();
                 button.SetActiveThumbnail(true);
             }
+
+            button.OnMouseEnterAsObservable()
+                .TakeUntilDisable(button)
+                .Subscribe(_ =>
+                {
+                    this.equipmentInformationUIPresenter.Setup(instanceEquipment);
+                });
         }
     }
 }
