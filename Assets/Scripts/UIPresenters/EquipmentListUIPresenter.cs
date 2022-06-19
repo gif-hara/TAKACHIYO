@@ -54,10 +54,10 @@ namespace TAKACHIYO.UISystems
         public void Setup(IList<InstanceEquipment> targets, int pageNumber)
         {
             this.targets = targets;
-            var _ = this.UpdatePage(pageNumber);
+            this.UpdatePage(pageNumber);
         }
 
-        private async UniTask UpdatePage(int pageNumber)
+        private void UpdatePage(int pageNumber)
         {
             this.pageNumber = pageNumber;
             this.buttonPool.ReturnAll();
@@ -71,7 +71,14 @@ namespace TAKACHIYO.UISystems
                 var instanceEquipment = this.targets[i];
                 var button = this.buttonPool.Rent();
                 button.transform.SetParent(this.listParent.transform, false);
-                button.Thumbnail = await instanceEquipment.MasterDataEquipment.GetThumbnail();
+                button.SetActiveThumbnail(false);
+                instanceEquipment.MasterDataEquipment.GetThumbnail()
+                    .ToObservable()
+                    .Subscribe(x =>
+                    {
+                        button.Thumbnail = x;
+                        button.SetActiveThumbnail(true);
+                    });
                 button.OnClickedButtonAsObservable()
                     .TakeUntil(this.buttonPool.OnBeforeReturnAsObservable(button))
                     .Subscribe(_ =>
