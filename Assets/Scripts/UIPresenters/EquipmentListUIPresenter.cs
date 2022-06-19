@@ -136,7 +136,6 @@ namespace TAKACHIYO.UISystems
                     .TakeUntil(this.buttonPool.OnBeforeReturnAsObservable(button))
                     .Subscribe(x =>
                     {
-                        Debug.Log(instanceEquipment.MasterDataEquipment.id, button.gameObject);
                         button.Thumbnail = x;
                         button.SetActiveThumbnail(true);
                     });
