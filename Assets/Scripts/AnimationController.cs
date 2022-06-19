@@ -1,9 +1,7 @@
 using System;
 using UniRx;
 using UniRx.Triggers;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace TAKACHIYO
 {
