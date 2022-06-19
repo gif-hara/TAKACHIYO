@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4418661662018695021}
   - component: {fileID: 6887449074054713159}
   m_Layer: 5
-  m_Name: UI.EquipmentInformation.Command.Condition
+  m_Name: UI.Equipment.Information.Command
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

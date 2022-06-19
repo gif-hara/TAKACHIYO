@@ -12,7 +12,7 @@ namespace TAKACHIYO
     /// <summary>
     /// 
     /// </summary>
-    public sealed class EditEquipmentButtonUIView : MonoBehaviour, IPointerEnterHandler
+    public sealed class EquipmentButtonUIView : MonoBehaviour, IPointerEnterHandler
     {
         [SerializeField]
         private Button button;

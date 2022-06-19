@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5657903067957000920}
   - component: {fileID: 1087492783587811072}
   m_Layer: 5
-  m_Name: UI
+  m_Name: UI.Equipment.Change
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7747911150346952505}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -58,7 +58,8 @@ MonoBehaviour:
   inAnimationClip: {fileID: 7400000, guid: c65af0a01473e0e4b88f512185ee14f0, type: 2}
   outAnimationClip: {fileID: 7400000, guid: b0b00f2cc01ebe44fb9760a263c936f2, type: 2}
   currentEquipmentParent: {fileID: 7747911150600562837}
-  editEquipmentButtonPrefab: {fileID: 6293332579100479681, guid: fa26f4cf2bad4224c985474914c1293d, type: 3}
+  equipmentButtonPrefab: {fileID: 6293332579100479681, guid: fa26f4cf2bad4224c985474914c1293d, type: 3}
+  equipmentInformationUIPresenter: {fileID: 0}
 --- !u!225 &5817250654218338883
 CanvasGroup:
   m_ObjectHideFlags: 0

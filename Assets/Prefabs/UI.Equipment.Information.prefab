@@ -4571,7 +4571,7 @@ GameObject:
   - component: {fileID: 1853205003767868068}
   - component: {fileID: 671613019767369828}
   m_Layer: 5
-  m_Name: UI.EquipmentInformation
+  m_Name: UI.Equipment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

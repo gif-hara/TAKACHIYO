@@ -11,22 +11,22 @@ namespace TAKACHIYO.UISystems
     /// <summary>
     /// 
     /// </summary>
-    public sealed class ChangeEquipmentUIPresenter : AnimatableUIPresenter
+    public sealed class EquipmentChangeUIPresenter : AnimatableUIPresenter
     {
         [SerializeField]
         private Transform currentEquipmentParent;
 
         [SerializeField]
-        private EditEquipmentButtonUIView editEquipmentButtonPrefab;
+        private EquipmentButtonUIView equipmentButtonPrefab;
 
         [SerializeField]
         private EquipmentInformationUIPresenter equipmentInformationUIPresenter;
 
-        private ObjectPool<EditEquipmentButtonUIView> buttonPool;
+        private ObjectPool<EquipmentButtonUIView> buttonPool;
 
         public override UniTask UIInitialize()
         {
-            this.buttonPool = new ObjectPool<EditEquipmentButtonUIView>(this.editEquipmentButtonPrefab);
+            this.buttonPool = new ObjectPool<EquipmentButtonUIView>(this.equipmentButtonPrefab);
             return base.UIInitialize();
         }
         

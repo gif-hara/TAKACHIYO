@@ -11,7 +11,7 @@ namespace TAKACHIYO.UISystems
     public sealed class EditEquipmentUIPresenter : UIPresenter
     {
         [SerializeField]
-        private ChangeEquipmentUIPresenter changeEquipmentUIPresenter;
+        private EquipmentChangeUIPresenter equipmentChangeUIPresenter;
 
         [SerializeField]
         private EquipmentInformationUIPresenter equipmentInformationUIPresenter;
@@ -19,7 +19,7 @@ namespace TAKACHIYO.UISystems
         public override async UniTask UIInitialize()
         {
             await UniTask.WhenAll(
-                this.changeEquipmentUIPresenter.UIInitialize(),
+                this.equipmentChangeUIPresenter.UIInitialize(),
                 this.equipmentInformationUIPresenter.UIInitialize()
                 );
             
@@ -28,7 +28,7 @@ namespace TAKACHIYO.UISystems
 
         public override void UIFinalize()
         {
-            this.changeEquipmentUIPresenter.UIFinalize();
+            this.equipmentChangeUIPresenter.UIFinalize();
             this.equipmentInformationUIPresenter.UIFinalize();
             base.UIFinalize();
         }
@@ -36,7 +36,7 @@ namespace TAKACHIYO.UISystems
         public override async UniTask OpenAsync()
         {
             await UniTask.WhenAll(
-                this.changeEquipmentUIPresenter.OpenAsync(),
+                this.equipmentChangeUIPresenter.OpenAsync(),
                 this.equipmentInformationUIPresenter.OpenAsync(),
                 base.OpenAsync()
                 );
@@ -45,7 +45,7 @@ namespace TAKACHIYO.UISystems
         public override async UniTask CloseAsync()
         {
             await UniTask.WhenAll(
-                this.changeEquipmentUIPresenter.CloseAsync(),
+                this.equipmentChangeUIPresenter.CloseAsync(),
                 this.equipmentInformationUIPresenter.CloseAsync(),
                 base.CloseAsync()
                 );
