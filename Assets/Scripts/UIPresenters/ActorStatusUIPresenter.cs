@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
+using Cysharp.Threading.Tasks;
 using HK.Framework;
 using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BattleSystems;
@@ -82,7 +83,7 @@ namespace TAKACHIYO
 
         private ObjectPoolBundle<DamageElementUIView> damageElementObjectPool;
 
-        private void Start()
+        public override UniTask UIInitialize()
         {
             this.damageElementObjectPool = new ObjectPoolBundle<DamageElementUIView>();
             BattleSceneController.Broker.Receive<BattleEvent.SetupBattle>()
@@ -92,6 +93,8 @@ namespace TAKACHIYO
                     var actor = this.target == Define.ActorType.Player ? x.Player : x.Enemy;
                     this.Setup(actor);
                 });
+
+            return base.UIInitialize();
         }
 
         /// <summary>
