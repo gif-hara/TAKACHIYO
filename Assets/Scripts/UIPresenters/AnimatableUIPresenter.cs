@@ -16,22 +16,23 @@ namespace TAKACHIYO.UISystems
 
         [SerializeField]
         private AnimationClip outAnimationClip;
-
+        
         public override async UniTask OpenAsync()
         {
-            await base.OpenAsync();
+            this.isOpen = true;
             this.gameObject.SetActive(true);
             await this.animationController.PlayAsync(this.inAnimationClip).ToUniTask();
         }
 
         public override async UniTask CloseAsync()
         {
-            await UniTask.WhenAll(
-                base.CloseAsync(),
-                this.animationController.PlayAsync(this.outAnimationClip).ToUniTask()
-                );
-            
-            this.gameObject.SetActive(false);
+            this.isOpen = false;
+            await this.animationController.PlayAsync(this.outAnimationClip).ToUniTask();
+
+            if (!this.isOpen)
+            {
+                this.gameObject.SetActive(false);
+            }
         }
     }
 }

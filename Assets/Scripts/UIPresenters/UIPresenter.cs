@@ -12,6 +12,8 @@ namespace TAKACHIYO.UISystems
     public abstract class UIPresenter : MonoBehaviour, IUIPresenter
     {
         protected readonly Subject<Unit> onFinalizeSubject = new();
+
+        protected bool isOpen = false;
         
         public virtual async UniTask UIInitialize()
         {
