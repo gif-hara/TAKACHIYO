@@ -63,6 +63,13 @@ namespace TAKACHIYO.UISystems
                 this.equipmentListUIPresenter.OnMouseEnterInstanceEquipmentAsObservable(),
                 this.onFinalizeSubject
                 );
+
+            this.equipmentListUIPresenter.OnClickedBackButtonAsObservable()
+                .TakeUntil(this.onFinalizeSubject)
+                .Subscribe(_ =>
+                {
+                    this.OpenEquipmentChange();
+                });
         }
 
         public override void UIFinalize()

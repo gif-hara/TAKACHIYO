@@ -35,6 +35,9 @@ namespace TAKACHIYO.UISystems
         [SerializeField]
         private TextMeshProUGUI page;
 
+        [SerializeField]
+        private Button backButton;
+
         private readonly MessageBroker broker = new();
 
         private ObjectPool<EquipmentButtonUIView> buttonPool;
@@ -54,6 +57,8 @@ namespace TAKACHIYO.UISystems
         public IObservable<InstanceEquipment> OnMouseEnterInstanceEquipmentAsObservable() => this.broker
             .Receive<OnMouseEnterInstanceEquipment>()
             .Select(x => x.InstanceEquipment);
+
+        public IObservable<Unit> OnClickedBackButtonAsObservable() => this.backButton.OnClickAsObservable();
 
         public override UniTask UIInitialize()
         {

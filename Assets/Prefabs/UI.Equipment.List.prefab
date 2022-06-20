@@ -987,6 +987,7 @@ MonoBehaviour:
   leftButton: {fileID: 1629880021842865573}
   rightButton: {fileID: 2324386435345755190}
   page: {fileID: 587400903653834309}
+  backButton: {fileID: 6564711538294529838}
 --- !u!225 &5817250654218338883
 CanvasGroup:
   m_ObjectHideFlags: 0
