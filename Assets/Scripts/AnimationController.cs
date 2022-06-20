@@ -17,6 +17,8 @@ namespace TAKACHIYO
         
         private const string OverrideClipName = "Clip";
 
+        private readonly Subject<Unit> updateAnimation = new();
+
         private void Awake()
         {
             this.overrideController = new AnimatorOverrideController();
@@ -32,11 +34,18 @@ namespace TAKACHIYO
         public IObservable<Unit> PlayAsync(AnimationClip clip)
         {
             this.ChangeClip(clip);
-
-            return this.UpdateAsObservable()
+            
+            var completeStream = this.UpdateAsObservable()
+                .TakeUntil(this.updateAnimation)
                 .Where(_ => this.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
                 .Take(1)
                 .AsUnitObservable();
+
+            return Observable.Merge(
+                completeStream,
+                this.updateAnimation
+                )
+                .Take(1);
         }
 
         private void ChangeClip(AnimationClip clip)
@@ -48,6 +57,7 @@ namespace TAKACHIYO
             }
             
             this.animator.Update(0.0f);
+            this.updateAnimation.OnNext(Unit.Default);
         }
     }
 }
