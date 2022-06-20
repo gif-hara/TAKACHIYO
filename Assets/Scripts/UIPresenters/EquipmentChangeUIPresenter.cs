@@ -24,7 +24,7 @@ namespace TAKACHIYO.UISystems
         [SerializeField]
         private EquipmentInformationUIPresenter equipmentInformationUIPresenter;
 
-        private IMessageBroker broker = new MessageBroker();
+        private readonly MessageBroker broker = new();
 
         private ObjectPool<EquipmentButtonUIView> buttonPool;
 
@@ -51,6 +51,7 @@ namespace TAKACHIYO.UISystems
         
         public override void UIFinalize()
         {
+            this.broker.Dispose();
             this.buttonPool.Dispose();
             base.UIFinalize();
         }
@@ -72,9 +73,9 @@ namespace TAKACHIYO.UISystems
 
             button.OnMouseEnterAsObservable()
                 .TakeUntil(this.buttonPool.OnBeforeReturnAsObservable(button))
-                .Subscribe(async _ =>
+                .Subscribe(_ =>
                 {
-                    await this.equipmentInformationUIPresenter.SetupAsync(userData.ActorEquipment.GetOrNull(partType));
+                    var __ = this.equipmentInformationUIPresenter.SetupAsync(userData.ActorEquipment.GetOrNull(partType));
                 });
 
             button.OnClickedButtonAsObservable()
