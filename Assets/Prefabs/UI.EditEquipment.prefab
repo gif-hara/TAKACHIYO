@@ -1094,10 +1094,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1853205003767868068}
     m_Modifications:
-    - target: {fileID: 6529242057760950953, guid: ce7509d20433e50408a6ec99a54ecf61, type: 3}
-      propertyPath: equipmentInformationUIPresenter
-      value: 
-      objectReference: {fileID: 5412119482961391166}
     - target: {fileID: 7747911150346952486, guid: ce7509d20433e50408a6ec99a54ecf61, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

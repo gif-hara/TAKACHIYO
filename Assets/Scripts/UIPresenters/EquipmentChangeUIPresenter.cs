@@ -2,6 +2,7 @@ using System;
 using Cysharp.Threading.Tasks;
 using HK.Framework;
 using HK.Framework.EventSystems;
+using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BootSystems;
 using TAKACHIYO.SaveData;
 using UnityEngine;
@@ -21,14 +22,15 @@ namespace TAKACHIYO.UISystems
         [SerializeField]
         private EquipmentButtonUIView equipmentButtonPrefab;
 
-        [SerializeField]
-        private EquipmentInformationUIPresenter equipmentInformationUIPresenter;
-
         private readonly MessageBroker broker = new();
 
         private ObjectPool<EquipmentButtonUIView> buttonPool;
 
         public IObservable<OnRequestOpenList> OnRequestOpenListAsObservable() => this.broker.Receive<OnRequestOpenList>();
+
+        public IObservable<InstanceEquipment> OnMouseEnterInstanceEquipmentAsObservable() => this.broker
+            .Receive<OnMouseEnterInstanceEquipment>()
+            .Select(x => x.InstanceEquipment);
 
         public override async UniTask UIInitialize()
         {
@@ -75,7 +77,7 @@ namespace TAKACHIYO.UISystems
                 .TakeUntil(this.buttonPool.OnBeforeReturnAsObservable(button))
                 .Subscribe(_ =>
                 {
-                    var __ = this.equipmentInformationUIPresenter.SetupAsync(userData.ActorEquipment.GetOrNull(partType));
+                    this.broker.Publish(OnMouseEnterInstanceEquipment.Get(userData.ActorEquipment.GetOrNull(partType)));
                 });
 
             button.OnClickedButtonAsObservable()
@@ -107,6 +109,14 @@ namespace TAKACHIYO.UISystems
             /// 変更したい部位
             /// </summary>
             public Define.EquipmentPartType ChangeTarget => this.param1;
+        }
+
+        /// <summary>
+        /// マウスがホバーした装備品を発行するメッセージ
+        /// </summary>
+        public class OnMouseEnterInstanceEquipment : Message<OnMouseEnterInstanceEquipment, InstanceEquipment>
+        {
+            public InstanceEquipment InstanceEquipment => this.param1;
         }
     }
 }

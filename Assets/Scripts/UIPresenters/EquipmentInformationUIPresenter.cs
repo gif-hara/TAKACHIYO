@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using HK.Framework;
 using TAKACHIYO.ActorControllers;
@@ -5,6 +6,7 @@ using TAKACHIYO.CommandSystems;
 using TAKACHIYO.MasterDataSystems;
 using TMPro;
 using UnityEngine;
+using UniRx;
 
 namespace TAKACHIYO.UISystems
 {
@@ -62,6 +64,16 @@ namespace TAKACHIYO.UISystems
             this.commandUIViewPool = new ObjectPool<EquipmentInformationCommandUIView>(this.commandUIView);
             this.root.SetActive(false);
             return base.UIInitialize();
+        }
+
+        public void RegisterSetup(IObservable<InstanceEquipment> viewStream, IObservable<Unit> takeUntil)
+        {
+            viewStream
+                .TakeUntil(takeUntil)
+                .Subscribe(x =>
+                {
+                    var _ = this.SetupAsync(x);
+                });
         }
         
         public async UniTask SetupAsync(InstanceEquipment instanceEquipment)

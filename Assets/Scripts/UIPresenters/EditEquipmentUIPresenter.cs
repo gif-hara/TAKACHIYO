@@ -53,6 +53,16 @@ namespace TAKACHIYO.UISystems
                         this.equipmentChangeUIPresenter.CloseAsync()
                         );
                 });
+            
+            this.equipmentInformationUIPresenter.RegisterSetup(
+                this.equipmentChangeUIPresenter.OnMouseEnterInstanceEquipmentAsObservable(),
+                this.onFinalizeSubject
+                );
+            
+            this.equipmentInformationUIPresenter.RegisterSetup(
+                this.equipmentListUIPresenter.OnMouseEnterInstanceEquipmentAsObservable(),
+                this.onFinalizeSubject
+                );
         }
 
         public override void UIFinalize()

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using HK.Framework;
+using HK.Framework.EventSystems;
 using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BootSystems;
 using TAKACHIYO.SaveData;
@@ -34,7 +35,7 @@ namespace TAKACHIYO.UISystems
         [SerializeField]
         private TextMeshProUGUI page;
 
-        private readonly Subject<InstanceEquipment> selectInstanceEquipmentSubject = new();
+        private readonly MessageBroker broker = new();
 
         private ObjectPool<EquipmentButtonUIView> buttonPool;
 
@@ -46,8 +47,14 @@ namespace TAKACHIYO.UISystems
 
         private int elementMaxCount;
 
-        public IObservable<InstanceEquipment> SelectInstanceEquipmentAsObservable() => this.selectInstanceEquipmentSubject;
-        
+        public IObservable<InstanceEquipment> SelectInstanceEquipmentAsObservable() => this.broker
+            .Receive<SelectInstanceEquipment>()
+            .Select(x => x.InstanceEquipment);
+
+        public IObservable<InstanceEquipment> OnMouseEnterInstanceEquipmentAsObservable() => this.broker
+            .Receive<OnMouseEnterInstanceEquipment>()
+            .Select(x => x.InstanceEquipment);
+
         public override UniTask UIInitialize()
         {
             this.buttonPool = new ObjectPool<EquipmentButtonUIView>(this.equipmentButtonPrefab);
@@ -103,7 +110,7 @@ namespace TAKACHIYO.UISystems
 
         public override void UIFinalize()
         {
-            this.selectInstanceEquipmentSubject.Dispose();
+            this.broker.Dispose();
             this.buttonPool.Dispose();
             base.UIFinalize();
         }
@@ -143,9 +150,31 @@ namespace TAKACHIYO.UISystems
                     .TakeUntil(this.buttonPool.OnBeforeReturnAsObservable(button))
                     .Subscribe(_ =>
                     {
-                        this.selectInstanceEquipmentSubject.OnNext(instanceEquipment);
+                        this.broker.Publish(SelectInstanceEquipment.Get(instanceEquipment));
+                    });
+                button.OnMouseEnterAsObservable()
+                    .TakeUntil(this.buttonPool.OnBeforeReturnAsObservable(button))
+                    .Subscribe(_ =>
+                    {
+                        this.broker.Publish(OnMouseEnterInstanceEquipment.Get(instanceEquipment));
                     });
             }
+        }
+
+        /// <summary>
+        /// 装備品を選択したメッセージ
+        /// </summary>
+        public class SelectInstanceEquipment : Message<SelectInstanceEquipment, InstanceEquipment>
+        {
+            public InstanceEquipment InstanceEquipment => this.param1;
+        }
+        
+        /// <summary>
+        /// マウスがホバーした装備品を発行するメッセージ
+        /// </summary>
+        public class OnMouseEnterInstanceEquipment : Message<OnMouseEnterInstanceEquipment, InstanceEquipment>
+        {
+            public InstanceEquipment InstanceEquipment => this.param1;
         }
     }
 }
