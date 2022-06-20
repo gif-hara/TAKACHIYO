@@ -95,6 +95,54 @@ MonoBehaviour:
     m_Key: AttributeType.18
     m_Metadata:
       m_Items: []
+  - m_Id: 4708232154251264
+    m_Key: ActorStatus.HitPoint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4708232175222784
+    m_Key: ActorStatus.PhysicsStrength
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4708232175222785
+    m_Key: ActorStatus.PhysicsDefense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4708232175222786
+    m_Key: ActorStatus.MagicStrength
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4708232175222787
+    m_Key: ActorStatus.MagicDefense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4708232175222788
+    m_Key: ActorStatus.Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4708232175222789
+    m_Key: ActorStatus.RecoveryPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4708232175222790
+    m_Key: ActorStatus.Attribute1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4708232175222791
+    m_Key: ActorStatus.Attribute2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4708232175222792
+    m_Key: ActorStatus.Attribute3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4709917962469376
+    m_Key: CastTime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4710042873036800
+    m_Key: Power
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
