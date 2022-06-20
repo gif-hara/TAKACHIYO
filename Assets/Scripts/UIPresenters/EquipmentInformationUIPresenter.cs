@@ -60,6 +60,7 @@ namespace TAKACHIYO.UISystems
         public override UniTask UIInitialize()
         {
             this.commandUIViewPool = new ObjectPool<EquipmentInformationCommandUIView>(this.commandUIView);
+            this.root.SetActive(false);
             return base.UIInitialize();
         }
         
