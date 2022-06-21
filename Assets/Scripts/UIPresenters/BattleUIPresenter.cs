@@ -23,5 +23,29 @@ namespace TAKACHIYO.UISystems
                 this.enemyStatusUIPresenter.UIInitialize()
                 );
         }
+
+        public override void UIFinalize()
+        {
+            this.playerStatusUIPresenter.UIFinalize();
+            this.enemyStatusUIPresenter.UIFinalize();
+            base.UIFinalize();
+        }
+
+        public override async UniTask OpenAsync()
+        {
+            await UniTask.WhenAll(
+                base.OpenAsync(),
+                this.playerStatusUIPresenter.OpenAsync(),
+                this.enemyStatusUIPresenter.OpenAsync()
+                );
+        }
+
+        public override async UniTask CloseAsync()
+        {
+            await UniTask.WhenAll(
+                this.playerStatusUIPresenter.CloseAsync(),
+                this.enemyStatusUIPresenter.CloseAsync()
+                );
+        }
     }
 }
