@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BootSystems;
@@ -20,7 +22,14 @@ namespace TAKACHIYO.BattleSystems
         private EquipmentActorSetupData playerSetupData;
 
         [SerializeField]
-        private DebugActorSetupData enemySetupData;
+        private List<DebugActorSetupData> enemySetupDataList;
+
+        [SerializeField]
+        private int initialEnemyIndex;
+        
+        private int currentEnemyIndex = 0;
+
+        private Actor player;
         
         public static IMessageBroker Broker { get; } = new MessageBroker();
         
@@ -28,12 +37,17 @@ namespace TAKACHIYO.BattleSystems
         {
             await BootSystem.Ready;
             await BattleSpriteHolder.SetupAsync();
-
             await UIManager.Instance.OpenAsync(this.battleUIPresenter);
 
-            var player = new Actor(this.playerSetupData);
-            var enemy = new Actor(this.enemySetupData);
-            
+            this.player = new Actor(this.playerSetupData);
+            this.currentEnemyIndex = this.initialEnemyIndex;
+
+            await this.SetupAsync(this.enemySetupDataList[this.currentEnemyIndex]);
+        }
+
+        private async UniTask SetupAsync(IActorSetupData enemySetupData)
+        {
+            var enemy = new Actor(enemySetupData);
             Broker.Receive<BattleEvent.StartBattle>()
                 .TakeUntil(Broker.Receive<BattleEvent.EndBattle>())
                 .Subscribe(_ =>
@@ -42,20 +56,21 @@ namespace TAKACHIYO.BattleSystems
                         .TakeUntil(Broker.Receive<BattleEvent.EndBattle>())
                         .Subscribe(__ =>
                         {
-                            player.CommandController.Update(Time.deltaTime);
+                            this.player.CommandController.Update(Time.deltaTime);
                             enemy.CommandController.Update(Time.deltaTime);
                         });
                 });
             
             // プレイヤーか敵のどちらかが死んだ場合にバトルを終了する
             Observable.Merge(
-                    player.StatusController.HitPoint.Where(x => x <= 0),
+                    this.player.StatusController.HitPoint.Where(x => x <= 0),
                     enemy.StatusController.HitPoint.Where(x => x <= 0)
                     )
+                .TakeUntil(Broker.Receive<BattleEvent.EndBattle>())
                 .DelayFrame(1)
                 .Subscribe(_ =>
                 {
-                    if (player.StatusController.IsDead && enemy.StatusController.IsDead)
+                    if (this.player.StatusController.IsDead && enemy.StatusController.IsDead)
                     {
                         Broker.Publish(BattleEvent.EndBattle.Get(Define.BattleJudgeType.Draw));
                     }
@@ -72,14 +87,30 @@ namespace TAKACHIYO.BattleSystems
             // TODO: 不要になったら消す
             Broker.Receive<BattleEvent.EndBattle>()
                 .First()
-                .Subscribe(x =>
+                .SelectMany(x => Observable.Timer(TimeSpan.FromSeconds(3.0f)).Select(_ => x))
+                .Subscribe(async x =>
                 {
-                    Debug.Log(x.BattleJudgeType);
+                    if (x.BattleJudgeType == Define.BattleJudgeType.PlayerWin)
+                    {
+                        this.currentEnemyIndex++;
+                        if (this.currentEnemyIndex < this.enemySetupDataList.Count)
+                        {
+                            await this.SetupAsync(this.enemySetupDataList[this.currentEnemyIndex]);
+                        }
+                        else
+                        {
+                            Debug.Log("TODO: 全ての敵を倒した後のフロー");
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("TODO: 負けた時のフロー");
+                    }
                 });
-
+            
             await UniTask.WhenAll(
-                player.SetupAsync(enemy),
-                enemy.SetupAsync(player)
+                this.player.SetupAsync(enemy),
+                enemy.SetupAsync(this.player)
                 );
             
             Broker.Publish(BattleEvent.SetupBattle.Get(player, enemy));

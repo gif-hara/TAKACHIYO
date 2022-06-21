@@ -43,9 +43,9 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    hitPoint: 1884
+    hitPoint: 273
     physicsStrength: 65
-    physicsDefense: 26
+    physicsDefense: 43
     magicStrength: 0
     magicDefense: 51
     speed: 75

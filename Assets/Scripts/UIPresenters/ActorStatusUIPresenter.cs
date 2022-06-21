@@ -63,6 +63,9 @@ namespace TAKACHIYO
         private AnimationClip informationDeadAnimation;
 
         [SerializeField]
+        private AnimationClip informationInAnimation;
+
+        [SerializeField]
         private Transform damageRoot;
 
         [SerializeField]
@@ -92,6 +95,11 @@ namespace TAKACHIYO
                 {
                     var actor = this.target == Define.ActorType.Player ? x.Player : x.Enemy;
                     this.Setup(actor);
+
+                    if (this.target == Define.ActorType.Enemy)
+                    {
+                        this.informationAnimationController.Play(this.informationInAnimation);
+                    }
                 });
 
             return base.UIInitialize();

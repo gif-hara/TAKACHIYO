@@ -30,11 +30,6 @@ namespace TAKACHIYO.ActorControllers
         /// 詠唱中のコマンドのリスト
         /// </summary>
         public IReadOnlyReactiveCollection<Command> CastingCommands => this.castingCommands;
-
-        /// <summary>
-        /// 詠唱を開始したコマンドのリスト
-        /// </summary>
-        private readonly List<Command> enterCastingCommands = new();
         
         /// <summary>
         /// 詠唱が終わったコマンドのリスト
@@ -107,6 +102,16 @@ namespace TAKACHIYO.ActorControllers
 
         public async UniTask SetupAsync()
         {
+            BattleSceneController.Broker.Receive<BattleEvent.EndBattle>()
+                .First()
+                .Subscribe(_ =>
+                {
+                    while (this.castingCommands.Count > 0)
+                    {
+                        this.castingCommands.RemoveAt(0);
+                    }
+                });
+            
             this.commands = (await UniTask.WhenAll(
                 this.commandBlueprintSetupData
                     .Select(async data =>

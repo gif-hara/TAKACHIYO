@@ -326,8 +326,8 @@ MonoBehaviour:
       - equipmentPartType: 7
         instanceEquipment:
           masterDataEquipmentId: 10601001
-  enemySetupData:
-    masterDataActorStatusId: 2
+  enemySetupDataList:
+  - masterDataActorStatusId: 2
     commandBlueprintSetupData:
     - blueprintId: 100001
       blueprintHolder:
@@ -335,6 +335,15 @@ MonoBehaviour:
         physicsStrength: 0
         magicStrength: 0
         recoveryPower: 0
+  - masterDataActorStatusId: 2
+    commandBlueprintSetupData:
+    - blueprintId: 100001
+      blueprintHolder:
+        equipmentPartType: 0
+        physicsStrength: 0
+        magicStrength: 0
+        recoveryPower: 0
+  initialEnemyIndex: 0
 --- !u!4 &1270532180
 Transform:
   m_ObjectHideFlags: 0

@@ -1426,6 +1426,7 @@ MonoBehaviour:
   informationAnimationController: {fileID: 8605666784279576712}
   informationDamageAnimation: {fileID: 7400000, guid: e37dcd40d28384b87879aab1208beae0, type: 2}
   informationDeadAnimation: {fileID: 7400000, guid: a54293b6ae14949f4a2aae348e1f7853, type: 2}
+  informationInAnimation: {fileID: 7400000, guid: 5f3c0cb7809cfa348aea7754539cfc30, type: 2}
   damageRoot: {fileID: 5094473879347484703}
   damageElement: {fileID: 4969828122494258244, guid: a8674ba2e9701eb41a0cb0e568893a7d, type: 3}
   recoveryElement: {fileID: 4969828122494258244, guid: 72ff52ed5d53f3c4d891c010532f8066, type: 3}
