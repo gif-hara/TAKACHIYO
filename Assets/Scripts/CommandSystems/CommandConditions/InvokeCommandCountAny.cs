@@ -2,6 +2,7 @@ using System;
 using TAKACHIYO.ActorControllers;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace TAKACHIYO.CommandSystems.CommandConditions
 {
@@ -23,6 +24,18 @@ namespace TAKACHIYO.CommandSystems.CommandConditions
         public override bool Evaluate(Command command)
         {
             return (command.Owner.CommandController.TotalInvokedCount - command.LastInvokedOrder) >= this.number;
+        }
+        
+                
+        public override string LocalizedDescription
+        {
+            get
+            {
+                return string.Format(
+                    new LocalizedString("Common", "Condition.InvokeCommandCountAny").GetLocalizedString(),
+                    this.number
+                    );
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Linq;
 using TAKACHIYO.ActorControllers;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace TAKACHIYO.CommandSystems.EquipmentConditions
 {
@@ -15,6 +16,17 @@ namespace TAKACHIYO.CommandSystems.EquipmentConditions
         public override bool Evaluate(Actor owner, Actor opponent, ICommandBlueprintHolder commandBlueprintHolder)
         {
             return opponent.StatusController.BaseStatus.attributeTypes.Any(x => x == attributeType);
+        }
+        
+        public override string LocalizedDescription
+        {
+            get
+            {
+                return string.Format(
+                    new LocalizedString("Common", "Condition.OpponentAttributeMatch").GetLocalizedString(),
+                    this.attributeType.LocalizedString()
+                    );
+            }
         }
     }
 }

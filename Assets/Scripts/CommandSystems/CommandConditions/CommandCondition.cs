@@ -12,5 +12,7 @@ namespace TAKACHIYO.CommandSystems.CommandConditions
         public abstract IObservable<Unit> TryCastAsObservable(Actor owner);
         
         public abstract bool Evaluate(Command command);
+        
+        public abstract string LocalizedDescription { get; }
     }
 }

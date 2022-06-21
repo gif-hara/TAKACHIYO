@@ -1,6 +1,7 @@
 using System.Linq;
 using TAKACHIYO.ActorControllers;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace TAKACHIYO.CommandSystems.EquipmentConditions
 {
@@ -25,6 +26,19 @@ namespace TAKACHIYO.CommandSystems.EquipmentConditions
                 .Sum(x => x.MasterDataEquipment.attributeTypes.Count(attribute => attribute == this.attributeType));
 
             return count >= this.number;
+        }
+        
+        public override string LocalizedDescription
+        {
+            get
+            {
+                return string.Format(
+                    new LocalizedString("Common", "Condition.EquipmentScopeTypeAttributeMatch").GetLocalizedString(),
+                    this.equipmentScopeType.LocalizedString(),
+                    this.attributeType.LocalizedString(),
+                    this.number
+                    );
+            }
         }
     }
 }

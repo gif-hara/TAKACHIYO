@@ -8,5 +8,7 @@ namespace TAKACHIYO.CommandSystems.EquipmentConditions
     public abstract class EquipmentCondition : IEquipmentCondition
     {
         public abstract bool Evaluate(Actor owner, Actor opponent, ICommandBlueprintHolder commandBlueprintHolder);
+
+        public abstract string LocalizedDescription { get; }
     }
 }

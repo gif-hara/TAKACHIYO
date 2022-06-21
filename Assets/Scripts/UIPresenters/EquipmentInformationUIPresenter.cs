@@ -94,9 +94,9 @@ namespace TAKACHIYO.UISystems
             this.magicDefense.text = masterDataEquipment.magicDefense.ToString();
             this.speed.text = masterDataEquipment.speed.ToString();
             this.recoveryPower.text = masterDataEquipment.recoveryPower.ToString();
-            this.attribute1.text = masterDataEquipment.attributeType1.LocalizedText();
-            this.attribute2.text = masterDataEquipment.attributeType2.LocalizedText();
-            this.attribute3.text = masterDataEquipment.attributeType3.LocalizedText();
+            this.attribute1.text = masterDataEquipment.attributeType1.LocalizedString();
+            this.attribute2.text = masterDataEquipment.attributeType2.LocalizedString();
+            this.attribute3.text = masterDataEquipment.attributeType3.LocalizedString();
             
             this.commandUIViewPool.ReturnAll();
             var masterDataEquipmentCommands = MasterDataEquipmentCommand.GetFromEquipmentId(masterDataEquipment.Id);
@@ -107,6 +107,17 @@ namespace TAKACHIYO.UISystems
                 var result = await AssetLoader.LoadAsyncTask<CommandBlueprint>($"Assets/DataSources/CommandBlueprint/CommandBlueprint.{i.commandBlueprintId}.asset");
                 commandUIView.CommandName = result.CommandName;
                 commandUIView.CastTime = result.CastTime.ToString("0.00s");
+                commandUIView.ReturnAllConditionUIView();
+
+                foreach (var equipmentCondition in result.EquipmentConditions)
+                {
+                    commandUIView.CreateConditionUIView(equipmentCondition.LocalizedDescription);
+                }
+                
+                foreach (var commandCondition in result.CommandConditions)
+                {
+                    commandUIView.CreateConditionUIView(commandCondition.LocalizedDescription);
+                }
             }
         }
     }

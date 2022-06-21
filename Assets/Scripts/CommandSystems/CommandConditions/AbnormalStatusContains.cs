@@ -3,6 +3,7 @@ using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BattleSystems;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace TAKACHIYO.CommandSystems.CommandConditions
 {
@@ -55,6 +56,32 @@ namespace TAKACHIYO.CommandSystems.CommandConditions
             
             var actor = command.Owner.GetTarget(this.targetType);
             return actor.AbnormalStatusController.Contains(this.abnormalStatusType) == this.isContains;
+        }
+        
+        public override string LocalizedDescription
+        {
+            get
+            {
+                if (this.number <= 0)
+                {
+                    return string.Format(
+                        new LocalizedString("Common", "Condition.AbnormalStatusContains.Always").GetLocalizedString(),
+                        this.targetType.LocalizedString(),
+                        this.abnormalStatusType.LocalizedName(),
+                        this.isContains.LocalizedStringDoNotDo()
+                        );
+                }
+                else
+                {
+                    return string.Format(
+                        new LocalizedString("Common", "Condition.AbnormalStatusContains.Number").GetLocalizedString(),
+                        this.targetType.LocalizedString(),
+                        this.abnormalStatusType.LocalizedName(),
+                        this.isContains.LocalizedStringDoNotDo(),
+                        this.number
+                        );
+                }
+            }
         }
     }
 }

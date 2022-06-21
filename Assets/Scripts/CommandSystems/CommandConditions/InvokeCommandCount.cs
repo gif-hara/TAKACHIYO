@@ -3,6 +3,7 @@ using TAKACHIYO.ActorControllers;
 using TAKACHIYO.BattleSystems;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace TAKACHIYO.CommandSystems.CommandConditions
 {
@@ -12,7 +13,7 @@ namespace TAKACHIYO.CommandSystems.CommandConditions
     public sealed class InvokeCommandCount : CommandCondition
     {
         [SerializeField]
-        private int number = 1;
+        private int number;
 
         public override IObservable<Unit> TryCastAsObservable(Actor owner)
         {
@@ -33,6 +34,26 @@ namespace TAKACHIYO.CommandSystems.CommandConditions
             }
             
             return command.InvokedCount < this.number;
+        }
+        
+                
+        public override string LocalizedDescription
+        {
+            get
+            {
+                if (this.number <= 0)
+                {
+                    return new LocalizedString("Common", "Condition.InvokeCommandCount.Always").GetLocalizedString();
+                }
+                else
+                {
+                    return string.Format(
+                        new LocalizedString("Common", "Condition.InvokeCommandCount.Number").GetLocalizedString(),
+                        this.number
+                        );
+
+                }
+            }
         }
     }
 }

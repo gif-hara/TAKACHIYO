@@ -1,4 +1,5 @@
 using TAKACHIYO.ActorControllers;
+using UnityEngine.Localization;
 
 namespace TAKACHIYO.CommandSystems.EquipmentConditions
 {
@@ -10,6 +11,14 @@ namespace TAKACHIYO.CommandSystems.EquipmentConditions
         public override bool Evaluate(Actor owner, Actor opponent, ICommandBlueprintHolder commandBlueprintHolder)
         {
             return true;
+        }
+        
+        public override string LocalizedDescription
+        {
+            get
+            {
+                return new LocalizedString("Common", "Condition.Always").GetLocalizedString();
+            }
         }
     }
 }

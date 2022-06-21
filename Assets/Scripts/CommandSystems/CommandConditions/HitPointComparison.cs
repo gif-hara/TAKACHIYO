@@ -4,6 +4,7 @@ using TAKACHIYO.BattleSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Localization;
 
 namespace TAKACHIYO.CommandSystems.CommandConditions
 {
@@ -59,6 +60,55 @@ namespace TAKACHIYO.CommandSystems.CommandConditions
                 default:
                     Assert.IsTrue(false, $"{this.compareType}は未対応です");
                     return false;
+            }
+        }
+        
+        public override string LocalizedDescription
+        {
+            get
+            {
+                switch (this.compareType)
+                {
+                    case Define.CompareType.Greater:
+                        if (this.number <= 0)
+                        {
+                            return string.Format(
+                                new LocalizedString("Common", "Condition.HitPointComparison.Greater.Always").GetLocalizedString(),
+                                this.targetType.LocalizedString(),
+                                this.rate * 100
+                                );
+                        }
+                        else
+                        {
+                            return string.Format(
+                                new LocalizedString("Common", "Condition.HitPointComparison.Greater.Number").GetLocalizedString(),
+                                this.targetType.LocalizedString(),
+                                this.rate * 100,
+                                this.number
+                                );
+                        }
+                    case Define.CompareType.Less:
+                        if (this.number <= 0)
+                        {
+                            return string.Format(
+                                new LocalizedString("Common", "Condition.HitPointComparison.Less.Always").GetLocalizedString(),
+                                this.targetType.LocalizedString(),
+                                this.rate * 100
+                                );
+                        }
+                        else
+                        {
+                            return string.Format(
+                                new LocalizedString("Common", "Condition.HitPointComparison.Less.Number").GetLocalizedString(),
+                                this.targetType.LocalizedString(),
+                                this.rate * 100,
+                                this.number
+                                );
+                        }
+                    default:
+                        Assert.IsTrue(false, $"{this.compareType}は未対応です");
+                        return default;
+                }
             }
         }
     }

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: CommandConditionBundle.100001
   m_EditorClassIdentifier: 
   conditions:
-  - rid: 4657355661447528594
+  - rid: 4657355812393975869
   references:
     version: 2
     RefIds:
-    - rid: 4657355661447528594
-      type: {class: InvokeCommandCount, ns: TAKACHIYO.CommandSystems.CommandConditions, asm: Assembly-CSharp}
+    - rid: 4657355812393975869
+      type: {class: InvokeCommandCountAny, ns: TAKACHIYO.CommandSystems.CommandConditions, asm: Assembly-CSharp}
       data:
-        number: 0
+        number: 1

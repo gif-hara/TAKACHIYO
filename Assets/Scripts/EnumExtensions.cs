@@ -80,7 +80,7 @@ namespace TAKACHIYO
             }
         }
 
-        public static string LocalizedText(this Define.AttributeType self)
+        public static string LocalizedString(this Define.AttributeType self)
         {
             return new LocalizedString("Common", $"AttributeType.{(int)self:00}").GetLocalizedString();
         }
@@ -112,6 +112,37 @@ namespace TAKACHIYO
                     Assert.IsTrue(false, $"{self}は未対応です");
                     return default;
             }
+        }
+
+        public static string LocalizedString(this Define.TargetType self)
+        {
+            switch (self)
+            {
+                case Define.TargetType.My:
+                    return new LocalizedString("Common", "Define.TargetType.My").GetLocalizedString();
+                case Define.TargetType.Opponent:
+                    return new LocalizedString("Common", "Define.TargetType.Opponent").GetLocalizedString();
+                case Define.TargetType.All:
+                    return new LocalizedString("Common", "Define.TargetType.All").GetLocalizedString();
+                default:
+                    Assert.IsTrue(false, $"{self}は未対応です");
+                    return default;
+            }
+        }
+
+        public static string LocalizedName(this Define.AbnormalStatusType self)
+        {
+            return new LocalizedString("Common", $"Define.{self.GetType().Name}.{self}.Name").GetLocalizedString();
+        }
+
+        public static string LocalizedString(this Define.EquipmentScopeType self)
+        {
+            return new LocalizedString("Common", $"Define.{self.GetType().Name}.{self}").GetLocalizedString();
+        }
+
+        public static string LocalizedString(this Define.EquipmentPartType self)
+        {
+            return new LocalizedString("Common", $"Define.{self.GetType().Name}.{self}").GetLocalizedString();
         }
     }
 }

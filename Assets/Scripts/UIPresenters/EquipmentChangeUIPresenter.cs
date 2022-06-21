@@ -64,6 +64,7 @@ namespace TAKACHIYO.UISystems
             var button = this.buttonPool.Rent();
             button.transform.SetParent(this.currentEquipmentParent, false);
             button.Thumbnail = null;
+            button.Message = partType.LocalizedString();
             button.SetActiveThumbnail(false);
 
             var instanceEquipment = userData.ActorEquipment.GetOrNull(partType);

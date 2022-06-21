@@ -143,6 +143,198 @@ MonoBehaviour:
     m_Key: Power
     m_Metadata:
       m_Items: []
+  - m_Id: 4715855469543424
+    m_Key: Condition.AbnormalStatusContains.Always
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855469543425
+    m_Key: Condition.AbnormalStatusContains.Number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855469543426
+    m_Key: Condition.HitPointComparison.Greater.Always
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855469543427
+    m_Key: Condition.HitPointComparison.Greater.Number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855469543428
+    m_Key: Condition.HitPointComparison.Less.Always
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855469543429
+    m_Key: Condition.HitPointComparison.Less.Number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855473737728
+    m_Key: Condition.InvokeCommandCount.Always
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855473737729
+    m_Key: Condition.InvokeCommandCount.Number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855473737730
+    m_Key: Condition.InvokeCommandCountAny
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855473737731
+    m_Key: Condition.TakeDamageCount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855473737732
+    m_Key: Condition.Always
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855473737733
+    m_Key: Condition.EquipmentScopeTypeAttributeMatch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855473737734
+    m_Key: Condition.EquipmentScopeTypeMatch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855473737735
+    m_Key: Condition.OpponentAttributeMatch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4715855473737736
+    m_Key: Condition.WeaponMainOnly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831307575296
+    m_Key: Define.TargetType.My
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935424
+    m_Key: Define.TargetType.Opponent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935425
+    m_Key: Define.TargetType.All
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935426
+    m_Key: Define.AbnormalStatusType.Poison.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935427
+    m_Key: Define.AbnormalStatusType.Paralysis.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935428
+    m_Key: Define.AbnormalStatusType.Sleep.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935429
+    m_Key: Define.AbnormalStatusType.Exhaustion.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935430
+    m_Key: Define.AbnormalStatusType.Brittle.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935431
+    m_Key: Define.AbnormalStatusType.Trip.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935432
+    m_Key: Define.AbnormalStatusType.Healing.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935433
+    m_Key: Define.AbnormalStatusType.FleetSpeed.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935434
+    m_Key: Define.AbnormalStatusType.Strong.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935435
+    m_Key: Define.AbnormalStatusType.Stubborn.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935436
+    m_Key: Define.AbnormalStatusType.PhysicalStrength.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935437
+    m_Key: Define.AbnormalStatusType.IronWall.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935438
+    m_Key: Define.AbnormalStatusType.Counter.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935439
+    m_Key: Define.AbnormalStatusType.Absorption.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935440
+    m_Key: Define.EquipmentScopeType.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935441
+    m_Key: Define.EquipmentScopeType.Sub
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935442
+    m_Key: Define.EquipmentScopeType.Armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935443
+    m_Key: Define.EquipmentScopeType.Accessory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913831336935444
+    m_Key: Define.EquipmentScopeType.All
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4916376700649472
+    m_Key: Do
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4916376700649473
+    m_Key: NotDo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4926453759279104
+    m_Key: Define.EquipmentPartType.MainWeapon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4926453759279105
+    m_Key: Define.EquipmentPartType.SubWeapon1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4926453759279106
+    m_Key: Define.EquipmentPartType.SubWeapon2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4926453759279107
+    m_Key: Define.EquipmentPartType.ArmorHead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4926453759279108
+    m_Key: Define.EquipmentPartType.ArmorChest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4926453759279109
+    m_Key: Define.EquipmentPartType.ArmorArms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4926453759279110
+    m_Key: Define.EquipmentPartType.ArmorTorso
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4926453759279111
+    m_Key: Define.EquipmentPartType.ArmorLegs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4926453759279112
+    m_Key: Define.EquipmentPartType.Accessory
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

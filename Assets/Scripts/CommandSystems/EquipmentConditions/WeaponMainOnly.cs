@@ -1,5 +1,6 @@
 using TAKACHIYO.ActorControllers;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace TAKACHIYO.CommandSystems.EquipmentConditions
 {
@@ -12,6 +13,14 @@ namespace TAKACHIYO.CommandSystems.EquipmentConditions
         {
             var e = owner.Equipment;
             return e.GetOrNull(Define.EquipmentPartType.SubWeapon1) == null && e.GetOrNull(Define.EquipmentPartType.SubWeapon2) == null;
+        }
+        
+        public override string LocalizedDescription
+        {
+            get
+            {
+                return new LocalizedString("Common", "Condition.WeaponMainOnly").GetLocalizedString();
+            }
         }
     }
 }

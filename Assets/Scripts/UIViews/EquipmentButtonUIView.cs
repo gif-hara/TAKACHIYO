@@ -1,6 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using HK.Framework;
+using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -20,6 +21,9 @@ namespace TAKACHIYO
         [SerializeField]
         private Image thumbnail;
 
+        [SerializeField]
+        private TextMeshProUGUI message;
+
         private readonly Subject<Unit> onMouseEnterSubject = new ();
 
         public IObservable<Unit> OnClickedButtonAsObservable() => this.button.OnClickAsObservable();
@@ -29,6 +33,11 @@ namespace TAKACHIYO
         public Sprite Thumbnail
         {
             set => this.thumbnail.sprite = value;
+        }
+
+        public string Message
+        {
+            set => this.message.text = value;
         }
 
         public void SetActiveThumbnail(bool isActive)

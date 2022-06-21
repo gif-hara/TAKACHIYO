@@ -143,6 +143,7 @@ namespace TAKACHIYO.UISystems
                 button.transform.SetAsLastSibling();
                 button.transform.SetParent(this.listParent.transform, false);
                 button.SetActiveThumbnail(false);
+                button.Message = "";
                 instanceEquipment.MasterDataEquipment.GetThumbnail()
                     .ToObservable()
                     .TakeUntil(this.buttonPool.OnBeforeReturnAsObservable(button))

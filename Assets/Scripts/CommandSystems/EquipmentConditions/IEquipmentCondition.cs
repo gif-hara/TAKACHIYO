@@ -8,5 +8,7 @@ namespace TAKACHIYO.CommandSystems.EquipmentConditions
     public interface IEquipmentCondition
     {
         bool Evaluate(Actor owner, Actor opponent, ICommandBlueprintHolder commandBlueprintHolder);
+
+        string LocalizedDescription { get; }
     }
 }
